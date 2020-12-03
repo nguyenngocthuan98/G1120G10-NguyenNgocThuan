@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Google Search</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+    </head>
+    <body>
+        <div class="head">
+            <a href="https://mail.google.com">Gmail</a>
+            <a href="https://www.google.com.vn/imghp?hl=vi&tab=wi&ogbl"
+                >Picture</a
+            >
+            <form
+                action="https://accounts.google.com/signin/v2/identifier?hl=vi&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+            >
+                <input type="submit" value="Login" class="login" />
+            </form>
+        </div>
+        <div class="content">
+            <img
+                src="https://www.google.com//logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif"
+                alt="GOOGLE"
+            />
+            <form action="https://www.google.com.vn/search" method="get">
+                <p class="border">
+                    <i class="fa fa-search"></i>
+                    <input type="search" id="gsearch" name="gsearch" />
+                </p>
+                <input class="btn-search" type="submit" value="Search" />
+            </form>
+        </div>
+    </body>
+</html>
