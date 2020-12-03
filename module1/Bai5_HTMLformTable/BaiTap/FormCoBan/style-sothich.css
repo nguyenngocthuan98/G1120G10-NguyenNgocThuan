@@ -1,0 +1,59 @@
+body {
+    background-color: rgb(188, 252, 230);
+    text-align: -webkit-center;
+}
+
+.container {
+    background-color: white;
+    width: 50%;
+}
+
+.title {
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    display: block;
+    margin: 8px;
+}
+
+.orange {
+    color: tomato;
+}
+
+div.lane {
+    margin-left: 53px;
+}
+
+.lane--travel {
+    margin-left: -147px;
+}
+
+div.container-child {
+    margin-left: 0%;
+}
+
+div.space {
+    margin: 20px auto;
+}
+
+div.email {
+    margin-left: 26px;
+}
+
+div.hobby {
+    margin-left: 47px;
+}
+
+.game {
+    margin-left: 13px;
+}
+
+label {
+    color: blue;
+}
+
+.btn {
+    padding-bottom: 10px;
+}

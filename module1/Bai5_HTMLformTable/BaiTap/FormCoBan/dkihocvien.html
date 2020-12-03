@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đăng kí học viên</title>
+        <link rel="stylesheet" href="style-dki.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">đăng kí học viên</div>
+            <form action="" method="get">
+                <div class="field">
+                    <span class="field__blue">Họ và tên</span>
+                    <input
+                        type="text"
+                        name="fullname"
+                        class="space space--fullname"
+                        size="30"
+                    />
+                </div>
+                <div class="field">
+                    <span class="field__blue">Ngày sinh</span>
+                    <input
+                        type="date"
+                        name="birth"
+                        class="space space--birth"
+                    />
+                </div>
+                <div class="field">
+                    <span class="field__blue">Giới tính</span>
+                    <input
+                        type="radio"
+                        name="gender"
+                        class="space space--gender"
+                        value="men"
+                    />Nam
+                    <input
+                        type="radio"
+                        name="gender"
+                        class="space"
+                        value="women"
+                    />Nữ
+                </div>
+                <div class="field field__address">
+                    <span class="field__blue address-name">Địa chỉ</span>
+                    <textarea
+                        name="address"
+                        class="space space--address"
+                        rows="4"
+                        cols="50"
+                    ></textarea>
+                </div>
+                <div class="field">
+                    <span class="field__blue">Lớp</span>
+                    <select name="class" id="" class="space--class">
+                        <option value="">--Chọn lớp--</option>
+                        <option value="1">Lớp 1</option>
+                        <option value="2">Lớp 2</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <span class="field__blue">Email</span>
+                    <input
+                        type="email"
+                        name="email"
+                        class="space space--email"
+                        placeholder="example@example.com"
+                    />
+                </div>
+                <div class="field">
+                    <span class="field__blue">Điện thoại</span>
+                    <input
+                        type="tel"
+                        name="phonemunber"
+                        class="space space--tel"
+                        pattern="[0-9]{9-10}"
+                        placeholder="0312345678"
+                    />
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Đăng kí" />
+                    <input type="reset" value="Nhập lại" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
