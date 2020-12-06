@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thuc hanh</title>
+    </head>
+    <body>
+        <!-- sử dụng hàm alert() -->
+        <button onclick="show()">Click me buddy</button><br>
+        <!-- sử dụng thẻ HTML -->
+        <div id="messageDiv"></div>
+        <button type="button" onclick="showMessageHTML();">HTML:Click Me!</button><br>
+        </button>
+        <!-- sử dụng hàm document.write() -->
+        <button type="button" onclick="showMessageWrite();">Write:Click Me!</button><br>
+        <!-- sử dụng hàm console.log() -->
+        <button type="button" onclick="showMessageLog();">Log: Click Me!</button>
+        <script>
+            //sử dụng hàm alert()
+            function show() {
+                alert("Oh buddy! you were click me ^^");
+            }
+            // sử dụng thẻ HTML
+            function showMessageHTML() {
+                document.getElementById("messageDiv").innerHTML = "Xin chào!";
+            }
+            // sử dụng hàm document.write()
+            function showMessageWrite() {
+                document.write("Xin chào!");
+            }
+            // sử dụng hàm console.log()
+            function showMessageLog() {
+                console.log("Xin chào!");
+            }
+        </script>
+    </body>
+</html>

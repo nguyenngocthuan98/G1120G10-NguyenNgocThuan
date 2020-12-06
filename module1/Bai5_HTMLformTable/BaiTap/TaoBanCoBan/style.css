@@ -1,0 +1,49 @@
+* {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.mid {
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.border__gray > td,
+th {
+    border: 2px solid #ccc;
+}
+
+td,
+th {
+    width: 150px;
+}
+
+.text__blue {
+    color: blue;
+}
+
+.bg__yellow {
+    background-color: yellow;
+}
+
+.bg__orange {
+    background-color: orange;
+}
+
+.bg__none {
+    background-color: white;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}

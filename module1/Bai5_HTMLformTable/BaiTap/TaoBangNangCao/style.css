@@ -1,0 +1,99 @@
+* {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+div.covua {
+    background-color: orange;
+    padding-bottom: 50px;
+}
+
+table {
+    margin: auto;
+}
+
+tr {
+    text-align: center;
+}
+/* Co Vua */
+table.covua,
+tr.covua,
+td.covua {
+    border-collapse: collapse;
+}
+
+td.covua {
+    width: 50px;
+    height: 50px;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.chu {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Lich */
+div.lich {
+    display: block;
+    margin: 5%;
+}
+
+.day--title {
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+
+table.title {
+    border-collapse: collapse;
+}
+
+tr.day,
+td.day {
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+}
+
+th.day,
+td.day {
+    width: 120px;
+    height: 30px;
+}
+
+.day--title__red {
+    color: white;
+    background-color: red;
+}
+
+.day--title__blue {
+    color: white;
+    background-color: blue;
+}
+
+.day--title__yellow {
+    color: white;
+    background-color: yellow;
+}
+
+.day__red {
+    color: red;
+}
+
+.day__blue {
+    color: blue;
+}
+
+sub {
+    color: black;
+    font-size: 60%;
+}
