@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>hi</title>
+    </head>
+    <body>
+        <div class="bai1">
+            <h2>Bai 1:</h2>
+            <!-- Nhap diem -->
+            <span>Vat Ly:</span>
+            <input type="number" id="vat_ly" />
+            <span>Hoa Hoc:</span>
+            <input type="number" id="hoa_hoc" />
+            <span>Sinh Hoc:</span>
+            <input type="number" id="sinh_hoc" />
+            <!-- btn xuat diem -->
+            <input type="button" onclick="xuat()" value="Xuat diem" />
+            <!-- xuat diem  -->
+            <h3 id="sum"></h3>
+            <h3 id="avg"></h3>
+
+            <h2>Bai 2:</h2>
+            <!-- Nhap do C -->
+            <input type="number" name="doc" id="doc" />
+            <!-- btn xuat ket qua -->
+            <input type="button" value="Xuat Kqua" onclick="chuyendoi()" />
+            <!-- Xuat do F -->
+            <h3 id="dof"></h3>
+
+            <h2>Bai 3 va 4:</h2>
+            <!-- Nhap duong kinh hinh tron -->
+            <input type="text" name="duong_kinh" id="r" />
+            <!-- btn kqua -->
+            <input type="button" value="Ket qua" onclick="tinh_hinh_tron()" />
+            <!-- xuat kqua -->
+            <h3 id="chuvi"></h3>
+            <h3 id="dientich"></h3>
+        </div>
+
+        <script>
+            //Bai 1
+            let dc_vl = document.getElementById("vat_ly");
+            let dc_hh = document.getElementById("hoa_hoc");
+            let dc_sh = document.getElementById("sinh_hoc");
+            let sum, avg;
+
+            function xuat() {
+                vl = parseInt(dc_vl.value);
+                hh = parseInt(dc_hh.value);
+                sh = parseInt(dc_sh.value);
+
+                sum = vl + hh + sh;
+                avg = sum / 3;
+                document.getElementById("sum").innerText =
+                    "Tong diem cua 3 mon: " + sum;
+                document.getElementById("avg").innerText =
+                    "Trung binh diem 3 mon: " + avg;
+            }
+
+            //Bai 2
+            let dc_doc = document.getElementById("doc");
+            let dof;
+            function chuyendoi() {
+                doc = parseInt(dc_doc.value);
+                dof = (9 * doc) / 5 + 32;
+                document.getElementById("dof").innerText = "Do F la: " + dof;
+            }
+
+            // Bai 3
+            // chu vi: 2.R.pi, dien tich: R*R*pi; R la ban kinh
+            let dc_r = document.getElementById("r");
+            let pi = 3.14;
+            let cv, dt;
+            function tinh_hinh_tron() {
+                r = parseInt(dc_r.value);
+                cv = 2 * r * pi;
+                dt = r * r * pi;
+                document.getElementById("chuvi").innerText = "Chu vi: " + cv;
+                document.getElementById("dientich").innerText =
+                    "Dien tich: " + dt;
+            }
+        </script>
+    </body>
+</html>

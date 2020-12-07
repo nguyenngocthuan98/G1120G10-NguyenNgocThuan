@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Doi Tien</title>
+    </head>
+    <body>
+        <input type="number" name="amount" id="nhap" />
+        <select name="from" id="from">
+            <option value="usd">USD</option>
+            <option value="vnd">VND</option>
+        </select>
+        <select name="to" id="to">
+            <option value="vnd">VND</option>
+            <option value="usd">USD</option>
+        </select>
+        <input type="button" value="Convert" onclick="convert()" />
+
+        <p id="result"></p>
+        <script src="js.js"></script>
+    </body>
+</html>
