@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>hi</title>
+    </head>
+    <body>
+        <input type="number" name="" id="nhap_nam" />
+        <input type="button" value="Kiem tra" onclick="tinh_nam()" />
+        <h2 id="k_qua"></h2>
+
+        <script>
+            let dc_nam = document.getElementById("nhap_nam");
+
+            function tinh_nam() {
+                let nam = parseInt(dc_nam.value);
+                if (nam % 100 === 0) {
+                    if (nam % 400 === 0) {
+                        document.getElementById("k_qua").innerText =
+                            "Nam " + nam + " la nam nhuan";
+                    } else {
+                        document.getElementById("k_qua").innerText =
+                            "Nam " + nam + " KHONG la nam nhuan";
+                    }
+                } else if (nam % 4 === 0) {
+                    document.getElementById("k_qua").innerText =
+                        "Nam " + nam + " la nam nhuan";
+                } else {
+                    document.getElementById("k_qua").innerText =
+                        "Nam " + nam + " KHONG la nam nhuan";
+                }
+            }
+        </script>
+    </body>
+</html>

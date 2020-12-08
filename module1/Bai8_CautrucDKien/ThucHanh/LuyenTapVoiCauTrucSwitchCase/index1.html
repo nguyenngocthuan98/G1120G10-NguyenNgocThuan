@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <script>
+            let browser = prompt("Nhap trinh duyet cua ban: ");
+            let uppercase_browser = browser.toUpperCase();
+            switch (uppercase_browser) {
+                case "EDGE":
+                    alert("You've got the Edge!");
+                    break;
+                case "CHROME":
+                case "FIREFOX":
+                case "SAFARI":
+                case "OPERA":
+                    alert("Okay we support these browsers too");
+                    break;
+                default:
+                    alert("We hope that this page looks ok!");
+                    break;
+            }
+        </script>
+    </body>
+</html>
