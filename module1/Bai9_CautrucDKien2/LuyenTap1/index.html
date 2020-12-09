@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <h1>Bài 1:</h1>
+        <fieldset>
+            <legend>Kiểm tra chia hết</legend>
+            <label for="so_a"></label>
+            <input type="number" name="soA" id="so_a" placeholder="Số a" />
+            <label for="so_b"></label>
+            <input type="number" name="soA" id="so_b" placeholder="Số b" />
+            <input type="button" value="Kiểm tra" onclick="check()" />
+            <p id="status"></p>
+        </fieldset>
+
+        <h1>Bài 2:</h1>
+        <fieldset>
+            <legend>Kiểm tra tuổi vào lớp 10</legend>
+            <label for="age"></label>
+            <input type="number" name="age" id="age" placeholder="Nhập tuổi" />
+            <input type="button" value="Kiểm tra" onclick="check_age()" />
+            <p id="status-age"></p>
+        </fieldset>
+
+        <h1>Bài 3:</h1>
+        <fieldset>
+            <legend>Kiểm tra số nguyên</legend>
+            <label for="num_int"></label>
+            <input type="number" name="so" id="num_int" placeholder="Nhập số" />
+            <input type="button" value="Kiểm tra" onclick="check_num_int()" />
+            <p id="status-num_int"></p>
+        </fieldset>
+
+        <h1>Bài 4:</h1>
+        <fieldset>
+            <legend>Kiểm tra số lớn nhất trong 3 số</legend>
+            <label for="num_a"></label>
+            <input
+                type="number"
+                name="soA"
+                id="num_a"
+                placeholder="Nhập số a"
+            />
+            <label for="num_b"></label>
+            <input
+                type="number"
+                name="soB"
+                id="num_b"
+                placeholder="Nhập số b"
+            />
+            <label for="num_c"></label>
+            <input
+                type="number"
+                name="soC"
+                id="num_c"
+                placeholder="Nhập số c"
+            />
+            <input
+                type="button"
+                value="Kiểm tra"
+                onclick="check_num_bigger()"
+            />
+            <p id="status-num_int_bigger"></p>
+        </fieldset>
+
+        <h1>Bài 5:</h1>
+        <fieldset>
+            <legend>Xếp hạng học lực</legend>
+            <label for="num_ktra"></label>
+            <input
+                type="number"
+                name="numKtra"
+                id="num_ktra"
+                placeholder="Nhập điểm kiểm tra"
+            />
+            <label for="num_giuaki"></label>
+            <input
+                type="number"
+                name="numGiuaki"
+                id="num_giuaki"
+                placeholder="Nhập điểm giữa kì"
+            />
+            <label for="num_cuoiki"></label>
+            <input
+                type="number"
+                name="numCuoiki"
+                id="num_cuoiki"
+                placeholder="Nhập điểm cuối kì"
+            />
+            <input type="button" value="Kiểm tra" onclick="check_diem()" />
+            <p id="status-num_diem"></p>
+        </fieldset>
+
+        <h1>Bài 6:</h1>
+        <fieldset>
+            <legend>Tính hoa hồng</legend>
+            <label for="num_spham"></label>
+            <input
+                type="number"
+                name="soSP"
+                id="num_spham"
+                placeholder="Nhập số sản phẩm"
+            />
+            <input type="button" value="Kiểm tra" onclick="check_num_sp()" />
+            <p id="status-num_rose"></p>
+        </fieldset>
+
+        <h1>Bài 7:</h1>
+        <fieldset>
+            <legend>Tính cước điện thoại</legend>
+            <input
+                type="number"
+                name="soPhut"
+                id="num_sophut"
+                placeholder="Nhập số phút"
+            />
+            <input
+                type="number"
+                name="sogiay"
+                id="num_sogiay"
+                placeholder="Nhập số giây"
+            />
+            <input type="button" value="Kiểm tra" onclick="check_cuoc()" />
+            <p id="status-cuoc"></p>
+        </fieldset>
+
+        <script src="js.js"></script>
+    </body>
+</html>

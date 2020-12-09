@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <form action="" method="get">
+            <input type="number" name="" id="input-month" />
+            <input type="button" value="Tính số ngày" onclick="check()" />
+            <input type="reset" value="Nhập lại" />
+            <h3 id="content"></h3>
+        </form>
+
+        <script>
+            function check() {
+                let month = parseInt(
+                    document.getElementById("input-month").value
+                );
+                let day;
+
+                if (month < 1 || month > 12) {
+                    document.getElementById("content").innerHTML =
+                        month + " không phải là tháng đúng !";
+                } else {
+                    switch (month) {
+                        case 2:
+                            day = 29;
+                            break;
+                        case (1, 3, 5, 7, 8, 10, 12):
+                            day = 31;
+                            break;
+                        default:
+                            day = 30;
+                            break;
+                    }
+                    document.getElementById("content").innerText =
+                        "Tháng " + month + " có " + day;
+                }
+            }
+        </script>
+    </body>
+</html>
