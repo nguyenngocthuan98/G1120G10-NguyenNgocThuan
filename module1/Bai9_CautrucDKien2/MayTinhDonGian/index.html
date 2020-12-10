@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>May tinh</title>
+        <style>
+            table {
+                border: 2px solid #ccc;
+                border-radius: 10px;
+            }
+            td.result {
+                height: 100px;
+                border: solid 2px #ccc;
+                width: 100%;
+                text-align: right;
+                padding: 20px;
+                font-size: 30px;
+                border-radius: 10px;
+            }
+            body {
+                text-align: center;
+            }
+            button {
+                width: 120px;
+                height: 50px;
+                border-radius: 10px;
+                border: none;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="result" colspan="4">
+                    <span id="result"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="input_num('1')">1</button>
+                </td>
+                <td>
+                    <button onclick="input_num('2')">2</button>
+                </td>
+                <td>
+                    <button onclick="input_num('3')">3</button>
+                </td>
+                <td>
+                    <button onclick="input_num('+')">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="input_num('4')">4</button>
+                </td>
+                <td>
+                    <button onclick="input_num('5')">5</button>
+                </td>
+                <td>
+                    <button onclick="input_num('6')">6</button>
+                </td>
+                <td>
+                    <button onclick="input_num('-')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="input_num('7')">7</button>
+                </td>
+                <td>
+                    <button onclick="input_num('8')">8</button>
+                </td>
+                <td>
+                    <button onclick="input_num('9')">9</button>
+                </td>
+                <td>
+                    <button onclick="input_num('*')">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="input_num('C')">C</button>
+                </td>
+                <td>
+                    <button onclick="input_num('0')">0</button>
+                </td>
+                <td>
+                    <button onclick="input_num('=')">=</button>
+                </td>
+                <td>
+                    <button onclick="input_num('/')">/</button>
+                </td>
+            </tr>
+        </table>
+        ​
+        <script>
+            function input_num(operator) {
+                let result = document.getElementById("result").innerText;
+                switch (operator) {
+                    case "=":
+                        result = eval(result);
+                        break;
+                    case "C":
+                        result = "";
+                        break;
+                    default:
+                        result = result + operator;
+                        break;
+                }
+                document.getElementById("result").innerText = result;
+            }
+        </script>
+    </body>
+</html>
