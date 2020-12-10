@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thue</title>
+    </head>
+    <body>
+        <script>
+            let luong = parseFloat(prompt("Nhap so tien luong: ", "0"));
+            let phuthuoc = parseInt(prompt("Nhap so nguoi phu thuoc: ", "0"));
+            let phantram_thue;
+            let tienthue = 0;
+            let tinh_thue = luong - phuthuoc * 3000000;
+            if (tinh_thue < 9000000) {
+                phantram_thue = 0;
+            } else if (tinh_thue < 15000000) {
+                phantram_thue = 0.1;
+            } else {
+                phantram_thue = 0.15;
+            }
+            tienthue = tinh_thue * phantram_thue;
+            alert(tienthue + " VND");
+        </script>
+    </body>
+</html>
