@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <script>
+            let a = parseFloat(prompt("Nhap he so a: "));
+            let b = parseFloat(prompt("Nhap he so b: "));
+            let c = parseFloat(prompt("Nhap he so c: "));
+            let nghiem, nghiem2;
+            let delta = 0;
+
+            if (a === 0) {
+                if (b === 0) {
+                    if (c === 0) {
+                        alert("PT bac 1 vo so nghiem.");
+                    } else {
+                        alert("PT bac 1 vo nghiem.");
+                    }
+                } else {
+                    nghiem = -c / b;
+                    alert("PT bac 1 co nghiem = " + nghiem.toFixed(2));
+                }
+            } else {
+                delta = b * b - 4 * a * c;
+                let check_delta = Math.abs(delta) / delta;
+                switch (check_delta) {
+                    case 0:
+                        nghiem = -b / (2 * a);
+                        alert(
+                            "Phuong trinh co nghiem kep la " + nghiem.toFixed(2)
+                        );
+                        break;
+                    case -1:
+                        alert("Phuong trinh bac 2 vo nghiem.");
+                        break;
+                    case 1:
+                        nghiem = (-b + Math.sqrt(delta)) / (2 * a);
+                        nghiem2 = (-b - Math.sqrt(delta)) / (2 * a);
+                        alert(
+                            "Phuong trinh co 2 nghiem la " +
+                                nghiem.toFixed(2) +
+                                " va " +
+                                nghiem2.toFixed(2)
+                        );
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <script>
+            let a = parseFloat(prompt("Nhap he so a: "));
+            let b = parseFloat(prompt("Nhap he so b: "));
+            let nghiem = 0;
+            if (a === 0) {
+                if (b === 0) {
+                    alert("Phuong trinh vo so nghiem.");
+                } else {
+                    alert("Phuong trinh vo nghiem.");
+                }
+            } else {
+                nghiem = -b / a;
+                alert("Nghiem cua phuong trinh la: " + nghiem.toFixed(2));
+            }
+        </script>
+    </body>
+</html>
