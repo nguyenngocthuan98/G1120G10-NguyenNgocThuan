@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.
+            let so_dau = 0,
+                so_giua = 1,
+                so_cuoi;
+            for (let i = 1; i <= 20; i++) {
+                so_cuoi = so_giua + so_dau;
+                document.write("<p>" + so_cuoi + "</p>");
+                so_dau = so_giua;
+                so_giua = so_cuoi;
+            }
+        </script>
+    </body>
+</html>

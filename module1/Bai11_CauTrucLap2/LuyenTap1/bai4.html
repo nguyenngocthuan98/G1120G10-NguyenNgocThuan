@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+            let so_dau = 0,
+                so_giua = 1,
+                so_cuoi;
+            while (so_cuoi % 5 != 0) {
+                so_cuoi = so_giua + so_dau;
+                so_dau = so_giua;
+                so_giua = so_cuoi;
+            }
+            document.write(
+                so_cuoi + " la cho fibonaci dau tien chia het cho 5."
+            );
+        </script>
+    </body>
+</html>

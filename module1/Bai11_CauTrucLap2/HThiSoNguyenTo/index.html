@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //ứng dụng cho phép hiển thị 20 số nguyên tố đầu tiên.
+            let n,
+                count = 0,
+                prime = 2;
+            do {
+                n = parseInt(prompt("Nhap so luong so ngto: "));
+            } while (n < 1);
+
+            while (count < n) {
+                let prime_count = 0;
+                for (let i = 1; i <= prime; i++) {
+                    if (prime % i === 0) {
+                        prime_count++;
+                    }
+                }
+                if (prime_count === 2) {
+                    document.write("<p>" + prime + "</p>");
+                    count++;
+                }
+                prime++;
+            }
+        </script>
+    </body>
+</html>

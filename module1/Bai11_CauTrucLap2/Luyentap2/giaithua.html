@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //Bài 2: Tính giai thừa của một số nguyên dương
+            let so;
+            do {
+                so = parseInt(prompt("Nhap so nguyen duong:"));
+            } while (so < 0);
+
+            let giai_thua = 1;
+            for (let i = 1; i <= so; i++) {
+                giai_thua *= i;
+            }
+            document.write("Giai thua cua " + so + " = " + giai_thua);
+        </script>
+    </body>
+</html>

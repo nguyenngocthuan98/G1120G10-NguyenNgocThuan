@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hi</title>
+    </head>
+    <body>
+        <script>
+            // Bài 1: In dãy Finonaci
+            let n;
+            do {
+                n = parseInt(prompt("So luong Fibonaci: "));
+            } while (n < 0);
+
+            let count = 0,
+                so_dau = 0,
+                so_giua = 1,
+                so_cuoi;
+            while (count < n) {
+                so_cuoi = so_dau + so_giua;
+                so_dau = so_giua;
+                so_giua = so_cuoi;
+                document.write(so_cuoi + " ");
+                count++;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Game đoán số</h1>
+        <input type="button" value="Chơi" onclick="play()" />
+        <input type="button" value="Lại" id="again" hidden />
+        <p id="ketqua"></p>
+        <!-- Bài 8: Game đoán số
+        Nâng cấp game "Hãy thử đoán xem!"
+        1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu chơi hoặc chơi lại 
+        2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+            Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào
+            Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn 
+            Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán 
+            Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.
+            Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi 
+            Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.
+        Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần -->
+        <script>
+            function play() {
+                let khoang_dau = parseInt(prompt("Bat dau: "));
+                let khoang_cuoi = parseInt(prompt("Ket thuc: "));
+
+                let num_random =
+                    Math.floor(Math.random() * khoang_cuoi) + khoang_dau; // returns a random integer from khoang_dau to khoang cuoi
+                console.log(khoang_dau + " " + khoang_cuoi + " " + num_random); //show khoang_dau, khoang_cuoi, num_random in Console to develop test.
+
+                //in 3 round, player choose number, if right, input "you right" and break, if no, re-choose in 3 round.
+                for (let i = 0; i < 3; i++) {
+                    let num_chon = parseInt(prompt("Doan: "));
+                    if (num_chon === num_random) {
+                        alert("Bạn đoán đúng rồi: " + num_chon);
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

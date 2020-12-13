@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Bài 4: In hình chữ nhật
+            let j = 18;
+            let print = " ";
+
+            for (let m = 1; m <= 20; m++) {
+                print += "*";
+            }
+
+            print += "<br>";
+
+            for (let n = 2; n <= 6; n++) {
+                print += "*";
+                for (let l = j; l > 0; l--) {
+                    print += "&ensp;";
+                }
+                print += "*" + "<br>";
+            }
+
+            for (let m = 1; m <= 20; m++) {
+                print += "*";
+            }
+
+            document.write(print);
+        </script>
+    </body>
+</html>
