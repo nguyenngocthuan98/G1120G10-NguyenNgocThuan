@@ -6,26 +6,48 @@
         <title>Caculator</title>
     </head>
     <body>
+        <input type="number" id="num_a" />
+        <input type="number" id="num_b" />
         <div class="calculator__keys">
-            <button class="key--operator" data-action="add">+</button>
-            <button class="key--operator" data-action="subtract">-</button>
-            <button class="key--operator" data-action="multiply">
-                &times;
-            </button>
-            <button class="key--operator" data-action="divide">÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>0</button>
-            <button data-action="decimal">.</button>
-            <button data-action="clear">AC</button>
-            <button class="key--equal" data-action="calculate">=</button>
+            <button class="key--operator" onclick="add()">+</button>
+            <button class="key--operator" onclick="subtract()">-</button>
+            <button class="key--operator" onclick="multiply()">x</button>
+            <button class="key--operator" onclick="divide()">÷</button>
         </div>
+        <p id="result"></p>
+        <script>
+            let result = 0;
+            let dc_num_a = document.getElementById("num_a");
+            let dc_num_b = document.getElementById("num_b");
+
+            function add() {
+                let num_a = parseFloat(dc_num_a.value);
+                let num_b = parseFloat(dc_num_b.value);
+                result = num_a + num_b;
+                document.getElementById("result").innerText =
+                    "Ket qua: " + result;
+            }
+            function subtract() {
+                let num_a = parseFloat(dc_num_a.value);
+                let num_b = parseFloat(dc_num_b.value);
+                result = num_a - num_b;
+                document.getElementById("result").innerText =
+                    "Ket qua: " + result;
+            }
+            function multiply() {
+                let num_a = parseFloat(dc_num_a.value);
+                let num_b = parseFloat(dc_num_b.value);
+                result = num_a * num_b;
+                document.getElementById("result").innerText =
+                    "Ket qua: " + result;
+            }
+            function divide() {
+                let num_a = parseFloat(dc_num_a.value);
+                let num_b = parseFloat(dc_num_b.value);
+                result = num_a / num_b;
+                document.getElementById("result").innerText =
+                    "Ket qua: " + result;
+            }
+        </script>
     </body>
 </html>
