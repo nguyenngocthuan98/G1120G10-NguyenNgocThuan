@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>
+            Viết một chương trình JavaScript để thêm vào các phần tử trong một
+            mảng và hiển thị chúng.
+        </h2>
+        <input type="text" name="value" id="array_value" />
+        <button class="btn" onclick="add()">Add to array</button>
+        <button class="btn" onclick="display()">
+            Display element in array
+        </button>
+        <p id="show"></p>
+        <script>
+            let array_element = []; //create empty array, empty value index element
+            // let array_element = Array(); //create empty array
+            let i = 0; // create index of element
+            function add() {
+                array_element[i] = document.getElementById("array_value").value; // add value from input id="array_value" for index element
+                alert("Element " + array_element[i] + " added to array."); // notify
+                i++; //increase index element
+                document.getElementById("array_value").value = ""; // set empty value for new index element
+            }
+            function display() {
+                let element_value = "<hr/>";
+                for (let index = 0; index < array_element.length; index++) {
+                    element_value +=
+                        "<p> Element <b>" +
+                        index +
+                        "</b> = <b>" +
+                        array_element[index] +
+                        "</b></p>";
+                }
+                document.getElementById("show").innerHTML = element_value;
+            }
+        </script>
+    </body>
+</html>

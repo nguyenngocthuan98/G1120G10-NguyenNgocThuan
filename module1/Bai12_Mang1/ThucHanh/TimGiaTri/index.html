@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = [1, 5, -4, 9, 45];
+            let flg = true; //condition exit loop
+            do {
+                let input_value = prompt("Enter value to search: "); //Enter number for search
+                //for: check number exist or not
+                for (let index = 0; index < arr.length; index++) {
+                    if (input_value == arr[index]) {
+                        flg = false; //condition exit loop FALSE: dont loop "Enter number for search" again
+                        alert(input_value + " EXIST in array");
+                        break; // break For loop
+                    }
+                }
+
+                // check condition exit loop
+                if (flg == true) {
+                    alert(" Osp! " + input_value + " NOT EXIST in array");
+                    alert("Array have 1, 5, -4, 9, 45 ");
+                    flg = true; // condition exit loop TRUE: loop "Enter number for search" again
+                } else {
+                    break; // condition exit loop TRUE
+                }
+            } while ((flg = true)); // condition exit loop TRUE
+        </script>
+    </body>
+</html>

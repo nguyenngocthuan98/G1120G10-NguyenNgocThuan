@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = [-3, 5, 1, 3, 2, 10]; //create array
+            let num_first = 0; //create first number
+            let num_last = arr.length - 1; //create last number with index = length -1
+            // arr.reverse(); //reverse function
+            console.log(arr);
+
+            // loop to change position between first number and last number
+            while (num_first < num_last) {
+                let temp = arr[num_first]; // create temp value to save value of first nunmber
+                arr[num_first] = arr[num_last];
+                arr[num_last] = temp;
+                num_first++;
+                num_last--;
+            }
+            document.write(arr);
+        </script>
+    </body>
+</html>

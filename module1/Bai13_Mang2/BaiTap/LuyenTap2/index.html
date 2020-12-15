@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="bai1()">Bài 1</button>
+        <button onclick="bai2()">Bài 2</button>
+        <button onclick="bai3()">Bài 3</button>
+        <button onclick="bai4()">Bài 4</button>
+        <button onclick="bai5()">Bài 5</button>
+        <button onclick="bai6()">Bài 6</button>
+
+        <script>
+            // Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng
+            function bai1() {
+                let array = [
+                    [1, 2, 1, 24],
+                    [8, 11, 9, 4],
+                    [7, 0, 7, 27],
+                    [7, 4, 28, 14],
+                    [3, 10, 26, 7],
+                ];
+                for (let i in array) {
+                    document.write("<br>Row:" + i);
+                    for (let j in array[i]) {
+                        document.write("<br>" + array[i][j]);
+                    }
+                }
+            }
+
+            // Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+            function bai2() {
+                let array = ["c", "s", "c", "2", "6", "1"];
+                document.write("<br>Mảng gốc: " + array);
+                document.write("<br>Mảng đảo ngược: " + array.reverse());
+            }
+            // Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng.
+            function bai3() {
+                let array = [];
+                let length = array.length;
+                length = parseInt(prompt("Nhập chiều dài của mảng: "));
+                for (let index = 0; index < length; index++) {
+                    array[index] = prompt("Nhập element thứ " + index + " : ");
+                }
+                document.write("<br>Mảng: " + array);
+                document.write("<br>kích thước: " + array.length);
+                let count = 0;
+                for (let index = 0; index < length; index++) {
+                    //isNaN: trả về true nếu giá trị KHÔNG là số
+                    if (isNaN(array[index]) === false) {
+                        ++count;
+                    }
+                }
+                document.write("<br/>Số kí tự SỐ trong mảng: " + count);
+            }
+            // Viết một chương trình để đếm số từ trong một chuỗi
+            function bai4() {}
+            // Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+            function bai5() {}
+            // Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )
+            function bai6() {}
+        </script>
+    </body>
+</html>

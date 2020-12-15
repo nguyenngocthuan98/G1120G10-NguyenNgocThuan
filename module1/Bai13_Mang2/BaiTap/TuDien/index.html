@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Tạo một trang web với một form đơn giản cho phép người dùng nhập từ cần tìm kiếm.
+        Tạo 2 mảng có độ dài bằng nhau để lưu trữ danh sách các từ. Mảng 1 lưu trữ các từ tiếng Anh, mảng 2 lưu trữ các từ tiếng Việt tương ứng.
+        Khi tìm kiếm, tìm vị trí của từ tiếng Anh trong mảng 1. Nếu tìm thấy thì hiển thị từ tiếng Việt ở cùng vị trí trong mảng 2.
+        Nếu không tìm thấy thì hiển thị thông báo không tìm thấy. -->
+        <input
+            type="text"
+            name=""
+            id="input_text"
+            placeholder="Nhập từ tiếng Anh"
+        />
+        <button onclick="find()">Dò</button>
+        <p><b>Kết quả:</b><span id="output_text"></span></p>
+        <script>
+            function find() {
+                let eng = ["go", "run", "jump", "sit"];
+                let vi = ["đi", "chạy", "nhảy", "ngồi"];
+                let input_text = document.getElementById("input_text").value;
+                let result = [];
+
+                for (let index = 0; index < vi.length; index++) {
+                    if (input_text === eng[index]) {
+                        result += vi[index];
+                    }
+                }
+                document.getElementById("output_text").innerText = result;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="bai1()">bai 1</button>
+        <button onclick="bai2()">bai 2</button>
+        <button onclick="bai3()">bai 3</button>
+        <script>
+            // Bài 1: Viết một chương trình Javascript để nối tất cả các phần tử trong một mảng chuỗi lại với nhau.
+            function bai1() {
+                alert(
+                    "Viết một chương trình Javascript để nối tất cả các phần tử trong một mảng chuỗi lại với nhau."
+                );
+                let myColor = ["Red", "Green", "White", "Black"];
+                myColor.join();
+                document.write(myColor);
+            }
+
+            // Bai2 Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn.
+            function bai2() {
+                alert(
+                    "Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn."
+                );
+                let input_num = prompt("Enter number:");
+                document.write("Số nhập vào: " + input_num);
+                let str_num = input_num.toString();
+                let result = [];
+
+                for (let index = 0; index < str_num.length; index++) {
+                    if (
+                        str_num[index - 1] % 2 === 0 &&
+                        str_num[index] % 2 === 0
+                    ) {
+                        result.push("-", str_num[index]);
+                    } else {
+                        result.push(str_num[index]);
+                    }
+                }
+                document.write(result.join(""));
+            }
+
+            // Bai 3 Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa.
+            function bai3() {
+                alert(
+                    "Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa."
+                );
+                let input_text = prompt("Enter text: ");
+                let up = "QWERTYUIOPASDFGHJKLZXCVBNM";
+                let down = "qwertyuiopasdfghjklzxcvbnm";
+                let result = [];
+                for (let index = 0; index < input_text.length; index++) {
+                    if (up.indexOf(input_text[index]) !== -1) {
+                        result.push(input_text[index].toLowerCase());
+                    } else if (down.indexOf(input_text[index]) !== -1) {
+                        result.push(input_text[index].toUpperCase());
+                    } else {
+                        result.push(input_text[index]);
+                    }
+                }
+                document.write(result.join(""));
+            }
+        </script>
+    </body>
+</html>
