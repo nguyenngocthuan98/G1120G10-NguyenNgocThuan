@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="bai1()">Bai 1</button>
+        <button onclick="bai2()">Bai 2</button>
+        <button onclick="bai3()">Bai 3</button>
+        <button onclick="bai4()">Bai 4</button>
+        <button onclick="bai5()">Bai 5</button>
+        <button onclick="bai6()">Bai 6</button>
+        <button onclick="bai7()">Bai 7</button>
+        <button onclick="bai8()">Bai 8</button>
+        <button onclick="bai9()">Bai 9</button>
+        <script>
+            // Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+            function bai1() {
+                let input_number;
+                do {
+                    input_number = parseInt(prompt("Nhập số : "));
+                } while (input_number < 0);
+                squareNumber(input_number);
+
+                function squareNumber(number) {
+                    return alert(
+                        "Bình phương của " +
+                            number +
+                            " là : " +
+                            Math.pow(number, 2)
+                    );
+                }
+            }
+            // Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được
+            function bai2() {
+                let radius;
+                do {
+                    radius = parseFloat(prompt("Nhập bán kính: "));
+                } while (radius < 0);
+
+                alert(
+                    "Diện tích = " +
+                        squareCircle(radius) +
+                        " và chu vi hình tròn = " +
+                        perimeterCircle(radius)
+                );
+
+                function squareCircle(radius) {
+                    square = Math.PI * radius * radius;
+                    return square.toFixed(1);
+                }
+
+                function perimeterCircle(radius) {
+                    perimeter = 2 * Math.PI * radius;
+                    return perimeter.toFixed(1);
+                }
+            }
+
+            // Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+            function bai3() {
+                let number;
+                do {
+                    number = parseInt(prompt("Nhập số: "));
+                } while (number < 0);
+                alert(number + " có giai thừa = " + factorial(number));
+
+                function factorial(number) {
+                    let result = 1;
+                    for (let i = 1; i <= number; i++) {
+                        result *= i;
+                    }
+                    return result;
+                }
+            }
+            // Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+            function bai4() {
+                let input;
+                input = prompt("Nhập: ");
+                alert(check(input));
+
+                function check(input) {
+                    if (input * 0 === 0) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+
+            // Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.
+            function bai5() {
+                let a, b, c;
+                a = parseInt(prompt("Nhập a: "));
+                b = parseInt(prompt("Nhập b: "));
+                c = parseInt(prompt("Nhập c: "));
+                alert("Số nhỏ nhất trong 3 số là : " + min(a, b, c));
+
+                function min(a, b, c) {
+                    if (a < b && a < c) {
+                        return a;
+                    } else if (b < c && b < a) {
+                        return b;
+                    } else {
+                        return c;
+                    }
+                }
+            }
+            // Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không.
+            // Nếu là nguyên dương trả về true, ngược lại trả về false.
+            function bai6() {
+                let number;
+                do {
+                    number = parseInt(prompt("Nhập số: "));
+                } while (number * 0 !== 0);
+                alert(check(number));
+
+                function check(number) {
+                    if (number > 0) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            // Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.
+            function bai7() {
+                let a, b;
+                do {
+                    a = parseInt(prompt("Nhập a : "));
+                    b = parseInt(prompt("Nhập b : "));
+                } while (a * 0 !== 0 || b * 0 !== 0);
+
+                swap(a, b);
+
+                function swap(a, b) {
+                    let temp;
+                    temp = a;
+                    a = b;
+                    b = temp;
+                    return alert("a = " + a + " ,b = " + b);
+                }
+            }
+            // Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+            function bai8() {
+                let a = [];
+                let number;
+                do {
+                    number = parseInt(prompt("Nhập số phần tử của mảng:"));
+                } while (number * 0 !== 0 && number < 0);
+
+                for (let i = 0; i < number; i++) {
+                    do {
+                        a[i] = parseInt(prompt("Nhập phần tử thứ: " + i));
+                    } while (a[i] * 0 !== 0);
+                }
+                alert("Mảng số nguyên đã đảo: " + reverseArr(a).join(" - "));
+
+                function reverseArr(array) {
+                    let arr = array.reverse();
+                    return arr;
+                }
+            }
+            // Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+            // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+            function bai9() {
+                let input_char = prompt("Nhập kí tự");
+                let input_string = prompt("Nhập chuỗi");
+                alert("Số lần xuất hiện: " + check(input_string, input_char));
+
+                function check(arr, ele) {
+                    let count = 0;
+                    for (let i = 0; i < arr.length; i++) {
+                        if (ele === arr[i]) {
+                            count++;
+                        }
+                    }
+                    if (arr.indexOf(ele) === -1) {
+                        return -1;
+                    }
+                    return count;
+                }
+            }
+        </script>
+    </body>
+</html>
