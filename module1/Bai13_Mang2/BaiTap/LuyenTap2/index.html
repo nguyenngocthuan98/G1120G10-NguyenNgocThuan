@@ -57,11 +57,44 @@
                 document.write("<br/>Số kí tự SỐ trong mảng: " + count);
             }
             // Viết một chương trình để đếm số từ trong một chuỗi
-            function bai4() {}
+            function bai4() {
+                let chuoi = prompt("Nhập chuỗi: ");
+                let number = chuoi.trim().length; // cắt bỏ khoảng trống 2 đầu của chuỗi ký tự chuoi
+                let count = 0; // tạo biến đếm số dấu cách hợp lệ
+                document.write(chuoi + "<br>");
+                for (let i = 0; i < number; i++) {
+                    if (chuoi[i] === " ") {
+                        if (chuoi[i + 1] !== " ") {
+                            count++;
+                        }
+                    }
+                }
+                document.write("Số từ trong chuỗi là : " + (count + 1));
+            }
             // Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
-            function bai5() {}
+            function bai5() {
+                let a = prompt("Nhập chuỗi đầu tiên: ");
+                let b = prompt("Nhập chuỗi thứ 2: ");
+                if (a === b) {
+                    document.write("Hai chuỗi GIỐNG nhau");
+                } else {
+                    document.write("Hai chuỗi KHÁC nhau");
+                }
+            }
             // Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )
-            function bai6() {}
+            function bai6() {
+                let a = prompt("Nhập: ");
+                let b = [];
+                document.write("Chuỗi ban đầu : " + a + "<br>");
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] === "-") {
+                        b[i] = "_";
+                    } else {
+                        b[i] = a[i];
+                    }
+                }
+                document.write("Chuỗi sau khi đổi: " + b.join(""));
+            }
         </script>
     </body>
 </html>
