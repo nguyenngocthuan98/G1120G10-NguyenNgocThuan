@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label>Do F: </label>
+        <input
+            type="number"
+            id=""
+            oninput="fToC(this.value)"
+            onchange="fToC(this.value)"
+        />
+        <br />
+        <label>Do C: <span id="doc"></span></label>
+
+        <script>
+            function fToC(valNum) {
+                valNum = parseFloat(valNum);
+                document.getElementById("doc").innerHTML =
+                    ((valNum - 32) / 1.8).toFixed(1) + " °C";
+            }
+        </script>
+    </body>
+</html>
