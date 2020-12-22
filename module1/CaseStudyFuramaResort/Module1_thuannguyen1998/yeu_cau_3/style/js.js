@@ -75,13 +75,44 @@ function edit_info() {
 
     switch (choose) {
         case 1:
-            full_name = prompt("Họ và tên:", full_name);
+            do {
+                let up_char = "";
+                full_name = prompt("Họ và tên:", full_name);
+                full_name = full_name.trim().toLowerCase();
+                for (let i = 0; i < full_name.length; i++) {
+                    if (full_name.charAt(i) === " " && full_name.charAt(i + 1) === " ") {
+                        continue;
+                    }
+                    if (i === 0 || full_name.charAt(i - 1) === " ") {
+                        up_char += full_name.charAt(i).toUpperCase();
+                        continue;
+                    } up_char += full_name.charAt(i);
+                } full_name = up_char;
+            } while (!Number.isNaN(full_name));
             break;
         case 2:
-            identity_number = prompt("Số CMND:", identity_number);
+            let flg = true;
+            do {
+                alert("Số CMND phải có 8 kí tự số");
+                identity_number = parseFloat(prompt("Số CMND:", identity_number));
+                if (identity_number <= 99999999 && identity_number >= 10000000 && Number.isInteger(identity_number)) {
+                    flg = false;
+                } else {
+                    alert("Số CMND " + identity_number + " SAI định dạng!");
+                }
+            } while (flg);
             break;
         case 3:
+            let flg = true;
+            do {
+            alert("Định dạng ngày sinh dd/mm/yyyy");
             birthday = prompt("Ngày sinh:", birthday);
+            if (birthday.charAt(2) == "/" && birthday.charAt(5) == "/" && birthday.substring(0,1) <= 31 && birthday.substring(3,4) <= 12 && birthday.substring(6,10) <= 10000) {
+                flg = false;
+            } else {
+                alert(birthday + " SAI định dạng!");
+            }
+            } while (flg);
             break;
         case 4:
             let flg = true;
@@ -106,11 +137,27 @@ function edit_info() {
             type_customer = prompt("Loại Customer:", type_customer);
             break;
         case 7:
-            amount_people = prompt("Số lượng đi kèm:", amount_people);
+            let flg = true;
+            do {
+                amount_people = parseInt(prompt("Số lượng đi kèm:", amount_people));
+                if (amount_people > 0) {
+                    flg = false;
+                } else {
+                    alert("Số người " + amount_people + " KHÔNG đúng!");
+                }
+            } while (flg);
             break;
         case 8:
-            alert("2->4 days -10$ \n5->7 days -20$ \nOver 7 days -30$");
-            amount_days = prompt("Số ngày thuê:", amount_days);
+            let flg = true;
+            do {
+                alert("2->4 days -10$ \n5->7 days -20$ \nOver 7 days -30$");
+                amount_days = prompt("Số ngày thuê:", amount_days);
+                if (amount_days > 0) {
+                    flg = false;
+                } else {
+                    alert("Số ngày thuê " + amount_days + " KHÔNG đúng!");
+                }
+            } while (flg);
             break;
         case 9:
             alert("Villa 500$ \nHouse 300$ \nRoom 100$");
