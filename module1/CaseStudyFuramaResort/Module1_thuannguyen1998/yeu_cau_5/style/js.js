@@ -26,30 +26,27 @@ function exitMainMenu() {
     document.getElementById("btnShowMenu").style.display="block";
 }
 
+function tinh() {
+    switch (type_service) {
+        case "Villa":
+            price_type_service = 500;
+            break;
+        case "House":
+            price_type_service = 300;
+        break;
+        case "Room":
+            price_type_service = 100;
+        break;
+        default:
+            price_type_service = 0;
+            break;
+    }
+    let pay = price_type_service * amount_days * (1 - (25 / 100));
+    return pay;
+}
+
 function addNewCustomer() {
     let arrInfoCustomer = [];
-
-    function tinh() {
-        switch (type_service) {
-            case "Villa":
-                price_type_service = 500;
-                break;
-            case "House":
-                price_type_service = 300;
-            break;
-            case "Room":
-                price_type_service = 100;
-            break;
-            default:
-                price_type_service = 0;
-                break;
-        }
-        let pay = price_type_service * amount_days * (1 - (25 / 100));
-        //console.log("price_type_service: " + typeof price_type_service + price_type_service);
-        //console.log("amount_days: "+typeof amount_days + amount_days);
-        //console.log("pay: "+typeof pay + pay);
-        return pay;
-    }
 
     full_name = prompt("Họ và tên:");
     arrInfoCustomer.push(full_name);
@@ -82,12 +79,10 @@ function addNewCustomer() {
     arrInfoCustomer.push(type_room);
 
     pay_total = tinh();
-    //console.log("pay_total: "+ typeof pay_total + pay_total)
     arrInfoCustomer.push( pay_total);
 
     alert("Thêm thành công");
     arrListCustomer[arrListCustomer.length] = arrInfoCustomer;
-    //console.log(arrInfoCustomer);
     displayMainMenu();
 }
 
@@ -101,7 +96,7 @@ function editCustomer() {
             }
         }
     }
-    console.log(arrListCustomer[index]);
+    //console.log(arrListCustomer[index]);
     let choose;
     
     choose = parseInt(prompt(
@@ -120,37 +115,49 @@ function editCustomer() {
     switch (choose) {
         case 1:
             new_full_name = prompt("Họ và tên:", arrListCustomer[index][0]);
-            arrListCustomer[index][choose-1] = new_full_name;
+            arrListCustomer[index][0] = new_full_name;
             break;
         case 2:
             new_identity_number = prompt("Số CMND:", arrListCustomer[index][1]);
-            arrListCustomer[index][choose] = identity_number;
-            console.log(arrListCustomer[index][choose]);
+            arrListCustomer[index][1] = new_identity_number;
             break;
         case 3:
-            birthday = prompt("Ngày sinh:", birthday);
+            new_birthday = prompt("Ngày sinh:", arrListCustomer[index][2]);
+            arrListCustomer[index][2] = new_birthday;
             break;
         case 4:
-            email = prompt("Email:", email);
+            new_email = prompt("Email:", arrListCustomer[index][3]);
+            arrListCustomer[index][3] = new_email;
             break;
         case 5:
-            address = prompt("Địa chỉ:\nĐà Nẵng -20$ / Huế -10% / Quảng Nam -5$", address);
+            new_address = prompt("Địa chỉ:\nĐà Nẵng -20$ / Huế -10% / Quảng Nam -5$", arrListCustomer[index][4]);
+            arrListCustomer[index][4] = new_address;
             break;
         case 6:
-            type_customer = prompt("Loại customer:\nDiamond -15$ / Platium -10$ / Gold -5$ / Silver -2$ / Member -0$", type_customer);
+            new_type_customer = prompt("Loại customer:\nDiamond -15$ / Platium -10$ / Gold -5$ / Silver -2$ / Member -0$", arrListCustomer[index][5]);
+            arrListCustomer[index][5] = new_type_customer;
             break;
         case 7:
-            amount_people = prompt("Số lượng đi kèm:", amount_people);
+            new_amount_people = prompt("Số lượng đi kèm:", arrListCustomer[index][6]);
+            arrListCustomer[index][6] = new_amount_people;
             break;
         case 8:
-            amount_days = prompt("Số ngày thuê :\n2->4 days -10$ / 5->7 days -20$ / Over 7 days -30$", amount_days);
+            new_amount_days = prompt("Số ngày thuê :\n2->4 days -10$ / 5->7 days -20$ / Over 7 days -30$", arrListCustomer[index][7]);
+            arrListCustomer[index][7] = new_amount_days;
             break;
         case 9:
-            type_service = prompt("Loại dịch vụ :\nVilla 500$ / House 300$ / Room 100$", type_service);
+            new_type_service = prompt("Loại dịch vụ :\nVilla 500$ / House 300$ / Room 100$", arrListCustomer[index][8]);
+            arrListCustomer[index][8] = new_type_service;
             break;
         case 10:
-            type_room = prompt("Loại phòng thuê :\nVIP / Business / Nomal", type_room);
+            new_type_room = prompt("Loại phòng thuê :\nVIP / Business / Nomal", arrListCustomer[index][9]);
+            arrListCustomer[index][9] = new_type_room;
             break;
+    }
+    //tính lại tiền sau khi sửa (bug: vẫn chưa thay đổi được số tiền sau khi edit)
+    if (choose === 8) {
+        new_pay_total = tinh();
+        arrListCustomer[index][10]= new_pay_total;
     }
     displayInfo();
 }
@@ -183,7 +190,7 @@ function showOneCus(i) {
         + "<b>Số ngày thuê: </b>" + arrListCustomer[i][7] + ". "
         + "<b>Loại dịch vụ: </b>" + arrListCustomer[i][8] + ". "
         + "<b>Loại phòng thuê: </b>" + arrListCustomer[i][9] + "<br /> "
-        + "<b>Số tiền phải trả: </b>" + arrListCustomer[i][10] + "$."
+        + "<b>Số tiền phải trả: </b>" + arrListCustomer[i][10] + "$ <i>Bạn đã được giảm 25% tổng giá tiền</i>"
         ;
     return render;
 }
