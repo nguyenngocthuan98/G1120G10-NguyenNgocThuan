@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FuramaResort</title>
+        <link rel="stylesheet" href="style/style.css" />
+    </head>
+    <body>
+        <button onclick="displayMainMenu()" id="btnShowMenu">Show menu</button>
+        <div class="menu" id="mainMenu" style="display: none">
+            <ul>
+                <label>
+                    <li>
+                        <a class="title-menu">Customer Main Memu</a>
+                    </li>
+                </label>
+                <label>
+                    <li><a onclick="addNewCustomer()">Add New</a></li>
+                </label>
+                <label>
+                    <li><a onclick="displayInfo()">Display Information</a></li>
+                </label>
+                <label>
+                    <li><a onclick="editCustomer()">Edit Customer</a></li>
+                </label>
+                <label>
+                    <li><a onclick="delCustomer()">Delete Information</a></li>
+                </label>
+                <label>
+                    <li style="float: right">
+                        <a
+                            class="active"
+                            style="color: black"
+                            onclick="exitMainMenu()"
+                            >Exit</a
+                        >
+                    </li>
+                </label>
+            </ul>
+        </div>
+
+        <div id="display"></div>
+        <script src="style/js.js"></script>
+    </body>
+</html>
