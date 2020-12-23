@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Human {
+                constructor(name, gender, weight) {
+                    this.name = name;
+                    this.gender = gender;
+                    this.weight = weight;
+                }
+                setName(name) {
+                    this.name = name;
+                }
+                getName() {
+                    return this.name;
+                }
+                setWeight(weight) {
+                    this.weight = weight;
+                }
+                getWeight() {
+                    return document.write(
+                        this.name + " có cân nặng " + this.weight + "<br>"
+                    );
+                }
+                setGender(gender) {
+                    return (this.gender = gender);
+                }
+                isMale(gender) {
+                    if (gender === "nam") {
+                        return true;
+                    }
+                    return false;
+                }
+                eatApple(apple) {
+                    if (apple.getWeight() > 0) {
+                        apple.weight--;
+                        this.weight++;
+                    }
+                }
+                checkApple(apple) {
+                    if (apple.getWeight() === 0) {
+                        return document.write("Đã ăn hết táo<br>");
+                    }
+                }
+            }
+
+            class Apple {
+                constructor(weight) {
+                    this.weight = 10;
+                }
+                getWeight() {
+                    return this.weight;
+                }
+                setWeight(weight) {
+                    this.weight = weight;
+                }
+            }
+
+            let adam = new Human("Adam", "nam", 50);
+            let eva = new Human("Eva", "nữ", 40);
+
+            let apple = new Apple();
+
+            for (let i = apple.getWeight(); i > 0; i--) {
+                adam.eatApple(apple);
+                eva.eatApple(apple);
+            }
+
+            adam.getWeight();
+            eva.getWeight();
+
+            adam.checkApple(apple);
+        </script>
+    </body>
+</html>

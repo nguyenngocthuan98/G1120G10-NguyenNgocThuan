@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <canvas
+            id="myCanvas"
+            width="5000px"
+            height="2500px"
+            style="border: 1px solid #d3d3d3"
+        ></canvas>
+        <script>
+            class Rectangle {
+                constructor(length, width) {
+                    this.length = length;
+                    this.width = width;
+                }
+
+                getLength() {
+                    return this.length;
+                }
+
+                getWidth() {
+                    return this.width;
+                }
+
+                //dien tich
+                getArea() {
+                    return this.length * this.width;
+                }
+                //chu vi
+                getPerimeter() {
+                    return 2 * (this.length + this.width);
+                }
+
+                setLength(newLength) {
+                    this.length = newLength;
+                }
+
+                setWidth(newWidth) {
+                    this.width = newWidth;
+                }
+            }
+
+            let rectangle = new Rectangle(50, 30);
+
+            //hien thi chu vui va dien tich
+            let dientich = rectangle.getArea();
+            alert("Dien tich HCN = " + dientich);
+
+            let chuvi = rectangle.getPerimeter();
+            alert("Chu vi HCN = " + chuvi);
+
+            // thay doi chieu dai chieu rong
+            rectangle.setLength(parseFloat(prompt("Nhap chieu dai moi: ")));
+            let newLength = rectangle.getLength();
+
+            rectangle.setWidth(parseFloat(prompt("Nhap chieu rong moi: ")));
+            let newWidth = rectangle.getWidth();
+
+            // => dien tich va chu vi moi
+            let newArea = rectangle.getArea();
+            alert("Dien tich HCN = " + newArea);
+
+            let newPerimeter = rectangle.getPerimeter();
+            alert("Dien tich HCN = " + newPerimeter);
+
+            //in ra HCN
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            let dai = rectangle.getLength();
+            let rong = rectangle.getWidth();
+
+            // fillRect(x-coordinate, y-coordinate, width, height(or length))
+            ctx.fillRect(100, 100, rong, dai);
+        </script>
+    </body>
+</html>

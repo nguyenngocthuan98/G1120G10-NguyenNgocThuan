@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Bài chưa hoàn thành
+            class Mobile {
+                constructor(
+                    id,
+                    name,
+                    batteryStatus,
+                    message,
+                    inbox,
+                    send,
+                    mobileStatus,
+                    charging
+                ) {
+                    this.id = id;
+                    this.name = name;
+                    this.batteryStatus = batteryStatus;
+                    this.message = [];
+                    this.inbox = [];
+                    this.send = [];
+                    this.mobileStatus = mobileStatus;
+                    this.charging = charging;
+                }
+
+                phoneOn() {
+                    return (this.mobileStatus = true);
+                }
+
+                getBatteryStatus() {
+                    return (this.batteryStatus = 100);
+                }
+            }
+        </script>
+    </body>
+</html>

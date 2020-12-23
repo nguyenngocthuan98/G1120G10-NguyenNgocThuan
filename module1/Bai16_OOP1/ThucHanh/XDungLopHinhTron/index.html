@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Circle {
+                constructor(radius, color) {
+                    this.radius = radius;
+                    this.color = color;
+                }
+
+                getRadius() {
+                    return this.radius;
+                }
+
+                getArea() {
+                    return Math.PI * this.radius * this.radius;
+                }
+
+                setRadius(bankinh) {
+                    this.radius = bankinh;
+                }
+            }
+
+            let myCircle = new Circle(2, "blue");
+
+            let radius = myCircle.getRadius();
+            alert("radius is " + radius);
+
+            let area = myCircle.getArea();
+            alert("Area is " + area.toFixed(2));
+
+            myCircle.setRadius(10);
+            let area1 = myCircle.getArea();
+            alert("Area is " + area1.toFixed(2));
+        </script>
+    </body>
+</html>

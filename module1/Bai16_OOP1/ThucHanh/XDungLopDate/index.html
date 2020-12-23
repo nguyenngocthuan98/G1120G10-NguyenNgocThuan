@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Date {
+                // Thuộc tính:
+                // day (ngày) sẽ nhận vào giá trị dạng số nguyên
+                // month (tháng) sẽ nhận vào giá trị dạng số nguyên
+                // year (năm) sẽ nhận vào giá trị dạng số nguyên
+                // Phương thức:
+                //     Date(day, month, year) là phương thức khởi tạo để tạo đối tượng với 3 tham số.
+                //     getDay(), getMonth(), getYear() là phương thức trả về ngày, tháng, năm
+                //     setDay(), setMonth(), setYear() là phương thức thiết đặt lại giá trị mới cho ngày tháng năm
+
+                constructor(date, month, year) {
+                    this.date = date;
+                    this.month = month;
+                    this.year = year;
+                }
+                getDay() {
+                    return this.date;
+                }
+
+                getMonth() {
+                    return this.month;
+                }
+
+                getYear() {
+                    return this.year;
+                }
+
+                setDay(day) {
+                    this.day = day;
+                }
+
+                setDay(month) {
+                    this.month = month;
+                }
+
+                setDay(year) {
+                    this.year = year;
+                }
+
+                setDate(day, month, year) {
+                    this.day = day;
+                    this.month = month;
+                    this.year = year;
+                }
+
+                toString() {
+                    return (
+                        "Before change " +
+                        this.day +
+                        "/" +
+                        this.month +
+                        "/" +
+                        this.year
+                    );
+                }
+            }
+
+            let date = new Date(2, 2, 2020);
+            let day = date.getDay();
+            let month = date.getMonth();
+            let year = date.getYear();
+            alert(day + "/" + month + "/" + year);
+
+            date.setDate(1, 1, 2027);
+            alert(date.toString());
+        </script>
+    </body>
+</html>
