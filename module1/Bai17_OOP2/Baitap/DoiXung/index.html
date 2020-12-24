@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let string = prompt("Nhập từ: ");
+            isPalindrome(string);
+
+            function isPalindrome(s) {
+                let check = true;
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] != s[s.length - i - 1]) {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check) {
+                    alert(s + " : đối xứng");
+                } else alert(s + " : không đối xứng");
+            }
+        </script>
+    </body>
+</html>
