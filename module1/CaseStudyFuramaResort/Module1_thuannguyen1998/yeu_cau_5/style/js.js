@@ -79,7 +79,7 @@ function addNewCustomer() {
     arrInfoCustomer.push(type_room);
 
     pay_total = tinh();
-    arrInfoCustomer.push( pay_total);
+    arrInfoCustomer.push(pay_total);
 
     alert("Thêm thành công");
     arrListCustomer[arrListCustomer.length] = arrInfoCustomer;
@@ -154,8 +154,10 @@ function editCustomer() {
             arrListCustomer[index][9] = new_type_room;
             break;
     }
-    //tính lại tiền sau khi sửa (bug: vẫn chưa thay đổi được số tiền sau khi edit)
-    if (choose === 8) {
+    //tính lại tiền sau khi sửa
+    if (choose === 7 || choose === 8) {
+        type_service = arrListCustomer[index][8];
+        amount_days = arrListCustomer[index][7];
         new_pay_total = tinh();
         arrListCustomer[index][10]= new_pay_total;
     }
@@ -187,8 +189,8 @@ function showOneCus(i) {
         + "<b>Địa chỉ: </b>" + arrListCustomer[i][4] + ". "
         + "<b>Loại Customer: </b>" + arrListCustomer[i][5] + ". "
         + "<b>Số lượng đi kèm: </b>" + arrListCustomer[i][6] + ". "
-        + "<b>Số ngày thuê: </b>" + arrListCustomer[i][7] + ". "
-        + "<b>Loại dịch vụ: </b>" + arrListCustomer[i][8] + ". "
+        + "<b>Số ngày thuê* : </b>" + arrListCustomer[i][7] + ". "
+        + "<b>Loại dịch vụ* : </b>" + arrListCustomer[i][8] + ". "
         + "<b>Loại phòng thuê: </b>" + arrListCustomer[i][9] + "<br /> "
         + "<b>Số tiền phải trả: </b>" + arrListCustomer[i][10] + "$ <i>Bạn đã được giảm 25% tổng giá tiền</i>"
         ;

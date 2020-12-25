@@ -10,6 +10,7 @@ function addName() {
             flg = false;
         } else {
             alert(input_number + " not a number.");
+            console.log(flg);
         }
     } while (flg);
     number = parseInt(input_number);
@@ -33,6 +34,6 @@ function delName() {
 }
 
 function showList() {
-    document.getElementById("display").innerHTML =
+    document.getElementById("display").innerHTML +=
         "<h2>List Customers</h2>" + arrNameCustomers.sort().join("<br/>");
 }
