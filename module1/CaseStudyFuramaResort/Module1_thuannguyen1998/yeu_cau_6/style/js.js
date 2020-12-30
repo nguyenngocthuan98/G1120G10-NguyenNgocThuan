@@ -5,28 +5,30 @@ let arrListCustomer = [];
 // Show/hide menu
 function displayMainMenu() {
     document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("btnShowMenu").style.display="none";
+    document.getElementById("mainEMenu").style.display = "none";
+    document.getElementById("btnShowMenu").style.display = "none";
+    document.getElementById("btnShowEMenu").style.display="none";
 }
-
 function exitMainMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("display").style.display = "none";
-    document.getElementById("btnShowMenu").style.display="block";
+    document.getElementById("btnShowMenu").style.display = "block";
+    document.getElementById("btnShowEMenu").style.display="block";
 }
 
 // CRUD-Create new customer
 function addNewCustomer() {
-    let add_fullName;
-    let add_identifyNumber;
-    let add_dayOfBirth;
-    let add_email;
-    let add_address;
-    let add_typeOfCustomer;
-    let add_discount;
-    let add_includePeople;
-    let add_dayRents;
-    let add_typeService;
-    let add_typeRoom;
+    let add_fullName,
+        add_identifyNumber,
+        add_dayOfBirth,
+        add_email,
+        add_address,
+        add_typeOfCustomer,
+        add_discount,
+        add_includePeople,
+        add_dayRents,
+        add_typeService,
+        add_typeRoom;
     let arrInforCustomer = [];
     let customer = new Customer();
 
@@ -159,17 +161,17 @@ function showPay() {
 
 // CRUD-Update customer
 function editCustomer() {
-    let edit_fullName;
-    let edit_identifyNumber;
-    let edit_dayOfBirth;
-    let edit_email;
-    let edit_address;
-    let edit_typeOfCustomer;
-    let edit_discount;
-    let edit_includePeople;
-    let edit_dayRents;
-    let edit_typeService;
-    let edit_typeRoom;
+    let edit_fullName,
+        edit_identifyNumber,
+        edit_dayOfBirth,
+        edit_email,
+        edit_address,
+        edit_typeOfCustomer,
+        edit_discount,
+        edit_includePeople,
+        edit_dayRents,
+        edit_typeService,
+        edit_typeRoom;
     let flg_exit = true;
     let choose;
 

@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="style/css.css" />
     </head>
     <body>
-        <button onclick="displayMainMenu()" id="btnShowMenu">Show menu</button>
+        <button onclick="displayMainMenu()" id="btnShowMenu">
+            Show Customer Menu
+        </button>
         <div class="menu" id="mainMenu" style="display: none">
             <ul>
                 <label>
@@ -45,13 +47,50 @@
             </ul>
         </div>
 
+        <button onclick="displayEMainMenu()" id="btnShowEMenu">
+            Show Employee Menu
+        </button>
+        <div class="menu" id="mainEMenu" style="display: none">
+            <ul>
+                <label>
+                    <li>
+                        <a class="title-menu">EMPLOYEE MENU</a>
+                    </li>
+                </label>
+                <label>
+                    <li><a onclick="addNewEmpl()">Add new</a></li>
+                </label>
+                <label>
+                    <li>
+                        <a onclick="displayInfoEmpl()">Display information</a>
+                    </li>
+                </label>
+                <label>
+                    <li>
+                        <a onclick="displaySalaryEmpl()">Display salary</a>
+                    </li>
+                </label>
+                <label>
+                    <li style="float: right">
+                        <a
+                            class="active"
+                            style="color: black"
+                            onclick="exitMainEMenu()"
+                            >Exit</a
+                        >
+                    </li>
+                </label>
+            </ul>
+        </div>
+
         <button id="btn_find" style="display: none" onclick="showPay()">
             Find customer pays detail
         </button>
         <div id="display"></div>
 
-        <script src="style/classCustomer.js"></script>
+        <script src="style/classCusEmpl.js"></script>
         <script src="style/format.js"></script>
+        <script src="style/jsEmpl.js"></script>
         <script src="style/js.js"></script>
     </body>
 </html>
