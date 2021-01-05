@@ -13,7 +13,16 @@ public class PrimesUnderOneHundred {
         }
         return true;
     }
+
     public static void main(String[] args) {
-        //chưa làm xong
+        int count = 0;
+        int n = 2;
+        while (n < 100) {
+            if (isPrime(n)) {
+                System.out.print(n + " | ");
+                count++;
+            }
+            n++;
+        }
     }
 }
