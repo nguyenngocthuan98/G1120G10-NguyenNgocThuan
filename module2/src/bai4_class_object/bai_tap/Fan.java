@@ -1,7 +1,5 @@
 package bai4_class_object.bai_tap;
 
-import com.sun.scenario.effect.impl.prism.PrImage;
-
 public class Fan {
     final byte SLOW = 1, MEDIUM = 2, FAST = 3;
     private int speed = 1;
