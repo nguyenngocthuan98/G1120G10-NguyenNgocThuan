@@ -5,18 +5,25 @@ import java.util.Scanner;
 
 public class DeleteElement {
     public static void main(String[] args) {
-        int[] arrInts = {1, 5, 9, 8, 3, 2, 10, 4, 7};
+        int[] arrInts = {1, 5, 9, 9, 8, 9, 10, 4, 7};
         Scanner sc = new Scanner(System.in);
+        boolean checked = true;
         int input;
-        System.out.println("Before array: " + Arrays.toString(arrInts) + "\nEnter value to delete: ");
+        System.out.println("Before array: " + Arrays.toString(arrInts) + "\nEnter value to delete: (recommended 9) ");
         input = sc.nextInt();
         for (int i = 0; i < arrInts.length; i++) {
-            if (arrInts[i] != input) {
-                continue;
+            if (input == arrInts[i]) {
+                for (int j = i; j < arrInts.length - 1; j++) {
+                    arrInts[j] = arrInts[j + 1];
+                }
+                i--;
+                arrInts[arrInts.length - 1] = 0;
             } else {
-                arrInts[i] = arrInts[i + 1];
+                checked = false;
             }
-            arrInts[i] = arrInts[i + 1];
+        }
+        if (checked) {
+            System.out.println("This number not found");
         }
         System.out.println("After array: " + Arrays.toString(arrInts));
     }
