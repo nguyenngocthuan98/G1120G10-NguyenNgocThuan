@@ -3,7 +3,9 @@ package bai4_class_object.bai_tap;
 import java.util.Scanner;
 
 public class QuadraticEquation {
-    private float a, b, c;
+    private float a;
+    private float b;
+    private float c;
 
     public float getA() {
         return a;
@@ -38,13 +40,13 @@ public class QuadraticEquation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a: ");
-        float input_a = sc.nextFloat();
+        float inputA = sc.nextFloat();
         System.out.print("Enter b: ");
-        float input_b = sc.nextFloat();
+        float inputB = sc.nextFloat();
         System.out.print("Enter c: ");
-        float input_c = sc.nextFloat();
+        float inputC = sc.nextFloat();
 
-        QuadraticEquation quadraticEquation = new QuadraticEquation(input_a, input_b, input_c);
+        QuadraticEquation quadraticEquation = new QuadraticEquation(inputA, inputB, inputC);
         double delta = quadraticEquation.getDiscriminant();
         if (delta < 0) {
             System.out.println("The equation has no roots");

@@ -1,7 +1,8 @@
 package bai4_class_object.bai_tap;
 
 public class StopWatch {
-    private long startTime, endTime;
+    private long startTime;
+    private long endTime;
 
     public StopWatch() {
     }
