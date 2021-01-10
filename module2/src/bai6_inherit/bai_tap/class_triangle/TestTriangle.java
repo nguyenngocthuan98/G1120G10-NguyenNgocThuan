@@ -1,4 +1,4 @@
-package bai6_inherit.bai_tap.Triangle;
+package bai6_inherit.bai_tap.class_triangle;
 
 import java.util.Scanner;
 

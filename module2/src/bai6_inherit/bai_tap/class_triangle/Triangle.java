@@ -1,4 +1,4 @@
-package bai6_inherit.bai_tap.Triangle;
+package bai6_inherit.bai_tap.class_triangle;
 
 import bai6_inherit.thuc_hanh.Shape;
 
