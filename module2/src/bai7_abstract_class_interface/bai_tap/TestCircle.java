@@ -19,7 +19,8 @@ public class TestCircle extends Circle implements Resizeable {
 
     @Override
     public void resize(double percent) {
-        setRadius(getRadius() * (percent / 100));
+//        setRadius(getRadius() * (percent / 100));
+
     }
 
     @Override
