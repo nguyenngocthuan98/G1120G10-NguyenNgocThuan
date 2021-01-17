@@ -3,7 +3,7 @@ package bai11_dsa_stack_queue.bai_tap;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class TreeMapCountWord {
+public class CountWord {
     public static void countingWord(String str) {
         TreeMap<String, Integer> tree = new TreeMap<>();
         String[] arrayStr = str.split(" ");
