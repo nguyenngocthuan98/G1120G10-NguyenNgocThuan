@@ -7,6 +7,6 @@ public class IllegalTriangleException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Error of rectangle: " + super.getMessage();
+        return "Exception warning of rectangle: " + super.getMessage();
     }
 }
