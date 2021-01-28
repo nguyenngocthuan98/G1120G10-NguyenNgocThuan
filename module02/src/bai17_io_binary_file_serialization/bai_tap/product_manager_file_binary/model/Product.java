@@ -62,7 +62,7 @@ public class Product {
     public String toString() {
         return "ID: " + idProduct +
                 ", Name: " + nameProduct +
-                ", Brand" + brandProduct +
+                ", Brand: " + brandProduct +
                 ", Price: " + priceProduct +
                 ", Description: " + descriptionProduct;
     }

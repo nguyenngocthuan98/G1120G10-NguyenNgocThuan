@@ -9,6 +9,37 @@ import java.util.List;
 public class FuncReadWrite {
     static final String PATH_PRODUCT = "src/bai17_io_binary_file_serialization/bai_tap/product_manager_file_binary/data/Product.csv";
     static File file = new File(PATH_PRODUCT);
+    static final String COMMA = ",";
+
+    public static List<Product> readProduct() {
+        List<Product> list = new ArrayList<>();
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+            String line = "";
+            String[] arr = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                arr = line.split(COMMA);
+                Product product = new Product(arr[0], arr[1], arr[2], Float.parseFloat(arr[3]), arr[4]);
+                list.add(product);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Reading file error: data not found!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 
     public static void writeProduct(List<Product> list, boolean selection) {
         FileWriter fileWriter = null;
@@ -25,39 +56,12 @@ public class FuncReadWrite {
             e.printStackTrace();
         } finally {
             try {
-                bufferedWriter.close();
+                if (bufferedWriter != null) {
+                    bufferedWriter.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static List<Product> readProduct() {
-        List<Product> list = new ArrayList<>();
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-        try {
-            fileReader = new FileReader(file);
-            bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-            String[] arr = null;
-            while ((line = bufferedReader.readLine()) != null) {
-                arr = line.split(",");
-                Product product = new Product(arr[0], arr[1], arr[2], Float.parseFloat(arr[3]), arr[4]);
-                list.add(product);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Reading file error");
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return list;
     }
 }

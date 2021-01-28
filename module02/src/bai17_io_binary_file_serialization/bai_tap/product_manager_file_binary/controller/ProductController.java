@@ -1,6 +1,5 @@
 package bai17_io_binary_file_serialization.bai_tap.product_manager_file_binary.controller;
 
-import bai17_io_binary_file_serialization.bai_tap.product_manager_file_binary.model.Product;
 import bai17_io_binary_file_serialization.bai_tap.product_manager_file_binary.service.ProductManager;
 
 import java.util.Scanner;
@@ -11,21 +10,26 @@ public class ProductController {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         boolean flg = true;
-        while (flg){
-            System.out.println("PRODUCT MENU\n" +
-                    "1.Add new product -- 2.Show list products -- 3.Search product -- 0.Exit");
-            int choosen = Integer.parseInt(scan.nextLine());
-            switch (choosen){
-                case 1:
+        while (flg) {
+            System.out.println("PRODUCT MENU:\t1.Add new product | 2.Show list products | 3.Search product | x.Exit");
+            String choose = "";
+            try {
+                choose = scan.nextLine();
+            } catch (NullPointerException|NumberFormatException npe) {
+                System.out.println("You not choose yet!");
+//                npe.getMessage();
+            }
+            switch (choose) {
+                case "1":
                     productManager.addProduct();
                     break;
-                case 2:
+                case "2":
                     productManager.showListProduct();
                     break;
-                case 3:
+                case "3":
                     productManager.searchProduct();
                     break;
-                case 0:
+                case "x":
                     System.exit(-1);
                     break;
                 default:
@@ -36,3 +40,4 @@ public class ProductController {
         }
     }
 }
+
