@@ -104,7 +104,7 @@ public class Validate {
             if (Pattern.matches(REGEX_STRING, string)) {
                 return true;
             }
-            throw new Exception("Capitalized first letter of each word");
+            throw new Exception("\t--Capitalized first letter of each word");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -128,7 +128,7 @@ public class Validate {
             if (Pattern.matches(REGEX_AREA, number)) {
                 return true;
             }
-            throw new Exception("Area must over than 30");
+            throw new Exception("\t--Area must over than 30");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -152,7 +152,7 @@ public class Validate {
             if (Pattern.matches(REGEX_MAX_PEOPLE, number)) {
                 return true;
             }
-            throw new Exception("Must positive number less than 20");
+            throw new Exception("\t--Must positive number less than 20");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;

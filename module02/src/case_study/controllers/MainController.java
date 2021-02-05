@@ -29,15 +29,15 @@ public class MainController {
 
     public void displayMainMenu() {
         while (true) {
-            System.out.println("\nMAIN MENU:\t" +
+            System.out.print("\nMAIN MENU:\t" +
                     "1.Add new service | " +
                     "2.Show services | " +
                     "3.Add new customer | " +
-                    "4.Show information customer | " +
+                    "4.Show information customer | \n\t\t\t" +
                     "5.Add new booking | " +
                     "6.Show information of employee | " +
                     "7.Cinema manager | " +
-                    "8.Find employee | " +
+                    "8.Find employee | \n\t\t\t" +
                     "9.Exit" +
                     "\nEnter your choice: ");
             String choose = sc.nextLine().trim();
@@ -369,6 +369,7 @@ public class MainController {
     }
 
     public void addNewBook() {
+        boolean flg = true;
         //show list customers
         List<Customer> listCustomer = customerManager.findAll();
         for (int i = 0; i < listCustomer.size(); i++) {
@@ -376,13 +377,25 @@ public class MainController {
             listCustomer.get(i).showInfor();
         }
         //choose customer
-        System.out.print("Enter number of customer: ");
-        int chooseCustomer = Integer.parseInt(sc.nextLine());
+        int chooseCustomer = 0;
+        do {
+            System.out.print("Enter customer's number: ");
+            try {
+                chooseCustomer = Integer.parseInt(sc.nextLine());
+                if (chooseCustomer < 1 || chooseCustomer > listCustomer.size()){
+                    throw new ArrayIndexOutOfBoundsException("\t--Customer's number not exist");
+                }
+                break;
+            } catch (NumberFormatException nf) {
+                System.out.println("\t--Customer's number must be a number");
+            } catch (ArrayIndexOutOfBoundsException aioob) {
+                System.out.println(aioob.getMessage());
+            }
+        }
+        while (true);
         Customer customer = listCustomer.get(chooseCustomer - 1); // get object customer
 
         String serviceId = null; // id of service has been chosen
-        boolean flg = true;
-
         do {
             System.out.print("\tBOOKING MENU:\t1. Booking Villa | 2. Booking House | 3. Booking Room\nChoose: ");
             int chooseBooking = Integer.parseInt(sc.nextLine()); // choose type service booking

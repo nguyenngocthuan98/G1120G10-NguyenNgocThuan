@@ -64,6 +64,6 @@ public class Employee {
     }
 
     public void showInfor() {
-        System.out.println("ID employee: " + getIdEmployee() + ", name employee: " + getNameEmployee() + ", age employee: " + getAgeEmployee() + ", address employee: " + getAddressEmployee());
+        System.out.println("Name employee: " + getNameEmployee() + ", age employee: " + getAgeEmployee() + ", address employee: " + getAddressEmployee());
     }
 }
