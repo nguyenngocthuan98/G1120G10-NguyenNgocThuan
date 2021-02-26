@@ -46,7 +46,7 @@ create table products(
 );
 
 create table productlines(
-	productLine varchar(50) not null,
+	productLine varchar(50) not null primary key,
 	textDescription text,
 	image varchar(255)
 );
@@ -75,7 +75,6 @@ alter table orders
 	add foreign key(customerNumber) references customers(customerNumber); -- Customers - Orders (1: N)
     
 alter table payments
-	add customerNumber int, 
 	add foreign key(customerNumber) references customers(customerNumber); -- Customers - Payments (1: N)
     
 create table OrderDetails(
@@ -90,11 +89,13 @@ alter table products
 	add productLine varchar(50) not null,
     add foreign key(productLine) references productlines(productLine); -- ProductLine - Products (1: N)
     
+alter table customers
+	add salesRepEmployeeNumber int not null,
+    add foreign key(salesRepEmployeeNumber) references employees(employeeNumber); -- Employees - Customers (1: N)
+
 alter table employees
-	add salesRepEmployeeNumber varchar(50) not null,
-    add foreign key(salesRepEmployeeNumber) references customers(salesRepEmployeeNumber), -- Employees - Customers (1: N)
     add reportTo int,
-	add foreign key(reportTo) references employees(reportTo), -- Employees - Employees (1: N)
+	add foreign key(reportTo) references employees(reportTo), -- Employees - Employees (1: N) {Error Code: 1822. Failed to add the foreign key constraint. Missing index for constraint 'employees_ibfk_1' in the referenced table 'employees'}
     add officeCode varchar(10) not null,
     add foreign key(officeCode) references offices(officeCode); -- Offices - Employees (1: N)
 
