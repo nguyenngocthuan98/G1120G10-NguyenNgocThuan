@@ -23,5 +23,5 @@ SELECT * FROM users WHERE ten = "Huong";
 -- Viết câu lệnh lấy ra tổng số tiền của Huong
 SELECT SUM(sotien) FROM users as tong_tien WHERE ten = "Huong";
 
--- Viết câu lệnh lấy ra tên danh sách của tất cả học viên, không trùng lặp
+-- Viết câu lệnh lấy ra tên danh sách của tất cả học viên, không trùng lặp     
 SELECT * FROM users GROUP BY ten;
