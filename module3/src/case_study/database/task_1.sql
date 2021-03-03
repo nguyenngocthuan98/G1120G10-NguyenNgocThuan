@@ -74,13 +74,13 @@ insert into LoaiKhach(IDLoaiKhach, TenLoaiKhach) values
 
 insert into KhachHang
 	(IDKhachHang, IDLoaiKhach, Hoten, NgaySinh, SoCMTND, SDT, Email, DiaChi) values
-    (2, 4, 'Trần Quốc Hoàng', '1996/02/04', '891111262', '0927483939', 'guoang_nii_san@customer.com', 'Quảng Nam'),
+    (2, 1, 'Trần Quốc Hoàng', '1996/02/04', '891111262', '0927483939', 'guoang_nii_san@customer.com', 'Quảng Ngãi'),
 	(3, 3, 'Nguyễn Hoàng Bảo Ngọc', '1997/10/03', '891234263', '0985285078', 'ngok_pro_vjp@customer.com', 'Quảng Trị'),
 	(4, 1, 'Nguyễn Ngọc Thuần', '1998/09/16', '621136886', '0912345678', 'daica_thuan_pro@customer.com', 'Huế'),
 	(5, 5,'Nguyễn Hữu Nghĩa', '1997/12/03', '891342567', '098254321', 'ngkia_ni_chan@customer.com', 'Đà Nẵng'),
 	(6, 4, 'Cái Mây', '1997/07/03', '891234567', '0987654321', 'cloud_girl@customer.com', 'Quảng Bình'),
 	(7, 1, 'Nguyễn Vân', '1997/07/03', '832235562', '098784837', 'nguyenvan@customer.com', 'Hà Nội'),
-	(8, 2, 'Nguyễn Thị Tường Vi', '1992/07/03', '832235562', '098784837', 'nttv@customer.com', 'Hà Giang'),
+	(8, 2, 'Nguyễn Thị Tường Vi', '1992/07/03', '832235562', '098784837', 'nttv@customer.com', 'Quảng Ngãi'),
 	(10, 5, 'Nguyễn Ngọc Đông', '1985/07/03', '832235562', '098784837', 'qua_tuyet_voi@customer.com', 'Cà Mau'),
     (11, 3, 'Nguyễn Ngọc Đông', '1985/01/01', '832111562', '098222837', 'dong_jp@customer.com', 'Cà Lâu');
 
@@ -108,6 +108,6 @@ insert into HopDong
 insert into HopDongChiTiet(IDHopDongChiTiet, IDHopDong, IDDichVuDiKem, SoLuong) values 
 (1, 2, 3, 10),
 (2, 3, 4, 10),
-(3, 1, 3, 10),
+(3, 1, 3, 11),
 (4, 8, 3, 10),
 (5, 5, 2, 2);
