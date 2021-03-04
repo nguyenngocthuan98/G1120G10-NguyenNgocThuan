@@ -23,10 +23,28 @@ where
 	year(NgayLamHopDong) = 2019 and month(NgayLamHopDong) in (1,2,3) and month(NgayLamHopDong) not in (4,5,6,7,8,9,10,11,12);
 
 -- TASK 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+select 	
+	dvdk.IDDichVuDiKem,
+	dvdk.TenDichVuDiKem,
+	dvdk.gia as Gia,
+	count(hdct.IDDichVuDiKem) as SoLanSuDung
+from DichVuDiKem dvdk
+	inner join HopDongChiTiet hdct on hdct.IDDichVuDiKem = dvdk.IDDichVuDiKem
+group by hdct.IDDichVuDiKem
+having count(hdct.IDDichVuDiKem) =
+	(
+    select max(SoLanSuDung)
+    from
+		(select count(IDDichVuDiKem) as SoLanSuDung
+        from HopDongChiTiet hdct
+        group by IDDichVuDiKem) as SoLanSuDungDichVuDiKem
+	);
+    
+/*-- bug
 select dvdk.TenDichVuDiKem, hdct.SoLuong
 from DichVuDiKem dvdk
 inner join HopDongChiTiet hdct on dvdk.IDDichVuDiKem = hdct.IDDichVuDiKem
-having max(hdct.SoLuong); -- bug
+having max(hdct.SoLuong); */
 
 -- TASK 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 -- Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.

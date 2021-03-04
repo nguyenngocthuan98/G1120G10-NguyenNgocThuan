@@ -3,8 +3,13 @@ use db_furama;
 -- TASK 2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.
 select * 
 from NhanVien
-where (HoTen like 'H%' or HoTen like 'T%' or HoTen like 'K%')
-		and length(HoTen) <= 15;
+where 
+	(
+    SUBSTRING_INDEX(HoTen, ' ', -1) like 'T%' or
+    SUBSTRING_INDEX(HoTen, ' ', -1) like 'H%' or
+    SUBSTRING_INDEX(HoTen, ' ', -1) like 'K%'
+    )
+    and length(HoTen) <= 15;
 
 -- TASK 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 -- Cách đúng tương đối: select (year(now()) - year(nv.NgaySinh)) as Tuoi from NhanVien nv;

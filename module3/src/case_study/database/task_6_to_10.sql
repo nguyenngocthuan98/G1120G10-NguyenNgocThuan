@@ -1,6 +1,7 @@
 use db_furama;
 
--- TASK 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
+-- TASK 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 
+-- (Quý 1 là tháng 1, 2, 3).
 select dv.IDDichVu, dv.TenDichVu, dv.DienTich, dv.ChiPhiThue, ldv.TenLoaiDichVu
 from DichVu dv
 	inner join LoaiDichVu ldv on dv.IDLoaiDichVu = ldv.IDLoaiDichVu
@@ -8,7 +9,8 @@ from DichVu dv
 where dv.IDDichVu not in 
 	(select IDDichVu from HopDong hd where year(hd.NgayLamHopDong) >= 2019);
     
--- TASK 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
+-- TASK 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu 
+	-- của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
 	-- nhưng chưa từng được Khách hàng đặt phòng trong năm 2019.
 select dv.IDDichVu, dv.TenDichVu, dv.DienTich, dv.SoNguoiToiDa, dv.ChiPhiThue, ldv.TenLoaiDichVu
 from DichVu dv
@@ -46,5 +48,5 @@ group by Thang;
 -- Kết quả hiển thị bao gồm IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
 select hd.IDHopDong, hd.NgayLamHopDong, hd.NgayKetThuc, hd.TienDatCoc, count(hdct.IDHopDongChiTiet) as SoLuongDichVuDiKem
 from HopDong hd
-inner join HopDongChiTiet hdct on hd.IDHopDong = hdct.IDHopDong
+left join HopDongChiTiet hdct on hd.IDHopDong = hdct.IDHopDong
 group by hd.IDHopDong;
