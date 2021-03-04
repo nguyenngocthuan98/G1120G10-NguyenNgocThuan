@@ -63,7 +63,9 @@ insert into NhanVien
 	(8, 'Cao Hà Vũ', 1, 2, 3, '1993/07/03', '892224567', '305', '0987623121', 'caohavu@furama.com', 'Quảng Ngãi'),
 	(9, 'Mai Quốc Khánh', 2, 2, 3, '1992/07/03', '89436563', '290', '0987676581', 'maiquockhanh@furama.com', 'Hà Tĩnh'),
     (10,'Trằng Guốc Goàng', 1, 2, 2, '1995/12/12', '123123123', '300000', '0909123111', 'goangtg@furama.com', 'Quảng Nam'),
-	(11,'Trần Hong', 3, 2, 1, '2001/12/05', '123123456', '350000', '0909123123', 'hongt@furama.com', 'Nha Trang');
+	(11,'Trần Hong', 3, 2, 1, '2001/12/05', '123123456', '350000', '0909123123', 'hongt@furama.com', 'Nha Trang'),
+    (12,'Nguyễn Văn Hải Châu', 3, 2, 1, '1995/12/05', '123123456', '350000', '0909123123', 'hc@furama.com', 'Hải Châu'),
+    (13,'Nguyễn Văn Liên Chiểu', 3, 2, 1, '1996/12/05', '123123456', '350000', '0909123123', 'lc@furama.com', 'Hải Châu');
 
 insert into LoaiKhach(IDLoaiKhach, TenLoaiKhach) values
 	(1, 'Diamond'),
@@ -74,6 +76,7 @@ insert into LoaiKhach(IDLoaiKhach, TenLoaiKhach) values
 
 insert into KhachHang
 	(IDKhachHang, IDLoaiKhach, Hoten, NgaySinh, SoCMTND, SDT, Email, DiaChi) values
+    (1, 2,'Nguyễn Ngọc Nghĩa', '1991/12/03', '891342567', '098254321', 'ngkia_ni_chan@customer.com', 'Hà Tĩnh'),
     (2, 1, 'Trần Quốc Hoàng', '1996/02/04', '891111262', '0927483939', 'guoang_nii_san@customer.com', 'Quảng Ngãi'),
 	(3, 3, 'Nguyễn Hoàng Bảo Ngọc', '1997/10/03', '891234263', '0985285078', 'ngok_pro_vjp@customer.com', 'Quảng Trị'),
 	(4, 1, 'Nguyễn Ngọc Thuần', '1998/09/16', '621136886', '0912345678', 'daica_thuan_pro@customer.com', 'Huế'),
@@ -81,6 +84,7 @@ insert into KhachHang
 	(6, 4, 'Cái Mây', '1997/07/03', '891234567', '0987654321', 'cloud_girl@customer.com', 'Quảng Bình'),
 	(7, 1, 'Nguyễn Vân', '1997/07/03', '832235562', '098784837', 'nguyenvan@customer.com', 'Hà Nội'),
 	(8, 2, 'Nguyễn Thị Tường Vi', '1992/07/03', '832235562', '098784837', 'nttv@customer.com', 'Quảng Ngãi'),
+    (9, 1, 'Nguyễn Thị Tường Zi', '1998/09/16', '621136886', '0912345678', 'nttz@customer.com', 'Đà Nẵng'),
 	(10, 5, 'Nguyễn Ngọc Đông', '1985/07/03', '832235562', '098784837', 'qua_tuyet_voi@customer.com', 'Cà Mau'),
     (11, 3, 'Nguyễn Ngọc Đông', '1985/01/01', '832111562', '098222837', 'dong_jp@customer.com', 'Cà Lâu');
 
@@ -100,10 +104,15 @@ insert into HopDong
 	(12, 10, 4, 1, '2019/05/07', '2019/05/09', 50, 5000),
 	(13, 10, 5, 2, '2019/02/07', '2019/05/09', 50, 5000),
 	(14, 10, 4, 4, '2019/12/12', '2019/12/14', 50, 5000),
-    (15, 10, 8, 8, '2016/05/07', '2016/01/09', 50, 5000),
+    (15, 8, 8, 8, '2016/05/07', '2016/01/09', 50, 5000),
 	(16, 10, 6, 5, '2016/01/07', '2016/01/09', 50, 5000),
     (17, 10, 8, 9, '2018/05/07', '2018/01/09', 50, 5000),
-	(18, 10, 6, 5, '2018/01/07', '2018/01/09', 50, 5000);
+	(18, 10, 6, 5, '2018/01/07', '2018/01/09', 50, 5000),
+    (19, 10, 2, 4, '2019/12/12', '2019/12/16', 20, 5000),
+    (20, 8, 6, 4, '2019/12/12', '2019/12/14', 50, 5000),
+    (21, 13, 7, 4, '2019/12/12', '2019/12/16', 20, 5000),
+    (22, 12, 3, 4, '2019/12/12', '2019/12/14', 60, 5000),
+    (23, 12, 10, 3, '2019/12/12', '2019/12/14', 60, 5000);
     
 insert into HopDongChiTiet(IDHopDongChiTiet, IDHopDong, IDDichVuDiKem, SoLuong) values 
 (1, 2, 3, 10),

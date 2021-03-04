@@ -86,7 +86,7 @@ where IDDichVuDiKem =
 		inner join HopDong hd on hd.IDHopDong = hdct.IDHopDong
 	where year(hd.NgayLamHopDong) = 2019
 	group by dvdk.IDDichVuDiKem
-	having sum(hdct.SoLuong)
+	having sum(hdct.SoLuong) > 10
 );
 
 -- TASK 20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm 
