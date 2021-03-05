@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .box {
+                border: 1px solid red;
+                padding: 0 20px;
+                text-align: center;
+            }
+            .box .box__title {
+                background: #e8e8e8;
+            }
+            .box .box__content {
+                background: #9c9c9c;
+            }
+            .box .box__footer {
+                background: #e8e8e8;
+            }
+            .box--small {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- BLock box -->
+        <div class="box">
+            <!-- Element box -->
+            <div class="box__title">
+                <p>Title</p>
+            </div>
+            <div class="box__body">
+                <p>Content</p>
+            </div>
+            <div class="box__footer">
+                <p>Footer</p>
+            </div>
+        </div>
+
+        <br />
+
+        <!-- Modifer Box -->
+        <div class="box box--small">
+            <div class="box__title">
+                <p>Title Modifer</p>
+            </div>
+            <div class="box__body">
+                <p>Content Modifer</p>
+            </div>
+            <div class="box__footer">
+                <p>Footer Modifer</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+body {
+    width: 30%;
+}
+
+.external-style .external-style__header--green {
+    color: green;
+}
+
+.external-style .external-style__content {
+    color: blue;
+}
