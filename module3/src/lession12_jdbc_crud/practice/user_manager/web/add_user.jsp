@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- The Modal -->
-            <div class="modal fade" id="myModal">
+            <div class="modal fade" id="myModalCreate">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
@@ -38,7 +38,8 @@
                                     placeholder="Enter country"
                                     name="country"
                                 />
-                                <button type="submit" class="btn btn-success">
+                                <input type="hidden" name="action" value="create">
+                                <button type="submit" class="btn btn-success btn-sm">
                                     Submit
                                 </button>
                             </form>
@@ -47,7 +48,7 @@
                         <div class="modal-footer">
                             <button
                                 type="button"
-                                class="btn btn-danger"
+                                class="btn btn-danger btn-sm"
                                 data-dismiss="modal"
                             >
                                 Close

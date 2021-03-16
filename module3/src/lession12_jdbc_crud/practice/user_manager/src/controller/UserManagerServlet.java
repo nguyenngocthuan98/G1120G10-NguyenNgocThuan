@@ -30,10 +30,10 @@ public class UserManagerServlet extends HttpServlet {
                 //findUser(request, response);
                 break;
             case "update":
-                //updateUser(request, response);
+                updateUser(request, response);
                 break;
             case "delete":
-                //deleteUser(request, response);
+                deleteUser(request, response);
                 break;
             default:
                 listUser(request, response);
@@ -49,23 +49,11 @@ public class UserManagerServlet extends HttpServlet {
         }
         switch (actionName) {
             case "update":
-                //formUpdateUser(request, response);
+                formUpdateUser(request, response);
                 break;
             default:
                 listUser(request, response);
                 break;
-        }
-    }
-
-    private void listUser(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("userList", userService.findAll());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-        try {
-            requestDispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -77,6 +65,40 @@ public class UserManagerServlet extends HttpServlet {
         User user = new User(name, email, country);
         userService.create(user);
 
+        listUser(request, response);
+    }
+
+    private void listUser(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("userList", userService.findAll());
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formUpdateUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("update.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+//        User user = userService.findById(id);
+
+        User userUpdate = new User(id, name, email, country);
+        userService.update(userUpdate);
+
+        listUser(request, response);
+    }
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        userService.remove(id);
         listUser(request, response);
     }
 }

@@ -11,7 +11,7 @@ public interface UserService {
 
     List<User> findAll(); // cRud
 
-    void update(int id, User user); // crUd
+    void update(User user); // crUd
 
     void remove(int id); // cruD
 }
