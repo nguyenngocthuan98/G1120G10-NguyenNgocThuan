@@ -7,7 +7,7 @@
         <div class="col-md-3 text-center">
             <img
                     class="mx-auto d-block"
-                    src="img/logo.png"
+                    src="../assert/img/logo.png"
                     alt="logo_furama_resort_manager"
                     width="auto"
                     height="75px"

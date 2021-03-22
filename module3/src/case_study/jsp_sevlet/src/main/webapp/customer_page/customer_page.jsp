@@ -266,14 +266,14 @@
             <div class="modal-footer">
                 <button
                         type="submit"
-                        class="btn btn-success btn-sm"
+                        class="btn btn-danger btn-sm"
                         data-dismiss="modal"
                 >
                     <b>Ok, DELETE</b>
                 </button>
                 <button
                         type="button"
-                        class="btn btn-danger btn-sm"
+                        class="btn btn-success btn-sm"
                         data-dismiss="modal"
                 >
                     Cancel

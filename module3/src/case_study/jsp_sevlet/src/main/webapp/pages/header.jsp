@@ -17,9 +17,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous"
     /> -->
-    <link rel="stylesheet" href="../style/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../assert/style/bootstrap/css/bootstrap.min.css" />
 
     <!-- Custom style CSS-->
-    <link rel="stylesheet" href="../style/css/style.css" />
+    <link rel="stylesheet" href="../assert/style/css/style.css" />
 </head>
