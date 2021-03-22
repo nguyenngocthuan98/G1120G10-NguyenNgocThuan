@@ -6,7 +6,7 @@ public class Customer {
     private String customerId;
     private CustomerType customerType;
     private String customerName;
-    private Date customerBirthDate;
+    private Date customerBirthday;
     private boolean customerGender;
     private String customerIdCard;
     private String customerPhone;
@@ -16,12 +16,12 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String customerId, CustomerType customerType, String customerName, Date customerBirthDate,
+    public Customer(String customerId, CustomerType customerType, String customerName, Date customerBirthday,
                     boolean customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerType = customerType;
         this.customerName = customerName;
-        this.customerBirthDate = customerBirthDate;
+        this.customerBirthday = customerBirthday;
         this.customerGender = customerGender;
         this.customerIdCard = customerIdCard;
         this.customerPhone = customerPhone;
@@ -53,12 +53,12 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public Date getCustomerBirthDate() {
-        return customerBirthDate;
+    public Date getCustomerBirthday() {
+        return customerBirthday;
     }
 
-    public void setCustomerBirthDate(Date customerBirthDate) {
-        this.customerBirthDate = customerBirthDate;
+    public void setCustomerBirthday(Date customerBirthday) {
+        this.customerBirthday = customerBirthday;
     }
 
     public boolean isCustomerGender() {
