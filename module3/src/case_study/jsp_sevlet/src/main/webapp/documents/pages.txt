@@ -1,0 +1,19 @@
+Task 1: home: index.html
+
+Task 2:
+1. form create new customer (Modal in Show list customer)
+	customer type: select list
+	name, birthday
+	gender: select list
+	id card, phone, email, address
+2. Show list customer: table, search, btn delete+edit, pagination(phân trang)
+	confirm before delete
+3. create new service
+4. create new employee (Modal in Show list employee)
+5. Show list employee: table, search, btn delete+edit, pagination
+6. create new contract
+7. create new contract detail
+8. show list customer using service: table, pagination, btn delete+edit info service
+
+Task 3: Validate data
+Task 4: create login (using session, cookie) 
