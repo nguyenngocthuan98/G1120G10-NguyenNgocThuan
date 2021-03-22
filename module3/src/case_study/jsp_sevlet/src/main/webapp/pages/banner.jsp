@@ -22,7 +22,7 @@
                             Hi
                             <i class="name_user">Nguyen Ngoc Thuan</i>
                         </span>
-                <a href="../pages/login.html" data-toggle="tooltip" title="Logout">
+                <a href="#" data-toggle="tooltip" title="Logout">
                     &nbsp<i class="fas fa-sign-out-alt"> Logout</i>
                 </a>
             </p>

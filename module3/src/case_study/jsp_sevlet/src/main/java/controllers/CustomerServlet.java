@@ -88,7 +88,7 @@ public class CustomerServlet extends HttpServlet {
     private void showCustomerList(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = this.customerService.findAllCustomer();
         request.setAttribute("customerList", customerList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer_page/customer_page.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/customer/customer.jsp");
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
