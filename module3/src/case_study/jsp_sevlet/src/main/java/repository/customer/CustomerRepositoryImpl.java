@@ -4,8 +4,6 @@ import model.Customer;
 import model.CustomerType;
 import repository.DBConnection;
 import repository.customer_type.CustomerTypeRepositoryImpl;
-import service.customer_type.CustomerTypeService;
-import service.customer_type.CustomerTypeServiceImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +12,12 @@ import java.util.List;
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     public static final String SELECT_ALL_CUSTOMER = "SELECT * FROM customer;";
+    private static final String CREATE_CUSTOMER =
+            "INSERT INTO customer(customer_id,customer_type_id,customer_name," +
+                    "customer_birthday,customer_gender,customer_id_card," +
+                    "customer_phone,customer_email,customer_address)" +
+                    "values (?, ?, ? ,?, ?, ? ,?, ?, ?);";
+    private static final String DELETE_CUSTOMER = "DELETE FROM customer WHERE customer_id = ?;";
 
     CustomerTypeRepositoryImpl customerTypeRepository = new CustomerTypeRepositoryImpl();
 
@@ -66,7 +70,34 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void save(Customer customer) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(CREATE_CUSTOMER);
+                preparedStatement.setString(1, customer.getCustomerId());
+                preparedStatement.setInt(2, customer.getCustomerType().getCustomerTypeId());
+                preparedStatement.setString(3, customer.getCustomerName());
+                preparedStatement.setString(4, customer.getCustomerBirthday().toString());
+                preparedStatement.setInt(5, (customer.isCustomerGender()) ? 1 : 0);
+                preparedStatement.setString(6, customer.getCustomerIdCard());
+                preparedStatement.setString(7, customer.getCustomerPhone());
+                preparedStatement.setString(8, customer.getCustomerEmail());
+                preparedStatement.setString(9, customer.getCustomerAddress());
 
+                preparedStatement.executeUpdate();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException throwable) {
+                    throwable.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
     }
 
     @Override
@@ -81,7 +112,25 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void remove(String id) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(DELETE_CUSTOMER);
+                statement.setString(1, id);
 
+                statement.executeUpdate();
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
     }
 
     @Override
