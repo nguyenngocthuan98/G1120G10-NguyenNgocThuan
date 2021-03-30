@@ -22,6 +22,7 @@
                     name="firstNumber"
                     placeholder="First number"
                     value="${firstNumber}"
+                    required
             />
             <input
                     type="text"
@@ -29,6 +30,7 @@
                     name="secondNumber"
                     placeholder="Second number"
                     value="${secondNumber}"
+                    required
             />
         </div>
         <div class="row">
@@ -58,34 +60,34 @@
             />
         </div>
     </form>
+    <hr/>
     <c:if test="${not empty exceptionDivisionForZero}">
         <div class="alert alert-danger">
                 ${exceptionDivisionForZero}
         </div>
     </c:if>
-    <hr/>
-    <c:if test="${not empty result}">
+    <c:if test="${not empty result} && ${empty exceptionDivisionForZero}">
         <div class="result row" style="text-align: center">
-            <span class="col-2">Result: </span>
+            <span class="col-1">Result: </span>
             <input
                     type="text"
-                    class="form-control form-control-sm col-2"
+                    class="form-control form-control-sm col-3"
                     value="${firstNumber}"
                     disabled
                     style="text-align: center"
             />
-            <span class="col-2">${operator}</span>
+            <span class="col-1">${operator}</span>
             <input
                     type="text"
-                    class="form-control form-control-sm col-2"
+                    class="form-control form-control-sm col-3"
                     value="${secondNumber}"
                     disabled
                     style="text-align: center"
             />
-            <span class="col-2">=</span>
+            <span class="col-1">=</span>
             <input
                     type="text"
-                    class="form-control form-control-sm col-2"
+                    class="form-control form-control-sm col-3"
                     value="${result}"
                     disabled
                     style="text-align: center"
