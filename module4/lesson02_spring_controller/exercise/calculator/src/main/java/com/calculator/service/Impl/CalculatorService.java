@@ -20,7 +20,11 @@ public class CalculatorService implements com.calculator.service.CalculatorServi
                 result = firstNum * secondNum;
                 break;
             case "division":
-                result = firstNum / secondNum;
+                if (secondNum != 0) {
+                    result = firstNum / secondNum;
+                } else {
+                    throw new ArithmeticException("Not divided by 0");
+                }
                 break;
         }
         return result;

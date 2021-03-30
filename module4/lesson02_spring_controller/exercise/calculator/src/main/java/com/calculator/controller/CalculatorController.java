@@ -22,19 +22,17 @@ public class CalculatorController {
                             @RequestParam String secondNumber,
                             @RequestParam String operator,
                             Model model) {
-        double result = 0;
-        String operators = "";
-
-        if (Double.parseDouble(secondNumber) == 0 && operator.equals("division")) {
-            model.addAttribute("exceptionDivisionForZero", "Not divided by 0");
-        } else {
-            result = this.calculatorService.calculate(firstNumber, secondNumber, operator);
-            operators = this.calculatorService.changeOperators(operator);
-            model.addAttribute("result", result);
-            model.addAttribute("operator",operators);
+        try {
+            this.calculatorService.calculate(firstNumber, secondNumber, operator);
+            model.addAttribute("result", this.calculatorService.calculate(firstNumber, secondNumber, operator));
+        } catch (NumberFormatException exceptionNumber) {
+            model.addAttribute("exceptionNumber", "Not a number!");
+        } catch (ArithmeticException exception) {
+            model.addAttribute("exception", exception.getMessage());
         }
-        model.addAttribute("firstNumber",firstNumber);
-        model.addAttribute("secondNumber",secondNumber);
+        model.addAttribute("operator", this.calculatorService.changeOperators(operator));
+        model.addAttribute("firstNumber", firstNumber);
+        model.addAttribute("secondNumber", secondNumber);
         return "index";
     }
 }

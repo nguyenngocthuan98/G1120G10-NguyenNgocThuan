@@ -61,9 +61,14 @@
         </div>
     </form>
     <hr/>
-    <c:if test="${not empty exceptionDivisionForZero}">
+    <c:if test="${not empty exception}">
         <div class="alert alert-danger">
-                ${exceptionDivisionForZero}
+                ${exception}
+        </div>
+    </c:if>
+    <c:if test="${not empty exceptionNumber}">
+        <div class="alert alert-danger">
+                ${exceptionNumber}
         </div>
     </c:if>
     <c:if test="${not empty result}">
