@@ -16,6 +16,9 @@
 <div class="container col-5 border" style="padding: 10px">
     <h1>SANDWICH CONDIMENTS</h1>
     <br/>
+    <c:if test="${empty stringList}">
+        <p>${messNothing}</p>
+    </c:if>
     <p>
         Your sandwich have:
         <c:forEach items="${stringList}" var="condiment">

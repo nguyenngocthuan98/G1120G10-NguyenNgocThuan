@@ -42,7 +42,7 @@
             <label class="custom-control-label" for="sprouts">Sprouts</label>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Mix</button>
+        <button type="submit" class="btn btn-primary" name="checkNull">Mix</button>
     </form>
 </div>
 <!-- Optional JavaScript -->
