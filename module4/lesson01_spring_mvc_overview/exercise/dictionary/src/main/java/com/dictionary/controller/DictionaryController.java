@@ -1,7 +1,5 @@
 package com.dictionary.controller;
 
-import com.dictionary.repository.DictionaryRepository;
-import com.dictionary.repository.DictionaryRepositoryImpl;
 import com.dictionary.service.DictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,16 +15,6 @@ public class DictionaryController {
     @Autowired
     DictionaryService dictionaryService;
 
-//    List<String> listKeys = this.dictionaryService.getAllKey(); // BUG
-
-    /* Can't use getAllKey with
-        List<String> listKeys = dictionaryService.getAllKey();
-        because dictionaryService.getKey() is null
-        so I use the way below (lines 28, 29)
-    */
-    DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-    List<String> listKeys = dictionaryRepository.getAllKey();
-
     @GetMapping("/")
     public String homePage() {
         return "index";
@@ -34,8 +22,11 @@ public class DictionaryController {
 
     @PostMapping("/translate")
     public String translate(@RequestParam String inputValue, Model model) {
-        model.addAttribute("inputValue", inputValue);
+
         String result = this.dictionaryService.translate(inputValue);
+        List<String> listKeys = dictionaryService.getAllKey();
+        model.addAttribute("inputValue", inputValue);
+
 
         if (!result.equals("")) {
             model.addAttribute("outputValue", result);
@@ -43,6 +34,7 @@ public class DictionaryController {
             model.addAttribute("mess", "Not found in out list! Try again");
             model.addAttribute("listKey", listKeys);
         }
+
         return "index";
     }
 }

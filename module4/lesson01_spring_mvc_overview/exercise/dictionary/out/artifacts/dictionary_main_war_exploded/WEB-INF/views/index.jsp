@@ -34,7 +34,7 @@
             />
         </div>
     </form>
-    <c:if test="${empty outputValue && not empty inputValue}">
+    <c:if test="${not empty mess}">
         <div class="alert alert-danger">
             <strong>Oops!</strong>${mess}
         </div>
