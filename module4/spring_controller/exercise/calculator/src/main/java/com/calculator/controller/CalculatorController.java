@@ -24,17 +24,17 @@ public class CalculatorController {
                             Model model) {
         double result = 0;
         String operators = "";
+
         if (Double.parseDouble(secondNumber) == 0 && operator.equals("division")) {
-            model.addAttribute("operator", operator);
             model.addAttribute("exceptionDivisionForZero", "Not divided by 0");
         } else {
             result = this.calculatorService.calculate(firstNumber, secondNumber, operator);
             operators = this.calculatorService.changeOperators(operator);
+            model.addAttribute("result", result);
+            model.addAttribute("operator",operators);
         }
-        model.addAttribute("result", result);
-        model.addAttribute("operator",operators);
         model.addAttribute("firstNumber",firstNumber);
         model.addAttribute("secondNumber",secondNumber);
-        return"index";
+        return "index";
     }
 }

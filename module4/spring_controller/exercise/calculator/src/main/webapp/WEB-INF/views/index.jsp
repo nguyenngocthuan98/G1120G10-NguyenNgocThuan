@@ -66,7 +66,7 @@
                 ${exceptionDivisionForZero}
         </div>
     </c:if>
-    <c:if test="${not empty result} && ${empty exceptionDivisionForZero}">
+    <c:if test="${not empty result}">
         <div class="result row" style="text-align: center">
             <span class="col-1">Result: </span>
             <input
