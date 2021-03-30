@@ -13,52 +13,25 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class="container col-6" style="border: 2px solid; border-radius: 5px; margin-top: 10px; padding: 10px; ">
-    <a class="btn btn-primary btn-sm" href="/" style="margin-bottom: 10px">HOME</a>
-    <form class="form" method="POST" action="/translate">
-        <div class="form-group form-inline">
-            <label for="input_value">English: </label>
-            <input
-                    type="text"
-                    name="input_value"
-                    id="input_value"
-                    class="form-control"
-                    placeholder=""
-                    style="margin: 0px 10px"
-                    value="${input_value}"
-            />
-            <input
-                    type="submit"
-                    class="btn btn-sm btn-success"
-                    value="Translate"
-            />
-        </div>
-    </form>
-    <c:if test="${empty output_value && not empty input_value}">
-        <div class="alert alert-danger">
-            <strong>Oops!</strong>${mess}
-        </div>
-        <small>Tip:
-            <c:forEach items="${listKey}" var="key"><span>${key},</span></c:forEach>
-        </small>
-    </c:if>
-    <c:if test="${not empty output_value}">
-        <hr/>
-        <div class="form-group form-inline">
-            <label for="output_value">Result Vietnamese: </label>
-            <input
-                    type="text"
-                    name="output_value"
-                    id="output_value"
-                    class="form-control"
-                    placeholder=""
-                    style="margin: 0px 10px"
-                    value="${output_value}"
-                    disabled
-            />
-        </div>
-    </c:if>
+<div class="container col-5 border" style="padding: 10px">
+    <h1>WELCOME HOME</h1>
+    <br/>
+    <h4>Hi <i>${email}</i></h4>
+    <label for="myInput">Your password:</label>
+    <input type="password" value="${password}" id="myInput"/>
+    <input type="checkbox" onclick="myFunction()"/> Show Password
+    <a class="btn btn-sm btn-danger" href="/">Logout</a>
 </div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
