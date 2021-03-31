@@ -10,7 +10,6 @@ import java.util.TreeMap;
 
 @Repository
 public class DictionaryRepositoryImpl implements DictionaryRepository {
-    static List<String> listKeys = new ArrayList<>();
     static TreeMap<String, String> vocabulary = new TreeMap<>();
 
     static {
@@ -35,6 +34,7 @@ public class DictionaryRepositoryImpl implements DictionaryRepository {
 
     @Override
     public List<String> getAllKey() {
+        List<String> listKeys = new ArrayList<>();
         for (Map.Entry<String, String> entry : vocabulary.entrySet()){
             listKeys.add(entry.getKey());
         }
