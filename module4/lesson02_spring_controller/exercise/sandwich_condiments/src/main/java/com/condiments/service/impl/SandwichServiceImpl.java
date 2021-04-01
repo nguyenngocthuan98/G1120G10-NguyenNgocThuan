@@ -1,4 +1,4 @@
-package com.condiments.service.Impl;
+package com.condiments.service.impl;
 
 import com.condiments.service.SandwichService;
 import org.springframework.stereotype.Service;

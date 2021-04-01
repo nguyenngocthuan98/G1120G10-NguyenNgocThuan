@@ -23,7 +23,6 @@ public class CalculatorController {
                             @RequestParam String operator,
                             Model model) {
         try {
-            this.calculatorService.calculate(firstNumber, secondNumber, operator);
             model.addAttribute("result", this.calculatorService.calculate(firstNumber, secondNumber, operator));
         } catch (NumberFormatException exceptionNumber) {
             model.addAttribute("exceptionNumber", "Not a number!");
