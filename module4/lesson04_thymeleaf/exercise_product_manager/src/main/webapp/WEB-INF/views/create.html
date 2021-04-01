@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: headTag"></head>
+<body>
+<div class="container">
+    <h1>Create new product</h1>
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <form th:action="@{/createProduct}" th:object="${product}" method="post">
+            <input type="hidden" class="form-control" th:field="*{id}" disabled/>
+            <tr class="form-group">
+                <td>Name:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Price:</td>
+                <td>
+                    <input type="number" class="form-control" required th:field="*{price}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Type:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{type}"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-sm btn-outline-success" value="Create"/>
+                    <a th:href="@{/}" class="btn btn-sm btn-outline-danger">Cancel</a>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>

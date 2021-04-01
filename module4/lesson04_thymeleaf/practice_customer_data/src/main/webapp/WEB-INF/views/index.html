@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<div class="container">
+    <div class="alert alert-success" th:if="${messageCreate}">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Create Success!</strong><span th:text="${messageCreate}"></span>
+    </div>
+    <div class="alert alert-success" th:if="${messageUpdate}">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Update Success!</strong><span th:text="${messageUpdate}"></span>
+    </div>
+    <div class="alert alert-success" th:if="${messageDelete}">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Delete Success!</strong><span th:text="${messageDelete}"></span>
+    </div>
+    <h1>List Customer</h1>
+    <a th:href="@{/createCustomerPage}" class="btn btn-sm btn-outline-success">Create new customer</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="list,iterStat : ${listCustomers}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.email}"></td>
+                <td th:text="${list.address}"></td>
+                <td>
+                    <a th:href="@{/{id}/viewCustomerPage(id=${list.id})}" class="btn btn-sm btn-outline-primary">Detail</a>
+                    <a th:href="@{/{id}/updateCustomerPage(id=${list.id})}" class="btn btn-sm btn-outline-warning">Edit</a>
+                    <a th:href="@{/{id}/getDeleteCustomer(id=${list.id})}" class="btn btn-sm btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: headTag"></head>
+<body>
+<div class="container">
+    <h1>List Product</h1>
+    <div th:replace="/layout :: notification"></div>
+    <nav class="navbar navbar-expand-sm">
+        <div class="navbar-collapse">
+            <a th:href="@{/createProductPage}" class="btn btn-sm btn-outline-success"><i class="fas fa-plus"></i></a>
+        </div>
+        <form class="form-inline my-2 my-lg-0" action="" method="">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
+            <button class="btn btn-sm btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </nav>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:if="!${listProduct}">
+            <h1>Data is empty</h1>
+        </div>
+        <div th:each="list,iterStat : ${listProduct}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.price}"></td>
+                <td th:text="${list.type}"></td>
+                <td>
+                    <a th:href="@{/{id}/viewProductPage(id=${list.id})}"
+                       class="btn btn-sm btn-outline-primary"><i class="far fa-eye"></i></a>
+                    <a th:href="@{/{id}/updateProductPage(id=${list.id})}"
+                       class="btn btn-sm btn-outline-warning"><i class="far fa-edit"></i></a>
+                    <button class="btn btn-sm btn-outline-danger"
+                            data-toggle="modal"
+                            data-target="#delModal"
+                            th:onclick="'getProductId(\''+ ${list.id} +'\')'">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</div>
+<div th:replace="/layout :: delModal"></div>
+<div th:replace="/layout :: script"></div>
+
+</body>
+</html>
