@@ -23,13 +23,20 @@
             <tr class="form-group">
                 <td>Price:</td>
                 <td>
-                    <input type="number" class="form-control" required th:field="*{price}"/>
+                    <input type="number" class="form-control" step="1000" required th:field="*{price}"/>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Type:</td>
                 <td>
-                    <input type="text" class="form-control" required th:field="*{type}"/>
+                    <select class="form-control" th:field="*{type}">
+                        <option class="bg-warning" th:value="${product.type}" th:text="${product.type}">
+                        </option>
+                        <option th:each="type : ${listType}"
+                                th:value="${type.toString()}"
+                                th:text="${type.toString()}">
+                        </option>
+                    </select>
                 </td>
             </tr>
             <tr>

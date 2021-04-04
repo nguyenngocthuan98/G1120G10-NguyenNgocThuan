@@ -28,6 +28,7 @@ public class ProductController {
     @GetMapping("/createProductPage")
     public String getCreateProductPage(Model model) {
         model.addAttribute("product", new Product());
+        model.addAttribute("listType", productService.getTypeProduct());
         return "create";
     }
 
@@ -38,9 +39,16 @@ public class ProductController {
         return "redirect:/";
     }
 
+//    @GetMapping("/{id}/updateProductPage")
+//    public ModelAndView getUpdateProductPage(@PathVariable int id) {
+//        return new ModelAndView("update", "product", productService.findById(id));
+//    }
+
     @GetMapping("/{id}/updateProductPage")
-    public ModelAndView getUpdateProductPage(@PathVariable int id) {
-        return new ModelAndView("update", "product", productService.findById(id));
+    public String getUpdateProductPage(@PathVariable int id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        model.addAttribute("listType", productService.getTypeProduct());
+        return "update";
     }
 
     @PostMapping("/updateProduct")
