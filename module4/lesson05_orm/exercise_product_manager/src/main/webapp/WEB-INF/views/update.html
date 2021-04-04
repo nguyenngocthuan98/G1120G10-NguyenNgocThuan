@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: headTag"></head>
+<body>
+<div class="container">
+    <h1>Update product</h1>
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <form th:action="@{/updateProduct}" th:object="${product}" method="post">
+            <tr class="form-group">
+                <td>ID</td>
+                <td>
+                    <input type="text" class="form-control" disabled th:field="*{id}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Name:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Price:</td>
+                <td>
+                    <input type="number" class="form-control" step="1000" required th:field="*{price}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Type:</td>
+                <td>
+                    <select class="form-control" th:field="*{type}">
+                        <option class="bg-warning" th:value="${product.type}" th:text="${product.type}">
+                        </option>
+                        <option th:each="type : ${listType}"
+                                th:value="${type.toString()}"
+                                th:text="${type.toString()}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-sm btn-outline-success" value="Update"/>
+                    <a th:href="@{/}" class="btn btn-sm btn-outline-danger">Cancel</a>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="/layout :: script"></div>
+</body>
+</html>
