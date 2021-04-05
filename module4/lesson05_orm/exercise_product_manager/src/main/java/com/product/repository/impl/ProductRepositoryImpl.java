@@ -26,16 +26,15 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void create(Product product) {
-//        if (product.getId() != null) {
-//            entityManager.merge(product);
-//        } else {
-//            entityManager.persist(product);
-//        }
-        entityManager.merge(product);
+        if (product.getId() != null) {
+            entityManager.merge(product);
+        } else {
+            entityManager.persist(product);
+        }
     }
 
     @Override
-    public Product findById(int id) {
+    public Product findById(long id) {
         TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p WHERE p.id=:id", Product.class);
         query.setParameter("id", id);
         try {
@@ -47,7 +46,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         Product product = findById(id);
         if (product != null) {
             entityManager.remove(product);

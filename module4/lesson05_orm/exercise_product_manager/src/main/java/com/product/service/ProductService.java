@@ -11,6 +11,6 @@ public interface ProductService {
 
     Product findById(int id);
 
-    void delete(int id);
+    void delete(long id);
 
 }

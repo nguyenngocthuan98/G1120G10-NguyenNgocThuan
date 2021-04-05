@@ -9,7 +9,7 @@ public interface ProductRepository {
 
     void create(Product product);
 
-    Product findById(int id);
+    Product findById(long id);
 
-    void delete(int id);
+    void delete(long id);
 }
