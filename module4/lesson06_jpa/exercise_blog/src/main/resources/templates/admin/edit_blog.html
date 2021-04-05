@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layouts/layout_main :: headTag"></head>
+<body>
+<div class="container">
+    <h1>Update blog</h1>
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <form th:action="@{/admin/editBlog}" th:object="${edit_blog}" method="post">
+            <input type="hidden" class="form-control" th:field="*{id}"/>
+            <tr class="form-group">
+                <td>Title blog:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{title}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Author name:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{authorName}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Category:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{category}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Date create:</td>
+                <td>
+                    <input type="date" class="form-control" required th:field="*{dateCreated}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Description:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{description}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Content:</td>
+                <td>
+                    <input type="text" class="form-control" required th:field="*{content}"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-sm btn-outline-success" value="Update"/>
+                    <a th:href="@{/admin/}" class="btn btn-sm btn-outline-danger">Cancel</a>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+<div th:replace="/layouts/layout_main :: script"></div>
+</body>
+</html>
