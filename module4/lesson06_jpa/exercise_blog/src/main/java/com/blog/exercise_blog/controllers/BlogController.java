@@ -56,9 +56,9 @@ public class BlogController {
 
     @PostMapping("/deleteBlog")
     public String deleteBlog(@RequestParam Integer id, RedirectAttributes redirectAttributes) {
+        String findTitleBlog = this.blogService.findById(id).getTitle();
         this.blogService.deleteById(id);
-        String findBlog = this.blogService.findById(id).getTitle();
-        redirectAttributes.addFlashAttribute("deleteSuccess", "Updated blog " + findBlog + " success!");
+        redirectAttributes.addFlashAttribute("deleteSuccess", "Deleted blog " + findTitleBlog + " success!");
         return "redirect:/admin/";
     }
 }

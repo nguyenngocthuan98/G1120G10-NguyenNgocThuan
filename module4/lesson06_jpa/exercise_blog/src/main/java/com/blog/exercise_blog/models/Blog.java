@@ -1,18 +1,16 @@
 package com.blog.exercise_blog.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "blog")
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private Date dateCreated;
+    @Column(columnDefinition = "datetime")
+    private String dateCreated;
     private String category;
     private String content;
     private String authorName;
@@ -21,7 +19,7 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(Integer id, String title, Date dateCreated, String category, String content, String authorName, String description) {
+    public Blog(Integer id, String title, String dateCreated, String category, String content, String authorName, String description) {
         this.id = id;
         this.title = title;
         this.dateCreated = dateCreated;
@@ -47,11 +45,11 @@ public class Blog {
         this.title = title;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 

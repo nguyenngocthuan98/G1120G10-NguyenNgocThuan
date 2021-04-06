@@ -8,7 +8,7 @@
         <thead></thead>
         <tbody>
         <form th:action="@{/admin/createBlog}" th:object="${create_blog}" method="post">
-            <input type="hidden" class="form-control" th:field="*{id}" disabled/>
+            <input type="hidden" class="form-control" th:field="*{id}"/>
             <tr class="form-group">
                 <td>Title blog:</td>
                 <td>
@@ -30,7 +30,8 @@
             <tr class="form-group">
                 <td>Date create:</td>
                 <td>
-                    <input type="date" class="form-control" required th:field="*{dateCreated}"/>
+                    <input type="text" class="form-control" value="Auto create day" disabled/>
+                    <input type="hidden" class="form-control" th:field="*{dateCreated}"/>
                 </td>
             </tr>
             <tr class="form-group">

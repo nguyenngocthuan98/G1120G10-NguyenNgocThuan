@@ -30,7 +30,8 @@
             <tr class="form-group">
                 <td>Date create:</td>
                 <td>
-                    <input type="date" class="form-control" required th:field="*{dateCreated}"/>
+                    <input type="date" class="form-control" th:field="*{dateCreated}" disabled/> <!-- only show date create, user can't change day create -->
+                    <input type="hidden" class="form-control" th:field="*{dateCreated}"/>
                 </td>
             </tr>
             <tr class="form-group">
