@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layouts/layout_main :: headTag"></head>
+<body>
+<div class="container">
+    <h1>Category</h1>
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <form th:object="${detail_category}">
+            <tr class="form-group">
+                <td>ID</td>
+                <td>
+                    <input type="text" class="form-control" disabled th:field="*{id}"/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Title blog:</td>
+                <td>
+                    <input type="text" class="form-control" disabled th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a th:href="@{/admin/listCategories}" class="btn btn-sm btn-outline-primary">Back to list</a>
+                    <a th:href="@{/admin/viewEditCategory(id=${detail_category.id})}" class="btn btn-sm btn-outline-warning">Edit</a>
+                    <button class="btn btn-sm btn-outline-danger"
+                            data-toggle="modal"
+                            data-target="#delCategoryModal"
+                            th:onclick="'getDelCategoryId(\''+ ${detail_category.id} +'\')'">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+<div th:replace="/layouts/layout_main :: delCategoryModal"></div>
+<div th:replace="/layouts/layout_main :: script"></div>
+</body>
+</html>
