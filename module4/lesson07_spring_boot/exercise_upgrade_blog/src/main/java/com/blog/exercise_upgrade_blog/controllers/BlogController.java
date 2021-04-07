@@ -28,7 +28,7 @@ public class BlogController {
 
     //    Get view
     @GetMapping("/listBlogs")
-    public ModelAndView getBlogList(@PageableDefault(value = 2) Pageable pageable) {
+    public ModelAndView getBlogList(@PageableDefault(value = 5) Pageable pageable) {
         return new ModelAndView("admin/list_blog", "blogs", this.blogService.findAll(pageable));
     }
 
@@ -52,7 +52,7 @@ public class BlogController {
     }
 
     @GetMapping("/listSearchBlogs")
-    public ModelAndView getBlogSearchList(@PageableDefault(value = 2) Pageable pageable, @RequestParam Optional<String> search) {
+    public ModelAndView getBlogSearchList(@PageableDefault(value = 5) Pageable pageable, @RequestParam Optional<String> search) {
         return new ModelAndView("admin/list_blog", "blogs", this.blogService.findAllByTitle(search.get(), pageable));
     }
 

@@ -22,7 +22,7 @@ public class CategoryController {
 
     //    Get view
     @GetMapping("/listCategories")
-    public ModelAndView getCategoryList(@PageableDefault(value = 2) Pageable pageable) {
+    public ModelAndView getCategoryList(@PageableDefault(value = 5) Pageable pageable) {
         return new ModelAndView("admin/list_category", "categories", this.categoryService.findAll(pageable));
     }
 
