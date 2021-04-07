@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Validating Form Input</title>
+</head>
+<body>
+<h1>Welcome to club</h1>
+<form th:action="@{/check}" method="post" th:object="${check}">
+    <table>
+        <thead></thead>
+        <tbody>
+        <input type="hidden" th:field="*{id}">
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" th:field="*{name}">
+                <p th:if="${#fields.hasErrors(name)}" th:errors="*{name}" style="color: red"></p>
+            </td>
+
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>
+                <input type="text" th:field="*{age}">
+                <p th:if="${#fields.hasErrors(age)}" th:errors="*{name}" style="color: red"></p>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Check"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
