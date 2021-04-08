@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>List</title>
+</head>
+<body>
+<div>
+    <h1>List book</h1>
+    <a th:href="@{/payPage}">Pay</a>
+    <p style="color: red" th:text="${messSuccess}"></p>
+    <table>
+        <thead>
+        <tr>
+            <th>NO</th>
+            <th>Id</th>
+            <th>Book name</th>
+            <th>Quantity</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list,iterStat : ${listBook}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.quantity}"></td>
+                <td>
+                    <a th:href="@{/detailPage(id=${list.id})}">Borrow</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

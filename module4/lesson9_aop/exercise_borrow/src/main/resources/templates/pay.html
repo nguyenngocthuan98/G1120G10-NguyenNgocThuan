@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Detail</title>
+</head>
+<body>
+<div>
+    <h1>List book</h1>
+    <p style="color: red" th:text="${mess}"></p>
+    <table>
+        <tbody>
+        <form th:action="@{/payBook}" method="post">
+            <tr>
+                <td>ID</td>
+                <td>
+                    <input type="number" name="id" id="id" th:value="${id}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/}">cancel</a>
+                </td>
+                <td>
+                    <button type="submit">
+                        Pay
+                    </button>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
