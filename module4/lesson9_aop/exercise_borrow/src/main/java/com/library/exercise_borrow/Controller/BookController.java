@@ -5,11 +5,12 @@ import com.library.exercise_borrow.services.BookService;
 import com.library.exercise_borrow.services.exception.ZeroQuantityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BookController {
@@ -17,8 +18,19 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("/")
-    public ModelAndView getListBook() {
-        return new ModelAndView("list", "listBook", this.bookService.findAll());
+    public String getListBook(HttpServletRequest httpServletRequest, Model model) {
+        Integer count = (Integer) httpServletRequest.getSession().getAttribute("countSession");
+
+        if (count == null) {
+            count = 0;
+        } else {
+            count++;
+        }
+        httpServletRequest.getSession().setAttribute("countSession", count);
+
+        model.addAttribute("listBook", this.bookService.findAll());
+        model.addAttribute("countVisited", count);
+        return "list";
     }
 
     @GetMapping("/detailPage")
@@ -32,8 +44,8 @@ public class BookController {
             this.bookService.borrow(book);
             redirectAttributes.addFlashAttribute("messSuccess", book.getName() + " (id=" + book.getId() + ") " + "has been borrowed");
             return "redirect:/";
-        } catch (ZeroQuantityException exception){
-            redirectAttributes.addFlashAttribute("messSuccess", "Can't borrow, "+book.getName() + " (id=" + book.getId() + ") " + "is over");
+        } catch (ZeroQuantityException exception) {
+            redirectAttributes.addFlashAttribute("messSuccess", "Can't borrow, " + book.getName() + " (id=" + book.getId() + ") " + "is over");
             return "redirect:/";
         }
     }
