@@ -1,4 +1,4 @@
-package com.library.exercise_borrow.Controller;
+package com.library.exercise_borrow.controllers;
 
 import com.library.exercise_borrow.models.Book;
 import com.library.exercise_borrow.services.BookService;
@@ -39,7 +39,7 @@ public class BookController {
     }
 
     @PostMapping("/borrowBook")
-    public String borrowBook(Book book, RedirectAttributes redirectAttributes) throws ZeroQuantityException {
+    public String borrowBook(Book book, RedirectAttributes redirectAttributes) {
         try {
             this.bookService.borrow(book);
             redirectAttributes.addFlashAttribute("messSuccess", book.getName() + " (id=" + book.getId() + ") " + "has been borrowed");
