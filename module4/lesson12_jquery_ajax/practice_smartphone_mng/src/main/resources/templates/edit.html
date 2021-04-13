@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts :: headTag}"></head>
+<body>
+<form th:object="${editProduct}" th:action="@{/update}" method="POST">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <td>
+                <label for="id">Id</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="id" th:field="*{id}" disabled>
+                <input type="hidden" th:field="*{id}">
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="nameProduct">Product name</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="nameProduct" th:field="*{producer}">
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="modelProduct">Product model</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="modelProduct" th:field="*{model}">
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="price">Product price</label>
+            </td>
+            <td>
+                <input class="form-control" type="number" id="price" th:field="*{price}">
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td></td>
+            <td>
+                <button class="btn btn-outline-success btn-sm" type="submit">Confirm</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

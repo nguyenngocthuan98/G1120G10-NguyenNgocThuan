@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layouts/layout_main :: headTag"></head>
+<body>
+<table class="table">
+    <thead></thead>
+    <tbody>
+    <tr class="form-group">
+        <td>ID</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.id}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Title blog:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.title}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Author name:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.authorName}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Category:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.category.name}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Date create:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.dateCreated}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Description:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.description}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Content:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{detail_blog.content}"/>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button class="btnModalEdit btn btn-outline-warning btn-sm" type="button"
+                    th:value="${detail_blog.id}">
+                Edit
+            </button>
+            <button class="btnModalDelete btn btn-outline-danger btn-sm" type="button"
+                    th:value="${detail_blog.id}">
+                Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="/layouts/layout_main :: script"></div>
+<div th:replace="/layouts/layout_main :: modal"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts :: headTag}"></head>
+<body>
+<form th:action="@{/create}" th:object="${createProduct}" method="POST">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <td>
+                <label for="id">Id</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="id" placeholder="auto create" disabled>
+                <input type="hidden" th:field="*{id}">
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="nameProduct">Product name</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="nameProduct" th:field="*{producer}" required>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="modelProduct">Product model</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" id="modelProduct" th:field="*{model}" required>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>
+                <label for="price">Product price</label>
+            </td>
+            <td>
+                <input class="form-control" type="number" id="price" th:field="*{price}" required>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-outline-success btn-sm">Create</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

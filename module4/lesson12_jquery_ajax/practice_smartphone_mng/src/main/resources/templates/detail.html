@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts :: headTag}"></head>
+<body>
+<table class="table table-hover">
+    <thead></thead>
+    <tbody>
+    <tr class="form-group">
+        <td>
+            <label for="id">Id</label>
+        </td>
+        <td>
+            <input class="form-control" type="text" id="id" th:field="*{detailProduct.id}" disabled>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>
+            <label for="nameProduct">Product name</label>
+        </td>
+        <td>
+            <input class="form-control" type="text" id="nameProduct" th:field="*{detailProduct.producer}" disabled>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>
+            <label for="modelProduct">Product model</label>
+        </td>
+        <td>
+            <input class="form-control" type="text" id="modelProduct" th:field="*{detailProduct.model}" disabled>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>
+            <label for="price">Product price</label>
+        </td>
+        <td>
+            <input class="form-control" type="text" id="price" th:field="*{detailProduct.price}" disabled>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td></td>
+        <td>
+            <button class="btnModalEdit btn btn-outline-warning btn-sm" type="button"
+                    th:value="${detailProduct.id}">
+                Edit
+            </button>
+            <button class="btnModalDelete btn btn-outline-danger btn-sm" type="button"
+                    th:value="${detailProduct.id}">
+                Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="~{layouts :: script}"></div>
+<div th:replace="~{layouts :: modal}"></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layouts/layout_main :: headTag"></head>
+<body>
+<form th:action="@{/admin/editBlog}" th:object="${edit_blog}" method="post">
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <input type="hidden" class="form-control" th:field="*{id}"/>
+        <tr class="form-group">
+            <td>Title blog:</td>
+            <td>
+                <input type="text" class="form-control" required th:field="*{title}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Author name:</td>
+            <td>
+                <input type="text" class="form-control" required th:field="*{authorName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Category:</td>
+            <td>
+                <select class="form-control" th:field="*{category}">
+                    <option th:each="category: ${listCategory}" th:value="${category.id}"
+                            th:text="${category.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Date create:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{dateCreated}" disabled/>
+                <!-- only show date create, user can't change day create -->
+                <input type="hidden" class="form-control" th:field="*{dateCreated}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Description:</td>
+            <td>
+                <input type="text" class="form-control" required th:field="*{description}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Content:</td>
+            <td>
+                <input type="text" class="form-control" required th:field="*{content}"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-outline-success btn-sm" type="submit">Confirm</button>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

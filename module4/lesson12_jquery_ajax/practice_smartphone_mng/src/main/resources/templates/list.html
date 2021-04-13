@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts :: headTag}"></head>
+<body>
+<div class="container">
+    <h1>List</h1>
+    <div th:replace="~{layouts :: notification}"></div>
+    <div th:replace="~{layouts :: nav}"></div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Product name</th>
+            <th>Product model</th>
+            <th>Price</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list,iterStat : ${smartphone}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.producer}"></td>
+                <td th:text="${list.model}"></td>
+                <td th:text="${list.price}"></td>
+                <td>
+                    <button class="btnModalDetail btn btn-sm btn-outline-primary" type="button" th:value="${list.id}">
+                        <i class="far fa-eye"></i>
+                    </button>
+                    <button class="btnModalEdit btn btn-sm btn-outline-warning" type="button" th:value="${list.id}">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button class="btnModalDelete btn btn-sm btn-outline-danger" type="button" th:value="${list.id}">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="~{layouts :: script}"></div>
+<div th:replace="~{layouts :: modal}"></div>
+</body>
+</html>
