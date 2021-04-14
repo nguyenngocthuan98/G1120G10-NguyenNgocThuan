@@ -4,6 +4,8 @@ import com.exercise_blog_ajax.models.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface BlogService {
     Page<Blog> findAll(Pageable pageable);
 
@@ -14,4 +16,6 @@ public interface BlogService {
     void deleteById(int id);
 
     Page<Blog> findAllByTitle(String searchText, Pageable pageable);
+
+    List<Blog> findAllByTitle(String searchText);
 }

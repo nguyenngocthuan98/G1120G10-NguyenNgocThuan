@@ -1,0 +1,58 @@
+<form th:action="@{/admin/deleteBlog}" th:object="${delete_blog}" method="POST" xmlns:th="http://www.thymeleaf.org">
+    <table class="table">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <td>ID</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{id}"/>
+                <input type="hidden" class="form-control" th:field="*{id}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Title blog:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{title}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Author name:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{authorName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Category:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{category.name}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Date create:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{dateCreated}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Description:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{description}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Content:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{content}"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-outline-danger btn-sm" type="submit">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

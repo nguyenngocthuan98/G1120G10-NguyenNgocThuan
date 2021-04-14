@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layouts/layout_main :: headTag"></head>
-<body>
-<form th:action="@{/admin/editBlog}" th:object="${edit_blog}" method="post">
+<form th:action="@{/admin/editBlog}" th:object="${edit_blog}" method="POST" xmlns:th="http://www.thymeleaf.org">
     <table class="table">
         <thead></thead>
         <tbody>
@@ -58,5 +54,3 @@
         </tbody>
     </table>
 </form>
-</body>
-</html>

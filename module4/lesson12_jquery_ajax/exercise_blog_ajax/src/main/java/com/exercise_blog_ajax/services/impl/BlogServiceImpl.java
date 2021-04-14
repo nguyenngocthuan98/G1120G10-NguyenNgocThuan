@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class BlogServiceImpl implements BlogService {
@@ -42,5 +43,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<Blog> findAllByTitle(String searchText, Pageable pageable) {
         return blogRepository.findAllByTitleContaining(searchText, pageable);
+    }
+
+    @Override
+    public List<Blog> findAllByTitle(String searchText) {
+        return blogRepository.findAllByTitleContaining(searchText);
     }
 }

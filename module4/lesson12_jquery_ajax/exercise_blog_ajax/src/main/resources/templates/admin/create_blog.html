@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layouts/layout_main :: headTag"></head>
-<body>
-<table class="table">
-    <thead></thead>
-    <tbody>
-    <form th:action="@{/admin/createBlog}" th:object="${create_blog}" method="post">
+<form th:action="@{/admin/createBlog}" th:object="${create_blog}" method="POST" xmlns:th="http://www.thymeleaf.org">
+    <table class="table">
+        <thead></thead>
+        <tbody>
         <input type="hidden" class="form-control" th:field="*{id}"/>
         <tr class="form-group">
             <td>Title blog:</td>
@@ -53,8 +49,6 @@
                 <button type="submit" class="btn btn-outline-success btn-sm">Create</button>
             </td>
         </tr>
-    </form>
-    </tbody>
-</table>
-</body>
-</html>
+        </tbody>
+    </table>
+</form>

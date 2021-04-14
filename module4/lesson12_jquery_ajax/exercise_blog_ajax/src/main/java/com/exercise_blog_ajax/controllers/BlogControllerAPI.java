@@ -65,4 +65,9 @@ public class BlogControllerAPI {
             return new ResponseEntity<Blog>(HttpStatus.NO_CONTENT);
         }
     }
+
+    @GetMapping("/searchBlog")
+    public ResponseEntity<List<Blog>> searchBlog(@RequestParam String search){
+        return new ResponseEntity<List<Blog>>(blogServiceAPI.findAllByTitle(search), HttpStatus.OK);
+    }
 }

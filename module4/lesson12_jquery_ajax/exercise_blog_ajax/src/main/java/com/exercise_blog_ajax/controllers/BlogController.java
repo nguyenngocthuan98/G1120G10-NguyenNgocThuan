@@ -8,10 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -63,14 +60,14 @@ public class BlogController {
 
     //    Handling
     @PostMapping("/createBlog")
-    public String createBlog(Blog blog, RedirectAttributes redirectAttributes) {
+    public String createBlog(@ModelAttribute(name = "create_blog") Blog blog, RedirectAttributes redirectAttributes) {
         this.blogService.save(blog);
         redirectAttributes.addFlashAttribute("messSuccess", "Created blog " + blog.getTitle() + " success!");
         return "redirect:/admin/listBlogs";
     }
 
     @PostMapping("/editBlog")
-    public String editBlog(Blog blog, RedirectAttributes redirectAttributes) {
+    public String editBlog(@ModelAttribute(name = "edit_blog") Blog blog, RedirectAttributes redirectAttributes) {
         this.blogService.save(blog);
         redirectAttributes.addFlashAttribute("messSuccess", "Updated blog " + blog.getTitle() + " success!");
         return "redirect:/admin/listBlogs";
