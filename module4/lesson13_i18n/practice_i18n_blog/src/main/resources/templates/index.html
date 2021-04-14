@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2>This form</h2>
+    <p>Language:
+        <a href="?language=en">English</a>
+        <a href="?language=jp">Japanese</a>
+        <a href="?language=vi">Vietnamese</a>
+        <a th:href="@{/page2}">page2</a>
+    </p>
+    <form action="">
+        <label>
+            <span th:text="#{username}"></span>
+            <input type="text">
+        </label>
+        <label>
+            <span th:text="#{pass}"></span>
+            <input type="password">
+        </label>
+        <input type="submit" th:value="#{submit}">
+    </form>
+</div>
+</body>
+</html>
