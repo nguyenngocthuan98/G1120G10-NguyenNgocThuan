@@ -30,7 +30,7 @@ public class CustomerController {
     ProvinceService provinceService;
 
     @GetMapping("")
-    public String getHome(Model model, @PageableDefault(value = 2) Pageable pageable) {
+    public String getHome(Model model, @PageableDefault(value = 4) Pageable pageable) {
         List<Province> listProvince = this.provinceService.findAll();
         Page<Customer> listCustomer = this.customerService.findAll(pageable);
         model.addAttribute("customer", new Customer());

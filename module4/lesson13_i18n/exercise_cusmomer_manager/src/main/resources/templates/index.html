@@ -11,7 +11,9 @@
         <button class="btn btn-sm btn-outline-success" data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
         </button>
-        <form th:action="@{/templates/customer/search}" class="input-group col-4 float-right">
+        <a class="btn btn-sm btn-outline-primary" href="?language=vi">Tiếng Việt</a>
+        <a class="btn btn-sm btn-outline-primary" href="?language=en">English</a>
+        <form th:action="@{/customer/search}" class="input-group col-4 float-right">
             <input type="text" name="search" id="search"
                    class="form-control" th:placeholder="#{plhSearch}" th:value="${search}">
             <div class="input-group-append" style="padding-left: 5px">
@@ -52,12 +54,12 @@
                     </a>
                 </td>
                 <td>
-                    <a style="text-decoration: none" th:href="@{/templates/customer/view(id=${customer.id})}">
+                    <a style="text-decoration: none" th:href="@{/customer/view(id=${customer.id})}">
                         <button class="btn btn-sm btn-outline-info">
                             <i class="fas fa-eye"></i>
                         </button>
                     </a>
-                    <a style="text-decoration: none" th:href="@{/templates/customer/show_edit(id=${customer.id})}">
+                    <a style="text-decoration: none" th:href="@{/customer/show_edit(id=${customer.id})}">
                         <button class="btn btn-sm btn-outline-warning">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -98,7 +100,7 @@
                 <h4 class="modal-title" th:text="#{addCus}"></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form th:action="@{/templates/customer/create}" method="post" th:object="${customer}">
+            <form th:action="@{/customer/create}" method="post" th:object="${customer}">
                 <!-- Modal body -->
                 <div class="modal-body">
                     <table class="table table-hover">
