@@ -3,7 +3,7 @@ package com.case_study.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role")
+@Table(name = "role", uniqueConstraints = {@UniqueConstraint(name = "ROLE_UK", columnNames = "role_name")})
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

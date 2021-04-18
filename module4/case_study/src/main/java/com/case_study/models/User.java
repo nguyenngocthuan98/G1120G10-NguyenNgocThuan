@@ -3,7 +3,7 @@ package com.case_study.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = {@UniqueConstraint(name = "USER_UK", columnNames = "username")})
 public class User {
     @Id
     @Column(name = "username", columnDefinition = "VARCHAR(50)")

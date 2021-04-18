@@ -3,7 +3,9 @@ package com.case_study.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "contract_detail")
+@Table(name = "contract_detail",
+        uniqueConstraints = {@UniqueConstraint(name = "CONTRACT_SERVICE_UK", columnNames = {"contract_id", "attach_service_id"})}
+)
 public class ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

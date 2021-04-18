@@ -3,7 +3,9 @@ package com.case_study.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_role")
+@Table(name = "user_role",
+        uniqueConstraints= {@UniqueConstraint(name = "USER_ROLE_UK", columnNames = {"username", "role_id"})}
+)
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
