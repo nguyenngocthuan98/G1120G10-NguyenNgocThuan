@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: headTag"></head>
+<body>
+<table class="table">
+    <thead></thead>
+    <tbody>
+    <tr class="form-group">
+        <td>ID</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerId}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Name:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerName}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Birth day:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerBirthday}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Gender:</td>
+        <td>
+            <th:block th:switch="${customer.customerGender}">
+                <input th:case="true" type="text" class="form-control" disabled value="Male"/>
+                <input th:case="false" type="text" class="form-control" disabled value="Female"/>
+            </th:block>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>ID card:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerIdCard}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Phone:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerPhone}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Email:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerEmail}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Address:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerAddress}"/>
+        </td>
+    </tr>
+    <tr class="form-group">
+        <td>Customer type:</td>
+        <td>
+            <input type="text" class="form-control" disabled th:field="*{customer.customerType.customerTypeName}"/>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button class="btnModalEdit btn btn-outline-warning btn-sm" type="button"
+                    th:value="${customer.customerId}">
+                Edit
+            </button>
+            <button class="btnModalDelete btn btn-outline-danger btn-sm" type="button"
+                    th:value="${customer.customerId}">
+                Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="~{/layout :: script}"></div>
+<div th:replace="~{/layout :: modal}"></div>
+</body>
+</html>

@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, String> {
-    Page<Customer> findAllByTitleContaining(Optional<String> searchText, Pageable pageable);
+    Page<Customer> findAllByCustomerName(String searchText, Pageable pageable);
 }

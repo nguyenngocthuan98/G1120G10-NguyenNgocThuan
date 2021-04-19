@@ -14,7 +14,7 @@ public class ServiceType {
     @Column(name = "service_type_name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String serviceTypeName;
 
-    @OneToMany(mappedBy = "serviceType")
+    @OneToMany(mappedBy = "serviceType", cascade = CascadeType.ALL)
     private Set<Service> serviceSet;
 
     public ServiceType() {

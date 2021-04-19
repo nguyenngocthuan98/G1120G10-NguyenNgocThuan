@@ -9,7 +9,7 @@ public class User {
     @Column(name = "username", columnDefinition = "VARCHAR(50)")
     private String username;
 
-    @Column(name = "password", columnDefinition = "VARCHAR(50) NOT NULL")
+    @Column(name = "password", columnDefinition = "VARCHAR(100) NOT NULL")
     private String password;
 
     @Column(name = "enabled", length = 1, columnDefinition = "BIT DEFAULT 1")

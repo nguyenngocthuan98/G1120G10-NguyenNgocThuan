@@ -32,6 +32,13 @@ public class CustomerController {
                 this.customerService.findAll(pageable));
     }
 
+    @GetMapping("/viewDetail")
+    public String viewDetail(@RequestParam(name = "id") String id, Model model) {
+        model.addAttribute("listCustomerType", this.customerTypeService.findAll());
+        model.addAttribute("customer", this.customerService.findById(id));
+        return "customer/detail";
+    }
+
     @GetMapping("/viewCreate")
     public String viewCreate(Model model) {
         model.addAttribute("customer", new Customer());
@@ -76,8 +83,12 @@ public class CustomerController {
     }
 
     @GetMapping("/search")
-    public ModelAndView search(@RequestParam Optional<String> search, @PageableDefault(value = 5) Pageable pageable) {
-        return new ModelAndView("customer/list", "resultSearch",
-                this.customerService.findAllByTitle(search, pageable));
+    public String search(@RequestParam Optional<String> search, Model model, @PageableDefault(value = 5) Pageable pageable) {
+        if (search.isPresent()) {
+            model.addAttribute("listCustomer", this.customerService.findAllByCustomerName(search.get(), pageable));
+        } else {
+            model.addAttribute("listCustomer", this.customerService.findAll(pageable));
+        }
+        return "customer/list";
     }
 }

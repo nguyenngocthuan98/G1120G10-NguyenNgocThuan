@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -37,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Page<Customer> findAllByTitle(Optional<String> searchText, Pageable pageable) {
-        return customerRepository.findAllByTitleContaining(searchText, pageable);
+    public Page<Customer> findAllByCustomerName(String searchText, org.springframework.data.domain.Pageable pageable) {
+        return customerRepository.findAllByCustomerName(searchText,pageable);
     }
 }

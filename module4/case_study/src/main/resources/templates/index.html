@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{/layouts/main :: headTag}"></head>
+<head th:replace="~{layout :: headTag}"></head>
 <body>
-
+    <div class="container">
+        <a th:href="@{/customer/}" class="btn btn-sm btn-outline-info">Customer list</a>
+    </div>
+    <div th:replace="~{layout :: script}"></div>
 </body>
 </html>

@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+<!--        <div th:replace="/layout :: left_menu"></div>-->
+        <div class="main_content col-12">
+            <h1>List Customer</h1>
+            <div th:replace="/layout :: notification"></div>
+            <div th:replace="/layout :: nav"></div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Customer Type</th>
+                    <th>ID card</th>
+                    <th>Option</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="list,iterStat : ${listCustomer}">
+                    <tr>
+                        <td th:text="${iterStat.count}"></td>
+                        <td th:text="${list.customerId}"></td>
+                        <td th:text="${list.customerName}"></td>
+                        <th:block th:switch="${list.customerGender}">
+                            <td th:case="true">Male</td>
+                            <td th:case="false">Female</td>
+                        </th:block>
+                        <td th:text="${list.customerType.customerTypeName}"></td>
 
+                        <td th:text="${list.customerIdCard}"></td>
+                        <td>
+                            <button class="btnModalDetail btn btn-sm btn-outline-primary" type="button"
+                                    th:value="${list.customerId}">
+                                <i class="far fa-eye"></i>
+                            </button>
+                            <button class="btnModalEdit btn btn-sm btn-outline-warning" type="button"
+                                    th:value="${list.customerId}">
+                                <i class="far fa-edit"></i>
+                            </button>
+                            <button class="btnModalDelete btn btn-sm btn-outline-danger" type="button"
+                                    th:value="${list.customerId}">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+            <div>
+                <a th:href="@{'/customer/'(page=${listCustomer.number - 1})}" th:if="${listCustomer.hasPrevious()}">Previous</a>
+                <span th:text="${listCustomer.number + 1}"></span>/<span th:text="${listCustomer.totalPages}"></span>
+                <a th:href="@{'/customer/'(page=${listCustomer.number + 1})}" th:if="${listCustomer.hasNext()}">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{layout :: script}"></div>
+<div th:replace="~{layout :: modal}"></div>
 </body>
 </html>
