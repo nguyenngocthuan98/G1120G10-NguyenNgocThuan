@@ -38,7 +38,7 @@
 </div>
 
 <div th:fragment="notification">
-    <div class="alert alert-success alert-dismissible fade show" th:if="${messSuccess}">
+    <div class="alert alert-success alert-dismissible fade show" id="success-alert" th:if="${messSuccess}">
         <button type="button" class="close" data-dismiss="alert">
             &times;
         </button>
@@ -130,6 +130,9 @@
                         $("#modalId").modal('show');
                     }
                 });
+            });
+            $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
+                $("#success-alert").alert('close');
             });
         });
     </script>

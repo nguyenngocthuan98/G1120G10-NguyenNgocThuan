@@ -1,8 +1,15 @@
 package com.case_study.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "contract_detail",
         uniqueConstraints = {@UniqueConstraint(name = "CONTRACT_SERVICE_UK", columnNames = {"contract_id", "attach_service_id"})}
 )
@@ -22,46 +29,4 @@ public class ContractDetail {
 
     @Column(name = "quantity")
     private int quantity;
-
-    public ContractDetail() {
-    }
-
-    public ContractDetail(Integer contractDetailId, Contract contract, AttachService attachService, Integer quantity) {
-        this.contractDetailId = contractDetailId;
-        this.contract = contract;
-        this.attachService = attachService;
-        this.quantity = quantity;
-    }
-
-    public Integer getContractDetailId() {
-        return contractDetailId;
-    }
-
-    public void setContractDetailId(Integer contractDetailId) {
-        this.contractDetailId = contractDetailId;
-    }
-
-    public Contract getContract() {
-        return contract;
-    }
-
-    public void setContract(Contract contract) {
-        this.contract = contract;
-    }
-
-    public AttachService getAttachService() {
-        return attachService;
-    }
-
-    public void setAttachService(AttachService attachService) {
-        this.attachService = attachService;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
 }

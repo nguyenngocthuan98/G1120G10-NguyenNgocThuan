@@ -8,25 +8,25 @@
     <tr class="form-group">
         <td>ID</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerId}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerId}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Name:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerName}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerName}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Birth day:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerBirthday}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerBirthday}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Gender:</td>
         <td>
-            <th:block th:switch="${customer.customerGender}">
+            <th:block th:switch="${customerDel.customerGender}">
                 <input th:case="true" type="text" class="form-control" disabled value="Male"/>
                 <input th:case="false" type="text" class="form-control" disabled value="Female"/>
             </th:block>
@@ -35,41 +35,42 @@
     <tr class="form-group">
         <td>ID card:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerIdCard}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerIdCard}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Phone:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerPhone}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerPhone}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Email:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerEmail}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerEmail}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Address:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerAddress}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerAddress}"/>
         </td>
     </tr>
     <tr class="form-group">
         <td>Customer type:</td>
         <td>
-            <input type="text" class="form-control" disabled th:field="*{customer.customerType.customerTypeName}"/>
+            <input type="text" class="form-control" disabled th:field="*{customerDel.customerType.customerTypeName}"/>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            <form th:action="@{/customer/delete}" method="POST"></form>
-            <input type="hidden" th:field="*{customer.customerId}"/>
-            <button class="btnModalDelete btn btn-outline-danger btn-sm" type="submit">
-                Delete
-            </button>
+            <form th:action="@{/customer/delete}" method="POST">
+                <input type="hidden" name="customerId" th:value="${customerDel.customerId}"/>
+                <button class="btn btn-outline-danger btn-sm" type="submit">
+                    Delete
+                </button>
+            </form>
         </td>
     </tr>
     </tbody>

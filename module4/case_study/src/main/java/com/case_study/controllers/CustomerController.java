@@ -41,7 +41,7 @@ public class CustomerController {
 
     @GetMapping("/viewCreate")
     public String viewCreate(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("customerCreate", new Customer());
         model.addAttribute("listCustomerType", this.customerTypeService.findAll());
         return "customer/create";
     }
@@ -71,7 +71,7 @@ public class CustomerController {
 
     @GetMapping("/viewDelete")
     public ModelAndView viewDelete(@RequestParam(name = "id") String id) {
-        return new ModelAndView("customer/delete", "customer", this.customerService.findById(id));
+        return new ModelAndView("customer/delete", "customerDel", this.customerService.findById(id));
     }
 
     @PostMapping("/delete")

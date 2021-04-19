@@ -1,8 +1,15 @@
 package com.case_study.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "user_role",
         uniqueConstraints= {@UniqueConstraint(name = "USER_ROLE_UK", columnNames = {"username", "role_id"})}
 )
@@ -20,36 +27,4 @@ public class UserRole {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    public UserRole() {
-    }
-
-    public UserRole(Integer id, User user, Role role) {
-        this.id = id;
-        this.user = user;
-        this.role = role;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 }

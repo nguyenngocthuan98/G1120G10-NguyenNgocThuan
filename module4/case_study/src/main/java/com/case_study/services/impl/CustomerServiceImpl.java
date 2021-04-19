@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Page<Customer> findAllByCustomerName(String searchText, org.springframework.data.domain.Pageable pageable) {
+    public Page<Customer> findAllByCustomerName(String searchText, Pageable pageable) {
         return customerRepository.findAllByCustomerName(searchText,pageable);
     }
 }
