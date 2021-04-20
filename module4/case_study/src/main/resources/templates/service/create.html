@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:action="@{/service/create}" method="post" th:object="${service}">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <td>ID</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{serviceId}" required/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Service name:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{serviceName}" required/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Service Type:</td>
+            <td>
+                <select th:field="*{serviceType}" class="form-control">
+                    <option th:each="type : ${serviceType}"
+                            th:value="${type.serviceTypeId}"
+                            th:text="${type.serviceTypeName}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Standard room:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{standardRoom}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Area:</td>
+            <td>
+                <input type="number" class="form-control" th:field="*{serviceArea}" required/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Rent type:</td>
+            <td>
+                <select th:field="*{rentType}" class="form-control">
+                    <option th:each="type : ${rentType}"
+                            th:value="${type.rentTypeId}"
+                            th:text="${type.rentTypeName}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Max people:</td>
+            <td>
+                <input type="number" class="form-control" th:field="*{serviceMaxPeople}" required/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Number of floor:</td>
+            <td>
+                <input type="number" class="form-control" th:field="*{numberOfFloor}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Pool area:</td>
+            <td>
+                <input type="number" class="form-control" th:field="*{poolArea}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Cost:</td>
+            <td>
+                <input type="number" class="form-control" th:field="*{serviceCost}" required/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Description:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{description}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-sm btn-outline-success col-12">Create</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div th:replace="~{/layout :: header-line}"></div>
+<div th:replace="~{/layout :: banner}"></div>
+<div th:replace="~{/layout :: navbar_menu}"></div>
+
+<div class="container pt-3">
+    <div class="main_content col-12 create-service">
+        <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
+            <div class="navbar-collapse">
+                <button id="btnCreateServicePage" class="btn btn-sm btn-outline-success">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+            <div class="form-inline my-2 my-lg-0">
+                <h3>List Service</h3>
+            </div>
+        </nav>
+        <div th:replace="/layout :: notification"></div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Service name</th>
+                <th>Service Type</th>
+                <th>Standard room</th>
+                <th>Rent type</th>
+                <th>Max people</th>
+                <th>Cost</th>
+                <th>Option</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="list,iterStat : ${services}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <td class="font-weight-bold" th:text="${list.serviceId}"></td>
+                    <td th:text="${list.serviceName}"></td>
+                    <td th:text="${list.serviceType.serviceTypeName}"></td>
+                    <td th:text="${list.standardRoom}"></td>
+                    <td th:text="${list.rentType.rentTypeName}"></td>
+                    <td th:text="${list.serviceMaxPeople}"></td>
+                    <td th:text="${list.serviceCost}"></td>
+                    <td>
+                        <button class="btnModalDetailService btn btn-sm btn-outline-primary" type="button"
+                                th:value="${list.serviceId}">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="~{layout :: mini-footer}"></div>
+<div th:replace="~{layout :: script}"></div>
+<div th:replace="~{layout :: modal}"></div>
+</body>
+</html>

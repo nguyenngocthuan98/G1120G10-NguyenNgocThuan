@@ -13,7 +13,7 @@
     <!--    />-->
     <link rel="stylesheet" type="text/css" href="/style/bootstrap4/css/bootstrap.min.css">
     <!-- Bootstrap Icon-->
-        <link rel="stylesheet" type="text/css" href="/style/bootstrap4/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap4/bootstrap-icons/bootstrap-icons.css">
     <!--    Custom css-->
     <link rel="stylesheet" href="/style/css/style.css">
 </head>
@@ -245,7 +245,8 @@
         </div>
         <!-- Grid container -->
         <div th:fragment="mini-footer">
-            <div class="text-center p-1 small text-light" style="background-color: rgb(4, 96, 86)">COVID 19 UPDATE: The safety and
+            <div class="text-center p-1 small text-light" style="background-color: rgb(4, 96, 86)">COVID 19 UPDATE: The
+                safety and
                 well-being are our utmost priority
             </div>
         </div>
@@ -275,6 +276,7 @@
     <!-- My script -->
     <script>
         $(document).ready(function () {
+            // Customer
             $("#btnModalCreate").click(function () {
                 $.ajax({
                     type: "GET",
@@ -319,9 +321,35 @@
                     }
                 });
             });
+            //end Customer
+            //Service
+            $(".btnModalDetailService").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/viewDetail?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $("#btnCreateServicePage").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/viewCreate",
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".create-service").html(data);
+                    }
+                });
+            });
+            //end Service
+            //hide alert delay 2 second
             $("#success-alert").fadeTo(2000, 500).slideUp(1000, function () {
                 $("#success-alert").alert('close');
             });
+            //end hide alert
         });
     </script>
 </div>

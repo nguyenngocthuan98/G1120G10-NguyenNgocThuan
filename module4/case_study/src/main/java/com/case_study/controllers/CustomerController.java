@@ -18,10 +18,10 @@ import java.util.Optional;
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @Autowired
-    CustomerTypeService customerTypeService;
+    private CustomerTypeService customerTypeService;
 
     @GetMapping("/")
     public ModelAndView getCustomerHome(@PageableDefault(value = 5) Pageable pageable) {
