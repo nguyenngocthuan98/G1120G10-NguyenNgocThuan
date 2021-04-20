@@ -2,9 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout :: headTag}"></head>
 <body>
-    <div class="container">
-        <a th:href="@{/customer/}" class="btn btn-sm btn-outline-info">Customer list</a>
+
+<div th:replace="~{/layout :: header-line}"></div>
+<div th:replace="~{/layout :: banner}"></div>
+<div th:replace="~{/layout :: navbar_menu}"></div>
+
+<div class="container-fluid pl-0 pr-0 pb-0 bg-picture">
+    <div class="container pt-5">
+        <div class="d-flex justify-content-center text-uppercase">
+            <h3>JOINING OUR CULINARY & RECREATIONAL EXPERIENCE</h3>
+        </div>
+        <div class="d-flex justify-content-center">
+            <h6 class="text-center col-8 small">
+                The Furama Resort aims to make your stay in Vietnam a unique and unforgettable experience. Whether you
+                prefer to be active or just to
+                relax, we offer a wide range of activities and services to suit your needs.
+            </h6>
+        </div>
+        <table class="table table-index">
+            <tbody>
+            <tr class="d-flex align-items-center">
+                <td>
+                    <img src="img/CULIRARY.jpg" alt="" width="100%"/>
+                </td>
+                <td>
+                    <div>
+                        The resort’s culinary experience features a mixture of the authentic and locally inspired
+                        Vietnamese, Asian, Italian and
+                        other European cuisines plus the best imported steaks. The resort presents guests with varied
+                        gastronomic venues – the hip
+                        and breezy bar overlooking the beach, the exclusive Lagoon pool surrounded by a tropical garden,
+                        the true Italian flare
+                        offered at the Don Cipriani’s, the refined Asian touch at Café Indochine or the authentic
+                        central Vietnam cuisine at the
+                        Danaksara.
+                    </div>
+                </td>
+            </tr>
+            <tr class="d-flex align-items-center">
+                <td>
+                    <p>
+                        A well-appointed International Convention Palace with ballrooms can accommodate up to 1,000
+                        people in style, with another
+                        ten function rooms for 50 to 300 people each. A variety of cultural-themed parties on the beach
+                        or around the lagoon, in the
+                        ballrooms or outside the resort, with the surprising arrivals of VIPs from Helicopter landing on
+                        the resort’s own Helipad…
+                    </p>
+                </td>
+                <td>
+                    <img
+                            src="img/02.-ICP-ICP_Furama_Danang_-Ball-Room-4.jpg"
+                            alt=""
+                            width="100%"
+                    />
+                </td>
+            </tr>
+            <tr class="d-flex align-items-center">
+                <td>
+                    <img src="img/RECREATION.jpg" alt="" width="100%"/>
+                </td>
+                <td>
+                    <p>
+                        A full range of Water Sports will keep you busy. Stop by the Water Sport House where our
+                        experienced staff are waiting to
+                        assist or train you in the use of any of our equipment.
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div th:replace="~{layout :: script}"></div>
+</div>
+
+<div th:replace="~{/layout :: footer}"></div>
+<div th:replace="~{layout :: script}"></div>
 </body>
 </html>

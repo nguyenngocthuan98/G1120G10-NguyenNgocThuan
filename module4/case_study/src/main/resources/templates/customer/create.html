@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: headTag"></head>
 <body>
-<table class="table">
-    <thead></thead>
-    <tbody>
-    <form th:action="@{/customer/create}" method="POST" th:object="${customerCreate}">
+<form th:action="@{/customer/create}" method="POST" th:object="${customerCreate}">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
         <tr class="form-group">
             <td>ID</td>
             <td>
@@ -27,10 +27,14 @@
         <tr class="form-group">
             <td>Gender:</td>
             <td>
-                <input type="radio" id="male" name="gender" value="true">
-                <label for="male">Male</label><br>
-                <input type="radio" id="female" name="gender" value="false">
-                <label for="female">Female</label><br>
+                <div class="form-check-inline">
+                    <input type="radio" id="male" name="gender" value="true" checked>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" id="female" name="gender" value="false">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
             </td>
         </tr>
         <tr class="form-group">
@@ -66,20 +70,20 @@
                             th:text="${type.customerTypeName}">
                     </option>
                 </select>
-                <input type="text" class="form-control" th:field="*{customerType.customerTypeName}"/>
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <button class="btn btn-outline-success btn-sm" type="submit">
+                <button class="btn btn-outline-success btn-sm col-12" type="submit">
                     Create
                 </button>
             </td>
         </tr>
-    </form>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</form>
+
 <div th:replace="~{/layout :: script}"></div>
 </body>
 </html>

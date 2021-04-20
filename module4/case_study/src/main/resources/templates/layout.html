@@ -5,34 +5,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Bootstrap CSS -->
-<!--    <link-->
-<!--            rel="stylesheet"-->
-<!--            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
-<!--            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"-->
-<!--            crossorigin="anonymous"-->
-<!--    />-->
+    <!--    <link-->
+    <!--            rel="stylesheet"-->
+    <!--            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+    <!--            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"-->
+    <!--            crossorigin="anonymous"-->
+    <!--    />-->
     <link rel="stylesheet" type="text/css" href="/style/bootstrap4/css/bootstrap.min.css">
-    <!--Icon fontawesome-->
-    <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-            crossorigin="anonymous"
-    />
-<!--    <link rel="stylesheet" type="text/css" href="/style/fontawesome/css/all.min.css">-->
+    <!-- Bootstrap Icon-->
+        <link rel="stylesheet" type="text/css" href="/style/bootstrap4/bootstrap-icons/bootstrap-icons.css">
+    <!--    Custom css-->
+    <link rel="stylesheet" href="/style/css/style.css">
 </head>
 <body>
 
-<div th:fragment="nav">
-    <nav class="navbar navbar-expand-sm">
+<div th:fragment="nav-table">
+    <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
         <div class="navbar-collapse">
             <button id="btnModalCreate" class="btn btn-sm btn-outline-success">
-                <i class="fas fa-plus"></i>
+                <i class="bi bi-plus"></i>
             </button>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/search}" method="GET">
+        <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
-            <button class="btn btn-sm btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
     </nav>
 </div>
@@ -56,7 +52,7 @@
             <div class="modal-content">
                 <div class="modal-header flex-column justify-content-center text-center border-0 pb-0">
                     <button type="button" class="close btn shadow-none" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+                        <span aria-hidden="true"><i class="bi bi-caret-left-square"></i></span>
                     </button>
                 </div>
                 <div class="modal-body"></div>
@@ -65,18 +61,210 @@
     </div>
 </div>
 
+<div th:fragment="header-line">
+    <div class="container-fluid bg-light pl-0 pr-0">
+        <div class="header-topline">
+            <div class="container pt-2 pb-2">
+                <div class="row">
+                    <div class="col-3 text-left small">
+                        <i class="bi bi-thermometer-sun"></i>
+                        Temperature: 31 °C / 88 °F
+                    </div>
+                    <div class="col-3 text-right small">
+                        <i class="bi bi-clock"></i>
+                        Local time: 10:2 pm
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-2 d-flex justify-content-end">
+                        <form>
+                            <select name="lang" class="custom-select custom-select-sm small">
+                                <option selected>Language</option>
+                                <option value="en">English</option>
+                                <option value="vi">Việt Nam</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="banner">
+    <div class="container-fluid pr-0 pl-0">
+        <div class="image-container">
+            <div class="text row">
+                <div class="col-3 d-flex align-items-center">
+                    <a href="https://furamavietnam.com/">
+                        <img src="/img/logo.png" alt="logo "
+                             class="img-fluid" width="63" height="100"/>
+                    </a>
+                </div>
+                <div class="col-9">FURAMA RESORT</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="navbar_menu">
+    <nav class="navbar-expand-sm navbar-dark sticky-top" style="background-color: rgb(4, 96, 86)">
+        <div class="container">
+            <ul class="navbar-nav nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" th:href="@{/}">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" th:href="@{/customer/}">customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" th:href="@{/employee/}">employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" th:href="@{/service/}">service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" th:href="@{/contract/}">contract</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="nav-link dropdown"
+                            href="#"
+                            id="navbarDropdownProfile"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                    >
+                        Hi&nbsp;<span>Thuan</span>!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                        <div class="dropdown-header">You are <span>Admin</span></div>
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="nav-link dropdown"
+                            href="#"
+                            id="navbarDropdownLogin"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                    >
+                        <span>Hi Guest</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+                        <div class="dropdown-header">You are guest</div>
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Register</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: rgb(173, 219, 206)">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <div class="row">
+                <section class="col-4">
+                    <h3 class="text-center text-dark">How to Get to Us</h3>
+                    <br/>
+                    <h6 class="text-left text-dark">
+                        Furama is a premier base for exploring one of Asia’s most exciting new destinations. Just a
+                        short
+                        drive from Danang lay four
+                        UNESCO-listed World Heritage Sites:
+                    </h6>
+                </section>
+                <section class="col-8">
+                    <section class="row">
+                        <section class="col-6">
+                            <ul class="nav flex-column text-left pl-5">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Rack Rate</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Lifestyle Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Work with us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Contact us</a>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="col-6">
+                            <p class="text-dark text-left pl-5">
+                                103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City,
+                                Vietnam<br/>
+                                Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666<br/>
+                                Email: reservation@furamavietnam.com * www.furamavietnam.com
+                            </p>
+                        </section>
+                    </section>
+                    <!-- Section: Social media -->
+                    <section class="d-flex justify-content-end">
+                        <!-- Facebook -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-facebook"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-google"></i></a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-linkedin"></i></a>
+
+                        <!-- Github -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="bi bi-github"></i></a>
+                    </section>
+                    <!-- Section: Social media -->
+                </section>
+            </div>
+        </div>
+        <!-- Grid container -->
+        <div th:fragment="mini-footer">
+            <div class="text-center p-1 small text-light" style="background-color: rgb(4, 96, 86)">COVID 19 UPDATE: The safety and
+                well-being are our utmost priority
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+</div>
+
 <div th:fragment="script">
     <!-- Optional Online JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
-<!--            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
-<!--            crossorigin="anonymous">-->
-<!--    </script>-->
-<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
-<!--            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
-<!--            crossorigin="anonymous">-->
-<!--    </script>-->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
+    <!--            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
+    <!--            crossorigin="anonymous">-->
+    <!--    </script>-->
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
+    <!--            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
+    <!--            crossorigin="anonymous">-->
+    <!--    </script>-->
 
     <!-- Optional Offline JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -131,7 +319,7 @@
                     }
                 });
             });
-            $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
+            $("#success-alert").fadeTo(2000, 500).slideUp(1000, function () {
                 $("#success-alert").alert('close');
             });
         });

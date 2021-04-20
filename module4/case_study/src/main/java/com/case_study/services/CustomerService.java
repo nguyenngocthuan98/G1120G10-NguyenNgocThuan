@@ -16,5 +16,7 @@ public interface CustomerService {
 
     void deleteById(String id);
 
-    Page<Customer> findAllByCustomerName(String searchText, Pageable pageable);
+    Page<Customer> findAllByCustomerNameContainingOrCustomerIdContaining(
+            String searchText1, String searchText2, Pageable pageable
+    );
 }

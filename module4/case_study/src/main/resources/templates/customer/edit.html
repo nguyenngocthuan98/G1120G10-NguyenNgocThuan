@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: headTag"></head>
 <body>
-<h1>edit</h1>
+<form th:action="@{/customer/edit}" method="POST" th:object="${customerEdit}">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <input type="hidden" th:field="*{customerId}"/>
+        <tr class="form-group">
+            <td>Name:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{customerName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Birth day:</td>
+            <td>
+                <input type="date" class="form-control" th:field="*{customerBirthday}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Gender:</td>
+            <td>
+                <div class="form-check-inline">
+                    <input type="radio" id="male" name="gender" value="true" checked>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" id="female" name="gender" value="false">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>ID card:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{customerIdCard}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Phone:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{customerPhone}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Email:</td>
+            <td>
+                <input type="email" class="form-control" th:field="*{customerEmail}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Address:</td>
+            <td>
+                <input type="text" class="form-control" th:field="*{customerAddress}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Customer type:</td>
+            <td>
+                <select th:field="*{customerType}" class="form-control">
+                    <option th:each="type : ${listCustomerType}"
+                            th:value="${type.customerTypeId}"
+                            th:text="${type.customerTypeName}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="btn btn-outline-success btn-sm col-12" type="submit">
+                    Update
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+<div th:replace="~{/layout :: script}"></div>
 </body>
 </html>

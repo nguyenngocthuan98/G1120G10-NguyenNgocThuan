@@ -8,10 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -47,7 +44,7 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String create(Customer customer, RedirectAttributes redirect) {
+    public String create(@ModelAttribute("customerCreate") Customer customer, RedirectAttributes redirect) {
         this.customerService.save(customer);
         redirect.addFlashAttribute("messSuccess",
                 "Added successfully: " + customer.getCustomerName());
@@ -57,12 +54,12 @@ public class CustomerController {
     @GetMapping("/viewEdit")
     public String viewEdit(@RequestParam(name = "id") String id, Model model) {
         model.addAttribute("listCustomerType", this.customerTypeService.findAll());
-        model.addAttribute("customer", this.customerService.findById(id));
+        model.addAttribute("customerEdit", this.customerService.findById(id));
         return "customer/edit";
     }
 
     @PostMapping("/edit")
-    public String edit(Customer customer, RedirectAttributes redirect) {
+    public String edit(@ModelAttribute("customerEdit") Customer customer, RedirectAttributes redirect) {
         this.customerService.save(customer);
         redirect.addFlashAttribute("messSuccess",
                 "Updated successfully: " + customer.getCustomerName());
@@ -83,9 +80,13 @@ public class CustomerController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam Optional<String> search, Model model, @PageableDefault(value = 5) Pageable pageable) {
+    public String search(@RequestParam("search") Optional<String> search, Model model, @PageableDefault(value = 5) Pageable pageable) {
         if (search.isPresent()) {
-            model.addAttribute("listCustomer", this.customerService.findAllByCustomerName(search.get(), pageable));
+            model.addAttribute("search", search.get());
+            model.addAttribute("listCustomer",
+                    this.customerService.findAllByCustomerNameContainingOrCustomerIdContaining(
+                            search.get(), search.get(), pageable
+                    ));
         } else {
             model.addAttribute("listCustomer", this.customerService.findAll(pageable));
         }

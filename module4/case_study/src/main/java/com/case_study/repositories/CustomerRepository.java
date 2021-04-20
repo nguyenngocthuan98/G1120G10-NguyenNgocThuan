@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, String> {
-    Page<Customer> findAllByCustomerName(String searchText, Pageable pageable);
+    Page<Customer> findAllByCustomerNameContainingOrCustomerIdContaining(
+            String searchText1, String searchText2, Pageable pageable
+    );
 }
