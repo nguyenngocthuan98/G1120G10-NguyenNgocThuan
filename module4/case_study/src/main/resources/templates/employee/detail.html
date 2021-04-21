@@ -1,0 +1,95 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <td>ID</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeId}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Name:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Position:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.position.positionName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Division:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.division.divisionName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Education Degree:</td>
+            <td>
+                <input type="text" class="form-control" disabled
+                       th:field="*{employee.educationDegree.educationDegreeName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>ID card:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeIdCard}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Email:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeEmail}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Phone:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeePhone}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Username:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.user}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Birthday:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeBirthday}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Address:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeAddress}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Salary:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{employee.employeeSalary}"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a class="btn btn-outline-warning btn-sm" th:href="@{/employee/viewEdit(id=${employee.employeeId})}">
+                    Edit
+                </a>
+                <button class="btnModalDeleteEmployee btn btn-outline-danger btn-sm" type="button"
+                        th:value="${employee.employeeId}">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:replace="~{layout :: employee_script}"></div>
+    <div th:replace="~{layout :: modal}"></div>
+</div>

@@ -1,5 +1,5 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <table class="table">
+    <table class="table table-hover">
         <thead></thead>
         <tbody>
         <tr class="form-group">
@@ -8,27 +8,26 @@
         <tr class="form-group">
             <td>ID</td>
             <td>
-                <input type="text" class="form-control" disabled th:field="*{customerDel.customerId}"/>
+                <input type="text" class="form-control" disabled th:field="*{employeeDel.employeeId}"/>
             </td>
         </tr>
         <tr class="form-group">
             <td>Name:</td>
             <td>
-                <input type="text" class="form-control" disabled th:field="*{customerDel.customerName}"/>
+                <input type="text" class="form-control" disabled th:field="*{employeeDel.employeeName}"/>
             </td>
         </tr>
         <tr class="form-group">
-            <td>Customer type:</td>
+            <td>Position:</td>
             <td>
-                <input type="text" class="form-control" disabled
-                       th:field="*{customerDel.customerType.customerTypeName}"/>
+                <input type="text" class="form-control" disabled th:field="*{employeeDel.position.positionName}"/>
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <form th:action="@{/customer/delete}" method="POST">
-                    <input type="hidden" name="customerId" th:value="${customerDel.customerId}"/>
+                <form th:action="@{/employee/delete}" method="POST">
+                    <input type="hidden" name="customerId" th:value="${employeeDel.employeeId}"/>
                     <button class="btn btn-outline-danger btn-sm col-12" type="submit">
                         Delete
                     </button>
@@ -37,5 +36,6 @@
         </tr>
         </tbody>
     </table>
+
     <div th:replace="~{/layout :: script_link}"></div>
 </div>

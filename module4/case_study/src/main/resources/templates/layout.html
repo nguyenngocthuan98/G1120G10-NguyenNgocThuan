@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div th:fragment="nav-table">
+<div th:fragment="nav-table-customer">
     <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
         <div class="navbar-collapse">
             <button id="btnModalCreate" class="btn btn-sm btn-outline-success">
@@ -27,6 +27,20 @@
             </button>
         </div>
         <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </nav>
+</div>
+
+<div th:fragment="nav-table-employee">
+    <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
+        <div class="navbar-collapse">
+            <a th:href="@{/employee/viewCreate}" class="btn btn-sm btn-outline-success">
+                <i class="bi bi-plus"></i>
+            </a>
+        </div>
+        <form class="form-inline my-2 my-lg-0" id="btnSearchEmployee" th:action="@{/employee/search}" method="GET">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
             <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
@@ -351,7 +365,33 @@
     </script>
 </div>
 <div th:fragment="employee_script">
+    <script>
+        $(document).ready(function () {
 
+            $(".btnModalDetailEmployee").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/viewDetail?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".btnModalDeleteEmployee").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/viewDelete?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+        });
+    </script>
 </div>
 <div th:fragment="alert_script">
     <script>

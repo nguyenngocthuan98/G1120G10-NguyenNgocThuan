@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div th:replace="~{/layout :: header-line}"></div>
+<div th:replace="~{/layout :: banner}"></div>
+<div th:replace="~{/layout :: navbar_menu}"></div>
+
+<div class="container col-8">
+    <form th:action="@{/employee/create}" method="POST" th:object="${employee}">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+            <input type="hidden" class="form-control" th:field="*{employeeId}"/>
+            <tr class="form-group">
+                <td>Name:</td>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeName}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Position:</td>
+                <td>
+                    <select th:field="*{position}" class="form-control">
+                        <option th:each="optionPosition : ${position}"
+                                th:value="${optionPosition.positionId}"
+                                th:text="${optionPosition.positionName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Division:</td>
+                <td>
+                    <select th:field="*{division}" class="form-control">
+                        <option th:each="optionDivision : ${division}"
+                                th:value="${optionDivision.divisionId}"
+                                th:text="${optionDivision.divisionName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Education Degree:</td>
+                <td>
+                    <select th:field="*{educationDegree}" class="form-control">
+                        <option th:each="optionEdu : ${educationdegree}"
+                                th:value="${optionEdu.educationDegreeId}"
+                                th:text="${optionEdu.educationDegreeName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>ID card:</td>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeIdCard}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Email:</td>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeEmail}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Phone:</td>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeePhone}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Username:</td>
+                <td>
+                    <input type="hidden" th:field="*{user}"/>
+                    <input type="text" class="form-control" name="inputUsername" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Birthday:</td>
+                <td>
+                    <input type="date" class="form-control" th:field="*{employeeBirthday}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Address:</td>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeAddress}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Salary:</td>
+                <td>
+                    <input type="number" class="form-control" th:field="*{employeeSalary}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);" value="Back"/>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success btn-sm col-12" type="submit">
+                        Create
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div th:replace="~{/layout :: script_link}"></div>
+</body>
+</html>
