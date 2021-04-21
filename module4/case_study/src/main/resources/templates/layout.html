@@ -254,7 +254,7 @@
     <!-- Footer -->
 </div>
 
-<div th:fragment="script">
+<div th:fragment="script_link">
     <!-- Optional Online JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
@@ -272,11 +272,10 @@
     <script src="/style/bootstrap4/js/jquery.min.js"></script>
     <script src="/style/bootstrap4/js/popper.min.js"></script>
     <script src="/style/bootstrap4/js/bootstrap.min.js"></script>
-
-    <!-- My script -->
+</div>
+<div th:fragment="customer_script">
     <script>
         $(document).ready(function () {
-            // Customer
             $("#btnModalCreate").click(function () {
                 $.ajax({
                     type: "GET",
@@ -321,8 +320,12 @@
                     }
                 });
             });
-            //end Customer
-            //Service
+        });
+    </script>
+</div>
+<div th:fragment="service_script">
+    <script>
+        $(document).ready(function () {
             $(".btnModalDetailService").click(function () {
                 $.ajax({
                     type: "GET",
@@ -344,12 +347,18 @@
                     }
                 });
             });
-            //end Service
-            //hide alert delay 2 second
+        });
+    </script>
+</div>
+<div th:fragment="employee_script">
+
+</div>
+<div th:fragment="alert_script">
+    <script>
+        $(document).ready(function () {
             $("#success-alert").fadeTo(2000, 500).slideUp(1000, function () {
                 $("#success-alert").alert('close');
             });
-            //end hide alert
         });
     </script>
 </div>
