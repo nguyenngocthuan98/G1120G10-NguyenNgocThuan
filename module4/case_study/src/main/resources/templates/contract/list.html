@@ -23,7 +23,7 @@
                 <th>End day</th>
                 <th>Deposit</th>
                 <th>Total money</th>
-                <th>Option</th>
+                <th>Contract detail</th>
             </tr>
             </thead>
             <tbody>
@@ -40,11 +40,13 @@
                     <td th:text="${list.contractTotalMoney}"></td>
                     <td>
                         <button class="btnModalAddContractDetail btn btn-sm btn-outline-success" type="button"
-                                th:value="${list.contractId}">
+                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip" data-placement="left"
+                                title="Add new Contract Detail">
                             <i class="bi bi-plus"></i>
                         </button>
                         <button class="btnModalDetailContract btn btn-sm btn-outline-primary" type="button"
-                                th:value="${list.contractId}">
+                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip" data-placement="left"
+                                title="view Contract Detail">
                             <i class="bi bi-eye"></i>
                         </button>
                     </td>
@@ -58,6 +60,7 @@
 
 <div th:replace="~{layout :: mini-footer}"></div>
 <div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: contract_script}"></div>
 <div th:replace="~{layout :: alert_script}"></div>
 <div th:replace="~{layout :: modal}"></div>
 </body>

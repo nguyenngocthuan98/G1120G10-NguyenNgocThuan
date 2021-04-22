@@ -1,0 +1,42 @@
+<div xmlns:th="http://www.thymeleaf.org" class="container">
+    <h2 class="text-info">New Contract Detail</h2>
+    <form th:action="@{/contract/createContractDetail}" th:object="${contractDetail}" method="POST">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+            <input type="hidden" th:field="*{contractDetailId}">
+            <input type="hidden" name="contractId" th:value="${contract.contractId}">
+            <tr class="form-group">
+                <th>Contract Id</th>
+                <th>
+                    <input type="text" class="form-control" th:field="${contract.contractId}" disabled>
+                </th>
+            </tr>
+            <tr class="form-group">
+                <td>Attach service</td>
+                <td>
+                    <select class="form-control" th:field="*{attachService}">
+                        <option th:each="list : ${listAttachService}"
+                                th:value="${list.attachServiceId}"
+                                th:text="${list.attachServiceName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Quantity</td>
+                <td>
+                    <input type="number" class="form-control" th:field="*{quantity}" min="1" required>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-outline-success text-uppercase col-12">Create</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

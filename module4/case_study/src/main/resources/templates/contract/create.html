@@ -66,12 +66,7 @@
                     <input type="number" class="form-control" th:field="*{contractDeposit}" required/>
                 </td>
             </tr>
-            <tr class="form-group" hidden="hidden">
-                <td>Total money:</td>
-                <td>
-                    <input type="hidden" th:field="*{contractTotalMoney}"/>
-                </td>
-            </tr>
+            <input type="hidden" name="contractTotalMoney" th:value="0">
             <tr>
                 <td>
                     <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);"

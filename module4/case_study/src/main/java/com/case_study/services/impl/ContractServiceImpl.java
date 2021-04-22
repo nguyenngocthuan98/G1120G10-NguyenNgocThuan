@@ -4,6 +4,8 @@ import com.case_study.models.Contract;
 import com.case_study.repositories.ContractRepository;
 import com.case_study.services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -31,8 +33,8 @@ public class ContractServiceImpl implements ContractService {
     public Double totalMoney(Contract contract) {
         int totalDay = 0;
         try {
-            Date startDate = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss").parse(contract.getContractStartDate());
-            Date endDate = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss").parse(contract.getContractEndDate());
+            Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractStartDate());
+            Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractEndDate());
             totalDay = (int) TimeUnit.DAYS.convert(endDate.getTime() - startDate.getTime(), TimeUnit.MILLISECONDS);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -40,5 +42,15 @@ public class ContractServiceImpl implements ContractService {
         double cost = contract.getService().getServiceCost();
 
         return totalDay * cost;
+    }
+
+    @Override
+    public Contract findById(Integer id) {
+        return this.contractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<Contract> customersUsing(String date, Pageable pageable) {
+        return contractRepository.customersUsing(date, pageable);
     }
 }

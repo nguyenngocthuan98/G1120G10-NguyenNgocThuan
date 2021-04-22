@@ -1,5 +1,6 @@
 package com.case_study.services.impl;
 
+import com.case_study.models.Contract;
 import com.case_study.models.ContractDetail;
 import com.case_study.repositories.ContractDetailRepository;
 import com.case_study.services.ContractDetailService;
@@ -22,5 +23,10 @@ public class ContractDetailServiceImpl implements ContractDetailService {
     @Override
     public void save(ContractDetail contractDetail) {
         this.contractDetailRepository.save(contractDetail);
+    }
+
+    @Override
+    public List<ContractDetail> findAllByContract(Contract contract) {
+        return this.contractDetailRepository.findAllByContract(contract);
     }
 }

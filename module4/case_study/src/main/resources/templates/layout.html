@@ -25,6 +25,21 @@
             <button id="btnModalCreate" class="btn btn-sm btn-outline-success">
                 <i class="bi bi-plus"></i>
             </button>
+            <a th:href="@{/customer/customerUsing}" class="btn btn-sm btn-outline-info ml-2">
+                <i class="bi bi-person-lines-fill"></i>
+            </a>
+        </div>
+        <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </nav>
+</div>
+
+<div th:fragment="nav-table-customer-using">
+    <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
+        <div class="navbar-collapse">
+            <input type="button" class="btn btn-sm btn-outline-info" action="action" onclick="history.go(-1);"/>
         </div>
         <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
@@ -50,14 +65,11 @@
 <div th:fragment="nav-table-contract">
     <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
         <div class="navbar-collapse">
-            <a th:href="@{/contract/viewCreateContract}" class="btn btn-sm btn-outline-success">
+            <a th:href="@{/contract/viewCreateContract}" class="btn btn-sm btn-outline-success" data-toggle="tooltip"
+               data-placement="top" title="Add new Contract">
                 <i class="bi bi-plus"></i>
             </a>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="btnSearchContract" th:action="@{/employee/search}" method="GET">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
-            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
     </nav>
 </div>
 
@@ -300,7 +312,14 @@
     <script src="/style/bootstrap4/js/jquery.min.js"></script>
     <script src="/style/bootstrap4/js/popper.min.js"></script>
     <script src="/style/bootstrap4/js/bootstrap.min.js"></script>
+    <!--    toolip js-->
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </div>
+
 <div th:fragment="customer_script">
     <script>
         $(document).ready(function () {
@@ -351,6 +370,7 @@
         });
     </script>
 </div>
+
 <div th:fragment="service_script">
     <script>
         $(document).ready(function () {
@@ -378,10 +398,10 @@
         });
     </script>
 </div>
+
 <div th:fragment="employee_script">
     <script>
         $(document).ready(function () {
-
             $(".btnModalDetailEmployee").click(function () {
                 $.ajax({
                     type: "GET",
@@ -407,6 +427,36 @@
         });
     </script>
 </div>
+
+<div th:fragment="contract_script">
+    <script>
+        $(document).ready(function () {
+            $(".btnModalDetailContract").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/viewContractDetail?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".btnModalAddContractDetail").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/viewCreateContractDetail?contractId=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+
 <div th:fragment="alert_script">
     <script>
         $(document).ready(function () {

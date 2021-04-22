@@ -1,6 +1,7 @@
 package com.case_study.controllers;
 
 import com.case_study.models.Customer;
+import com.case_study.services.ContractService;
 import com.case_study.services.CustomerService;
 import com.case_study.services.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -22,6 +25,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerTypeService customerTypeService;
+
+    @Autowired
+    private ContractService contractService;
 
     @GetMapping("/")
     public ModelAndView getCustomerHome(@PageableDefault(value = 5) Pageable pageable) {
@@ -91,5 +97,12 @@ public class CustomerController {
             model.addAttribute("listCustomer", this.customerService.findAll(pageable));
         }
         return "customer/list";
+    }
+
+    @GetMapping("/customerUsing")
+    public String showUsingCustomer(Model model, @PageableDefault(value = 5) Pageable pageable){
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        model.addAttribute("listUsingCustomer", this.contractService.customersUsing(date, pageable));
+        return "customer/using";
     }
 }
