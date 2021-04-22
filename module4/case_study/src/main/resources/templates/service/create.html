@@ -6,6 +6,9 @@
         <thead></thead>
         <tbody>
         <tr class="form-group">
+            <h2 class="text-success text-uppercase">create</h2>
+        </tr>
+        <tr class="form-group">
             <td>ID</td>
             <td>
                 <input type="text" class="form-control" th:field="*{serviceId}" required/>
@@ -82,7 +85,9 @@
             </td>
         </tr>
         <tr class="form-group">
-            <td></td>
+            <td>
+                <a th:href="@{/service/}" class="btn btn-outline-info">Back</a>
+            </td>
             <td>
                 <button type="submit" class="btn btn-sm btn-outline-success col-12">Create</button>
             </td>

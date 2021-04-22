@@ -1,78 +1,78 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: headTag"></head>
-<body>
-<table class="table table-hover">
-    <thead></thead>
-    <tbody>
-    <tr class="form-group">
-        <td>ID</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceId}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Service name:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceName}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Service Type:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceType.serviceTypeName}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Standard room:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.standardRoom}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Area:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceArea}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Rent type:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.rentType.rentTypeName}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Max people:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceMaxPeople}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Number of floor:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.numberOfFloor}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Pool area:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.poolArea}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Cost:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.serviceCost}"/>
-        </td>
-    </tr>
-    <tr class="form-group">
-        <td>Description:</td>
-        <td>
-            <input type="text" class="form-control" disabled th:field="*{services.description}"/>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div th:replace="~{/layout :: script_link}"></div>
-</body>
-</html>
+<div xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr class="form-group">
+            <h2 class="text-info text-uppercase">dateil</h2>
+        </tr>
+        <tr class="form-group">
+            <td>ID</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceId}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Service name:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Service Type:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceType.serviceTypeName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Standard room:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.standardRoom}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Area:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceArea}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Rent type:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.rentType.rentTypeName}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Max people:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceMaxPeople}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Number of floor:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.numberOfFloor}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Pool area:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.poolArea}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Cost:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.serviceCost}"/>
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>Description:</td>
+            <td>
+                <input type="text" class="form-control" disabled th:field="*{services.description}"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:replace="~{/layout :: script_link}"></div>
+</div>

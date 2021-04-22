@@ -47,6 +47,20 @@
     </nav>
 </div>
 
+<div th:fragment="nav-table-contract">
+    <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
+        <div class="navbar-collapse">
+            <a th:href="@{/contract/viewCreateContract}" class="btn btn-sm btn-outline-success">
+                <i class="bi bi-plus"></i>
+            </a>
+        </div>
+        <form class="form-inline my-2 my-lg-0" id="btnSearchContract" th:action="@{/employee/search}" method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </nav>
+</div>
+
 <div th:fragment="notification">
     <div class="alert alert-success alert-dismissible fade show" id="success-alert" th:if="${messSuccess}">
         <button type="button" class="close" data-dismiss="alert">

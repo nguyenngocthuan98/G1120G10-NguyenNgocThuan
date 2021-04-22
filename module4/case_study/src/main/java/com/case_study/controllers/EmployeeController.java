@@ -79,7 +79,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("employee") Employee employee, @RequestParam("newPassword") String newPassword,
+    public String edit(@ModelAttribute("employee") Employee employee, @RequestParam(name = "newPassword") String newPassword,
                        RedirectAttributes redirect) {
         try{
             this.userService.changePassword(employee.getUser(), newPassword);

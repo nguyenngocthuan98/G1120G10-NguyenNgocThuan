@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div th:replace="~{/layout :: header-line}"></div>
+<div th:replace="~{/layout :: banner}"></div>
+<div th:replace="~{/layout :: navbar_menu}"></div>
+
+<div class="container col-8">
+    <form th:action="@{/contract/create}" method="POST" th:object="${contract}">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+            <tr class="form-group">
+                <h2 class="text-success text-uppercase">create contract</h2>
+            </tr>
+            <input type="hidden" class="form-control" th:field="*{contractId}"/>
+            <tr class="form-group">
+                <td>Customer:</td>
+                <td>
+                    <select class="form-control" th:field="*{customer}">
+                        <option th:each="optionCustomer : ${customer}"
+                                th:value="${optionCustomer.customerId}"
+                                th:text="${optionCustomer.customerName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Employee:</td>
+                <td>
+                    <select th:field="*{employee}" class="form-control">
+                        <option th:each="optionEm : ${employee}"
+                                th:value="${optionEm.employeeId}"
+                                th:text="${optionEm.employeeName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Service:</td>
+                <td>
+                    <select th:field="*{service}" class="form-control">
+                        <option th:each="optionservice : ${service}"
+                                th:value="${optionservice.serviceId}"
+                                th:text="${optionservice.serviceName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Start day:</td>
+                <td>
+                    <input type="date" class="form-control" th:field="*{contractStartDate}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>End day:</td>
+                <td>
+                    <input type="date" class="form-control" th:field="*{contractEndDate}" required/>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>Deposit:</td>
+                <td>
+                    <input type="number" class="form-control" th:field="*{contractDeposit}" required/>
+                </td>
+            </tr>
+            <tr class="form-group" hidden="hidden">
+                <td>Total money:</td>
+                <td>
+                    <input type="hidden" th:field="*{contractTotalMoney}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);"
+                           value="Back"/>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success btn-sm col-12" type="submit">
+                        Create
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div th:replace="~{/layout :: script_link}"></div>
+</body>
+</html>
