@@ -5,6 +5,8 @@ import com.case_study.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,5 +27,15 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public void save(com.case_study.models.Service service) {
         this.serviceRepository.save(service);
+    }
+
+    @Override
+    public String getCurrentDate() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    }
+
+    @Override
+    public List<com.case_study.models.Service> findWithoutServiceUsing(String date) {
+        return this.serviceRepository.findWithoutServiceUsing(date);
     }
 }

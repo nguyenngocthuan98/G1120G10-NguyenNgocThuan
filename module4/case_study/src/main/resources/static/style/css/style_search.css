@@ -1,0 +1,20 @@
+/* Navbar */
+input.search {
+    width: 80% !important;
+    border: none;
+}
+
+button.btn_search {
+    padding: 0;
+}
+
+input.search:focus {
+    outline: none;
+}
+
+span.search_box {
+    background-color: white;
+    width: 100%;
+    padding: 0px 15px;
+    border-radius: 20px;
+}

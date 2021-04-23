@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/style/bootstrap4/bootstrap-icons/bootstrap-icons.css">
     <!--    Custom css-->
     <link rel="stylesheet" href="/style/css/style.css">
+    <link rel="stylesheet" href="/style/css/style_search.css">
 </head>
 <body>
 
@@ -29,9 +30,13 @@
                 <i class="bi bi-person-lines-fill"></i>
             </a>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
-            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        <form class="form-inline my-lg-0 col-md-3" id="btnSearch" th:action="@{/customer/search}" method="GET">
+            <span class="search_box">
+                <button class="btn btn-nomal btn-sm btn_search" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+                <input class="search" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            </span>
         </form>
     </nav>
 </div>
@@ -39,11 +44,15 @@
 <div th:fragment="nav-table-customer-using">
     <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
         <div class="navbar-collapse">
-            <input type="button" class="btn btn-sm btn-outline-info" action="action" onclick="history.go(-1);"/>
+            <input type="button" class="btn btn-sm btn-outline-info" action="action" onclick="history.go(-1);" value="Back"/>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="btnSearch" th:action="@{/customer/search}" method="GET">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
-            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        <form class="form-inline my-lg-0 col-md-3" id="" th:action="@{/customer/search}" method="GET">
+            <span class="search_box">
+                <button class="btn btn-nomal btn-sm btn_search" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+                <input class="search" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            </span>
         </form>
     </nav>
 </div>
@@ -55,9 +64,13 @@
                 <i class="bi bi-plus"></i>
             </a>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="btnSearchEmployee" th:action="@{/employee/search}" method="GET">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" th:value="${search}"/>
-            <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        <form class="form-inline my-lg-0 col-md-3" id="btnSearchEmployee" th:action="@{/employee/search}" method="GET">
+            <span class="search_box">
+                <button class="btn btn-nomal btn-sm btn_search" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+                <input class="search" type="text" placeholder="Search" name="search" th:value="${search}"/>
+            </span>
         </form>
     </nav>
 </div>

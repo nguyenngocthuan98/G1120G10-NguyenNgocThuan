@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("/contract")
 public class ContractController {
@@ -41,7 +43,8 @@ public class ContractController {
     public String getCreate(Model model, Pageable pageable) {
         model.addAttribute("customer", customerService.findAll(pageable));
         model.addAttribute("employee", employeeService.findAll(pageable));
-        model.addAttribute("service", serviceService.findAll());
+        String currentDate = serviceService.getCurrentDate();
+        model.addAttribute("service", serviceService.findWithoutServiceUsing(currentDate));
         model.addAttribute("contract", new Contract());
         return "contract/create";
     }
