@@ -75,9 +75,11 @@ public class ContractController {
 
     @PostMapping("/createContractDetail")
     public String createContractDetail(@ModelAttribute(name = "contractDetail") ContractDetail contractDetail,
+                                       @ModelAttribute("contract") Contract contract,
                                        @RequestParam(name = "contractId") Integer id, RedirectAttributes redirect) {
         contractDetail.setContract(this.contractService.findById(id));
         this.contractDetailService.save(contractDetail);
+        this.contractService.save(contract);
         redirect.addFlashAttribute("messSuccess", "Added successfully " +
                 contractService.findById(id).getContractId());
         return "redirect:/contract/";

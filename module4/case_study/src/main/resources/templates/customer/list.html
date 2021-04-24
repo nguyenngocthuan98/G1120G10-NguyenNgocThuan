@@ -60,7 +60,7 @@
                th:if="${listCustomer.hasPrevious()}">
                 <i class="bi bi-arrow-left-circle-fill"></i>
             </a>
-            <p class="btn btn-sm btn-outline-secondary rounded-pill pl-5 pr-5 mb-0">
+            <p class="btn btn-sm btn-outline-secondary rounded-pill pl-5 pr-5 mb-0" th:if="${listCustomer.totalPages != 0}">
                 <span th:text="${listCustomer.number + 1}"></span>/<span th:text="${listCustomer.totalPages}"></span>
             </p>
             <a class="btn btn-sm btn-outline-secondary rounded-pill"

@@ -1,6 +1,7 @@
 package com.case_study.services.impl;
 
 import com.case_study.models.Contract;
+import com.case_study.models.ContractDetail;
 import com.case_study.repositories.ContractRepository;
 import com.case_study.services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -32,6 +34,8 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public Double totalMoney(Contract contract) {
         int totalDay = 0;
+        double totalPrice = 0;
+
         try {
             Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractStartDate());
             Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractEndDate());
@@ -39,9 +43,20 @@ public class ContractServiceImpl implements ContractService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        if (totalDay == 0) {
+            totalDay = 1; //if contract created, day at least = 1
+        }
         double cost = contract.getService().getServiceCost();
+        totalPrice = totalDay * cost;
 
-        return totalDay * cost;
+        Set<ContractDetail> contractDetailSet = contract.getContractDetailSet();
+        // if contractDetail of contract not empty, get totalPrice += (all attach service cost * quantity)
+        if (!contractDetailSet.isEmpty()) {
+            for (ContractDetail contractDetail : contractDetailSet) {
+                totalPrice += contractDetail.getAttachService().getAttachServiceCost() * contractDetail.getQuantity();
+            }
+        }
+        return totalPrice;
     }
 
     @Override

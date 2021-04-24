@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -24,8 +25,9 @@ public class Contract {
     @Column(name = "contract_end_date", columnDefinition = "DATETIME")
     private String contractEndDate;
 
-    @Column(name = "contract_deposit")
-    private double contractDeposit;
+    @Column(name = "contract_deposit", columnDefinition = "DOUBLE")
+    @Pattern(regexp = "^[\\d](.[\\d]+)?$", message = "Not a number.")
+    private String contractDeposit;
 
     @Column(name = "contract_total_money")
     private double contractTotalMoney;

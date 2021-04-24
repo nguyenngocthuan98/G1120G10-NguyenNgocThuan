@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Getter
@@ -28,5 +29,6 @@ public class ContractDetail {
     private AttachService attachService;
 
     @Column(name = "quantity")
+    @Pattern(regexp = "^[\\d]+$", message = "Invalid")
     private int quantity;
 }
