@@ -4,6 +4,7 @@ import com.case_study.repositories.ServiceRepository;
 import com.case_study.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,5 +38,12 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public List<com.case_study.models.Service> findWithoutServiceUsing(String date) {
         return this.serviceRepository.findWithoutServiceUsing(date);
+    }
+
+    @Override
+    public void checkServiceId(com.case_study.models.Service service, Errors errors) {
+        if (findById(service.getServiceId()) != null) {
+            errors.rejectValue("serviceId", "service.serviceId.existed");
+        }
     }
 }

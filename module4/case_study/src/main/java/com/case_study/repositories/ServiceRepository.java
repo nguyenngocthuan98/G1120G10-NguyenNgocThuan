@@ -16,7 +16,8 @@ public interface ServiceRepository extends JpaRepository<Service, String> {
                     "where " +
                     "contract.contract_end_date < ?1 " +
                     "and " +
-                    "contract.service_id not in (select contract.service_id from contract where contract.contract_end_date >= '2021-04-23' group by contract.service_id) " +
+                    "contract.service_id not in (select contract.service_id from contract " +
+                    "where contract.contract_end_date >= ?1 group by contract.service_id) " +
                     "group by contract.service_id;", nativeQuery = true)
     List<Service> findWithoutServiceUsing(String date);
 }

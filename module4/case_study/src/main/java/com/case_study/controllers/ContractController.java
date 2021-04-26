@@ -7,11 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Date;
 
 @Controller
 @RequestMapping("/contract")
@@ -43,14 +42,23 @@ public class ContractController {
     public String getCreate(Model model, Pageable pageable) {
         model.addAttribute("customer", customerService.findAll(pageable));
         model.addAttribute("employee", employeeService.findAll(pageable));
-        String currentDate = serviceService.getCurrentDate();
-        model.addAttribute("service", serviceService.findWithoutServiceUsing(currentDate));
+//        String currentDate = serviceService.getCurrentDate();
+        model.addAttribute("service", serviceService.findAll());
         model.addAttribute("contract", new Contract());
         return "contract/create";
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("contract") Contract contract, RedirectAttributes redirect) {
+    public String create(@ModelAttribute("contract") Contract contract, BindingResult bindingResult,
+                         RedirectAttributes redirect, Model model, Pageable pageable) {
+        new Contract().validate(contract, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("customer", customerService.findAll(pageable));
+            model.addAttribute("employee", employeeService.findAll(pageable));
+            model.addAttribute("service", serviceService.findAll());
+            model.addAttribute("contract", contract);
+            return "contract/create";
+        }
         contract.setContractTotalMoney(contractService.totalMoney(contract));
         this.contractService.save(contract);
         redirect.addFlashAttribute("messSuccess", "Added successfully" + " CONTRACT");
@@ -66,7 +74,7 @@ public class ContractController {
     }
 
     @GetMapping("/viewCreateContractDetail")
-    public String getCreateDetail(@RequestParam(name = "contractId") Integer id, Model model) {
+    public String getCreateDetail(@RequestParam(name = "id") Integer id, Model model) {
         model.addAttribute("contract", this.contractService.findById(id));
         model.addAttribute("listAttachService", this.attachService.findAll());
         model.addAttribute("contractDetail", new ContractDetail());
@@ -75,10 +83,15 @@ public class ContractController {
 
     @PostMapping("/createContractDetail")
     public String createContractDetail(@ModelAttribute(name = "contractDetail") ContractDetail contractDetail,
-                                       @ModelAttribute("contract") Contract contract,
+                                       BindingResult bindingResult,
                                        @RequestParam(name = "contractId") Integer id, RedirectAttributes redirect) {
-        contractDetail.setContract(this.contractService.findById(id));
+        if (bindingResult.hasErrors()){
+            return "redirect:/contract/";
+        }
+        Contract contract = this.contractService.findById(id);
+        contractDetail.setContract(contract);
         this.contractDetailService.save(contractDetail);
+        contract.setContractTotalMoney(contractService.totalMoney(contract));
         this.contractService.save(contract);
         redirect.addFlashAttribute("messSuccess", "Added successfully " +
                 contractService.findById(id).getContractId());

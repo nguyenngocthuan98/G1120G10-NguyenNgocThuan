@@ -12,7 +12,7 @@
             <thead></thead>
             <tbody>
             <tr class="form-group">
-                <h2 class="text-info text-uppercase">edit</h2>
+                <h2 class="text-info text-uppercase">edit employee</h2>
             </tr>
             <input type="hidden" th:field="*{employeeId}"/>
             <input type="hidden" th:field="*{user.username}"/>
@@ -59,18 +59,31 @@
                 <td>ID card:</td>
                 <td>
                     <input type="text" class="form-control" th:field="*{employeeIdCard}" required/>
+                    <p th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"
+                       class="invalid-feedback"></p>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td>User:</td>
+                <td>
+                    <input type="text" class="form-control" th:placeholder="${employee.user.username}" disabled/>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Email:</td>
                 <td>
                     <input type="text" class="form-control" th:field="*{employeeEmail}" required/>
+                    <p th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"
+                       class="invalid-feedback"></p>
+
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Phone:</td>
                 <td>
                     <input type="text" class="form-control" th:field="*{employeePhone}" required/>
+                    <p th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
 
@@ -78,6 +91,8 @@
                 <td>Birthday:</td>
                 <td>
                     <input type="date" class="form-control" th:field="*{employeeBirthday}" required/>
+                    <p th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
@@ -87,21 +102,17 @@
                 </td>
             </tr>
             <tr class="form-group">
-                <td>Password:</td>
-                <td>
-                    <input type="text" class="form-control" name="newPassword" id="newPassword"
-                           th:value="${employee.user.password}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
                 <td>Salary:</td>
                 <td>
                     <input type="text" class="form-control" th:field="*{employeeSalary}" required/>
+                    <p th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);" value="Back"/>
+                    <input type="button" class="btn btn-outline-info btn-sm"
+                           action="action" onclick="history.go(-1);" value="Back"/>
                 </td>
                 <td>
                     <button class="btn btn-outline-success btn-sm col-12" type="submit">

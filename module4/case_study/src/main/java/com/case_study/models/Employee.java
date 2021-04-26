@@ -3,9 +3,15 @@ package com.case_study.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -13,7 +19,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Table(name = "employee")
-public class Employee {
+public class Employee implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
@@ -30,7 +36,7 @@ public class Employee {
     private String employeeIdCard;
 
     @Column(name = "employee_salary", columnDefinition = "DOUBLE")
-    @Pattern(regexp = "^[\\d](.[\\d]+)?$", message = "Not a number.")
+    @Pattern(regexp = "^[\\d]+(.[\\d]+)?$", message = "Not a number.")
     private String employeeSalary;
 
     @Column(name = "employee_phone", columnDefinition = "VARCHAR(45)")
@@ -39,7 +45,7 @@ public class Employee {
     private String employeePhone;
 
     @Column(name = "employee_email", columnDefinition = "VARCHAR(45)")
-    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",message = "Email invalid")
+    @Pattern(regexp = "^([\\w]+-?\\.?)+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Email invalid")
     private String employeeEmail;
 
     @Column(name = "employee_address", columnDefinition = "VARCHAR(45)")
@@ -64,4 +70,30 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Employee.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object object, Errors errors) {
+        Employee employee = (Employee) object;
+        try {
+            Date birthday = new SimpleDateFormat("yyyy-MM-dd").parse(employee.getEmployeeBirthday());
+            Date currentDate = new Date();
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.YEAR, -18);
+            Date back18Years = calendar.getTime();
+
+            if (birthday.after(back18Years)) {
+                errors.rejectValue("employeeBirthday", "date.birthday.lessThan18");
+            }
+            if (birthday.after(currentDate)) {
+                errors.rejectValue("employeeBirthday", "date.birthday.future");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

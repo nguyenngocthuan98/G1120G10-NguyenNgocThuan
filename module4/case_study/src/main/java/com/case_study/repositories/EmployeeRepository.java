@@ -1,6 +1,7 @@
 package com.case_study.repositories;
 
 import com.case_study.models.Employee;
+import com.case_study.models.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,4 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     Page<Employee> findAllByEmployeeNameContaining(String searchText, Pageable pageable);
+
+    Employee findByUser(User user);
 }

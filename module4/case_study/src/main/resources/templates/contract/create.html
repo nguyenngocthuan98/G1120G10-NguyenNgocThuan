@@ -52,18 +52,24 @@
                 <td>Start day:</td>
                 <td>
                     <input type="date" class="form-control" th:field="*{contractStartDate}" required/>
+                    <p th:if="${#fields.hasErrors('contractStartDate')}" th:errors="*{contractStartDate}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>End day:</td>
                 <td>
                     <input type="date" class="form-control" th:field="*{contractEndDate}" required/>
+                    <p th:if="${#fields.hasErrors('contractEndDate')}" th:errors="*{contractEndDate}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Deposit:</td>
                 <td>
                     <input type="number" class="form-control" th:field="*{contractDeposit}" required/>
+                    <p th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <input type="hidden" name="contractTotalMoney" th:value="0">

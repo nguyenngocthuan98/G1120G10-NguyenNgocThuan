@@ -5,6 +5,7 @@ import com.case_study.repositories.UserRepository;
 import com.case_study.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 import java.util.List;
 
@@ -24,15 +25,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUserByUsername(String username) {
-        List<User> listUser = findAll();
-        for (User user : listUser) {
-            if (user.getUsername().equals(username)) {
-                return null;
-            }
-        }
-        User user = new User();
+    public User findByUsername(String username) {
+        return this.userRepository.findByUsername(username);
+    }
 
+    @Override
+    public User createUserByUsername(String username) {
+        User user = new User();
         user.setUsername(username);
         user.setPassword(username);
         user.setEnabled(true);
@@ -48,5 +47,12 @@ public class UserServiceImpl implements UserService {
         }
 
         save(user);
+    }
+
+    @Override
+    public void checkUsername(String username, Errors error) {
+        if (userRepository.findByUsername(username) != null) {
+            error.rejectValue("user", "user.username.existed");
+        }
     }
 }

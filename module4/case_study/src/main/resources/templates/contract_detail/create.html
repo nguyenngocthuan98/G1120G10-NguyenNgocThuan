@@ -27,6 +27,9 @@
                 <td>Quantity</td>
                 <td>
                     <input type="number" class="form-control" th:field="*{quantity}" min="1" required>
+                    <p class="invalid-feedback" style="display: block"
+                         th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">
+                    </p>
                 </td>
             </tr>
             <tr class="form-group">

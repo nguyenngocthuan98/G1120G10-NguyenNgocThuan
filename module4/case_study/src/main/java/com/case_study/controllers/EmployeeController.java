@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -59,12 +61,20 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("employee") Employee employee, @RequestParam("inputUsername") String username,
-                         RedirectAttributes redirect) {
-        User user = this.userService.createUserByUsername(username);
-        if (username != null) {
-            employee.setUser(user);
+    public String create(@Validated @ModelAttribute("employee") Employee employee, BindingResult bindingResult,
+                         @RequestParam("inputUsername") String username, RedirectAttributes redirect, Model model) {
+        new Employee().validate(employee, bindingResult);
+        this.userService.checkUsername(username, bindingResult);
+        if (bindingResult.hasErrors()) {
+            if (bindingResult.hasFieldErrors("user")) {
+                model.addAttribute("messUser", "user.username.existed");
+            }
+            model.addAttribute("employee", employee);
+            getAll(model);
+            return "employee/create";
         }
+        User user = this.userService.createUserByUsername(username);
+        employee.setUser(user);
         this.employeeService.save(employee);
         redirect.addFlashAttribute("messSuccess",
                 "Added successfully: " + employee.getEmployeeName());
@@ -79,12 +89,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("employee") Employee employee, @RequestParam(name = "newPassword") String newPassword,
+    public String edit(@Validated @ModelAttribute("employee") Employee employee, BindingResult bindingResult, Model model,
                        RedirectAttributes redirect) {
-        try{
-            this.userService.changePassword(employee.getUser(), newPassword);
-        }catch (NullPointerException e){
-            e.printStackTrace();
+        new Employee().validate(employee, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("employee", employee);
+            getAll(model);
+            return "employee/edit";
         }
         this.employeeService.save(employee);
         redirect.addFlashAttribute("messSuccess",
@@ -107,7 +118,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam("search") Optional<String> search, Model model, @PageableDefault(value = 5) Pageable pageable) {
+    public String search(@RequestParam("search") Optional<String> search, Model model,
+                         @PageableDefault(value = 5) Pageable pageable) {
         if (search.isPresent()) {
             model.addAttribute("search", search.get());
             model.addAttribute("employee",

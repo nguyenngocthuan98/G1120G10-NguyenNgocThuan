@@ -1,88 +1,118 @@
-<div xmlns:th="http://www.thymeleaf.org">
-    <form th:action="@{/customer/create}" method="POST" th:object="${customerCreate}">
-        <table class="table table-hover">
-            <thead></thead>
-            <tbody>
-            <tr class="form-group text-uppercase">
-                <h2 class="text-success text-uppercase">create new customer</h2>
-            </tr>
-            <tr class="form-group">
-                <td>ID</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerId}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Name:</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerName}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Birth day:</td>
-                <td>
-                    <input type="date" class="form-control" th:field="*{customerBirthday}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Gender:</td>
-                <td>
-                    <div class="form-check-inline">
-                        <input type="radio" id="male" name="gender" value="true" checked>
-                        <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check-inline">
-                        <input type="radio" id="female" name="gender" value="false">
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>ID card:</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerIdCard}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Phone:</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerPhone}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Email:</td>
-                <td>
-                    <input type="email" class="form-control" th:field="*{customerEmail}"/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Address:</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerAddress}" required/>
-                </td>
-            </tr>
-            <tr class="form-group">
-                <td>Customer type:</td>
-                <td>
-                    <select th:field="*{customerType}" class="form-control">
-                        <option th:each="type : ${listCustomerType}"
-                                th:value="${type.customerTypeId}"
-                                th:text="${type.customerTypeName}">
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <button class="btn btn-outline-success btn-sm col-12" type="submit">
-                        Create
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </form>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div th:replace="~{/layout :: header-line}"></div>
+<div th:replace="~{/layout :: banner}"></div>
+<div th:replace="~{/layout :: navbar_menu}"></div>
 
-    <div th:replace="~{/layout :: script_link}"></div>
+<div class="container">
+    <div class="main_content col-12">
+        <form th:action="@{/customer/create}" method="POST" th:object="${customerCreate}">
+            <table class="table table-hover">
+                <thead></thead>
+                <tbody>
+                <tr class="form-group text-uppercase">
+                    <h2 class="text-success text-uppercase">create new customer</h2>
+                </tr>
+                <tr class="form-group">
+                    <td>ID</td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="KH-XXXX(X is a number)"
+                               th:field="*{customerId}" required/>
+                        <p th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerName}" required/>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Birth day:</td>
+                    <td>
+                        <input type="date" class="form-control" th:field="*{customerBirthday}" required/>
+                        <p th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Gender:</td>
+                    <td>
+                        <div class="form-check-inline">
+                            <input type="radio" id="male" name="gender" value="true" checked>
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" id="female" name="gender" value="false">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>ID card:</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerIdCard}" required
+                               placeholder="9 or 12 digits"/>
+                        <p th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Phone:</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerPhone}" required
+                               placeholder="090xxxxxxx, 091xxxxxxx, (84)+90xxxxxxx, (84)+91xxxxxxx"/>
+                        <p th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" class="form-control" th:field="*{customerEmail}" required/>
+                        <p th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerAddress}" required/>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Customer type:</td>
+                    <td>
+                        <select th:field="*{customerType}" class="form-control">
+                            <option th:each="type : ${listCustomerType}"
+                                    th:value="${type.customerTypeId}"
+                                    th:text="${type.customerTypeName}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:href="@{/customer/}" class="btn btn-outline-info btn-sm col-6">
+                            Back
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-success btn-sm col-12" type="submit">
+                            Create
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
 </div>
+
+<div th:replace="~{layout :: mini-footer}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+</body>
+</html>

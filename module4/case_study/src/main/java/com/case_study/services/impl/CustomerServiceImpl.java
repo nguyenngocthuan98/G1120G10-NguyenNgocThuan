@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -38,5 +39,12 @@ public class CustomerServiceImpl implements CustomerService {
     public Page<Customer> findAllByCustomerNameContainingOrCustomerIdContaining(
             String searchText1, String searchText2, Pageable pageable) {
         return customerRepository.findAllByCustomerNameContainingOrCustomerIdContaining(searchText1, searchText2, pageable);
+    }
+
+    @Override
+    public void checkCustomerId(Customer customer, Errors errors) {
+        if (findById(customer.getCustomerId()) != null) {
+            errors.rejectValue("customerId", "customer.customerId.existed");
+        }
     }
 }

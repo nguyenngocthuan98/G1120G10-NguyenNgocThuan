@@ -40,10 +40,9 @@
                                 th:value="${list.customerId}">
                             <i class="bi bi-eye"></i>
                         </button>
-                        <button class="btnModalEdit btn btn-sm btn-outline-warning" type="button"
-                                th:value="${list.customerId}">
+                        <a th:href="@{/customer/viewEdit(id=${list.customerId})}" class="btn btn-sm btn-outline-warning">
                             <i class="bi bi-pencil-square"></i>
-                        </button>
+                        </a>
                         <button class="btnModalDelete btn btn-sm btn-outline-danger" type="button"
                                 th:value="${list.customerId}">
                             <i class="bi bi-trash"></i>

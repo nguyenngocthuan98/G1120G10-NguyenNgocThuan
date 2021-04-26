@@ -1,8 +1,8 @@
 package com.case_study.services;
 
 import com.case_study.models.Service;
+import org.springframework.validation.Errors;
 
-import java.util.Date;
 import java.util.List;
 
 public interface ServiceService {
@@ -15,4 +15,7 @@ public interface ServiceService {
     String getCurrentDate();
 
     List<Service> findWithoutServiceUsing(String date);
+
+    void checkServiceId(Service service, Errors errors);
+
 }

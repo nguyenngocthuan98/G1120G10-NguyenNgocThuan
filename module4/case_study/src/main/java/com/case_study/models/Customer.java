@@ -3,9 +3,15 @@ package com.case_study.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -13,7 +19,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Table(name = "customer")
-public class Customer {
+public class Customer implements Validator {
     @Id
     @Column(name = "customer_id", columnDefinition = "VARCHAR(45)")
     @Pattern(regexp = "^KH-[\\d]{4}$", message = "CustomerID must be in format KH-xxxx(x is a number)")
@@ -38,7 +44,7 @@ public class Customer {
     private String customerPhone;
 
     @Column(name = "customer_email", columnDefinition = "VARCHAR(45)")
-    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",message = "Email invalid")
+    @Pattern(regexp = "^([\\w]+-?\\.?)+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Email invalid")
     private String customerEmail;
 
     @Column(name = "customer_address", columnDefinition = "VARCHAR(45)")
@@ -51,4 +57,32 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
 
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Customer.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Customer customer = (Customer) target;
+
+        try {
+            Date birthday = new SimpleDateFormat("yyyy-MM-dd").parse(customer.getCustomerBirthday());
+            Date currentDate = new Date();
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.YEAR, -18);
+            Date back18Years = calendar.getTime();
+
+            if (birthday.after(back18Years)) {
+                errors.rejectValue("customerBirthday", "date.birthday.lessThan18");
+            }
+            if (birthday.after(currentDate)) {
+                errors.rejectValue("customerBirthday", "date.birthday.future");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

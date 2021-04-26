@@ -7,6 +7,8 @@ import com.case_study.services.ServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +53,15 @@ public class ServiceController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("service") Service service, RedirectAttributes redirectAttributes) {
+    public String create(@Validated @ModelAttribute("service") Service service, BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes, Model model) {
+        this.serviceService.checkServiceId(service, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("serviceType", this.serviceTypeService.findAll());
+            model.addAttribute("rentType", this.rentTypeService.findAll());
+            model.addAttribute("service", service);
+            return "service/create";
+        }
         this.serviceService.save(service);
         redirectAttributes.addFlashAttribute("messSuccess", "Added successfully: " + service.getServiceName());
         return "redirect:/service/";

@@ -23,9 +23,9 @@
 <div th:fragment="nav-table-customer">
     <nav class="navbar navbar-expand-sm" style="background-color: rgb(173, 219, 206)">
         <div class="navbar-collapse">
-            <button id="btnModalCreate" class="btn btn-sm btn-outline-success">
+            <a th:href="@{/customer/viewCreate}" id="btnModalCreate" class="btn btn-sm btn-outline-success">
                 <i class="bi bi-plus"></i>
-            </button>
+            </a>
             <a th:href="@{/customer/customerUsing}" class="btn btn-sm btn-outline-info ml-2">
                 <i class="bi bi-person-lines-fill"></i>
             </a>
@@ -147,13 +147,13 @@
     <div class="container-fluid pr-0 pl-0">
         <div class="image-container">
             <div class="text row">
-                <div class="col-3 d-flex align-items-center">
-                    <a href="https://furamavietnam.com/">
-                        <img src="/img/logo.png" alt="logo "
-                             class="img-fluid" width="63" height="100"/>
-                    </a>
-                </div>
-                <div class="col-9">FURAMA RESORT</div>
+<!--                <div class="col-3 d-flex align-items-center">-->
+<!--                    <a href="https://furamavietnam.com/">-->
+<!--                        <img src="/img/logo.png" alt="logo "-->
+<!--                             class="img-fluid" width="63" height="100"/>-->
+<!--                    </a>-->
+<!--                </div>-->
+                <div class="col-12">FURAMA RESORT</div>
             </div>
         </div>
     </div>
@@ -211,7 +211,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
                         <div class="dropdown-header">You are guest</div>
-                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" th:href="@{/login}">Login</a>
                         <a class="dropdown-item" href="#">Register</a>
                     </div>
                 </li>
@@ -336,32 +336,10 @@
 <div th:fragment="customer_script">
     <script>
         $(document).ready(function () {
-            $("#btnModalCreate").click(function () {
-                $.ajax({
-                    type: "GET",
-                    url: "/customer/viewCreate",
-                    dataType: "HTML",
-                    success: function (data) {
-                        $(".modal-body").html(data);
-                        $("#modalId").modal('show');
-                    }
-                });
-            });
             $(".btnModalDetail").click(function () {
                 $.ajax({
                     type: "GET",
                     url: "/customer/viewDetail?id=" + $(this).val(),
-                    dataType: "HTML",
-                    success: function (data) {
-                        $(".modal-body").html(data);
-                        $("#modalId").modal('show');
-                    }
-                });
-            });
-            $(".btnModalEdit").click(function () {
-                $.ajax({
-                    type: "GET",
-                    url: "/customer/viewEdit?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -395,16 +373,6 @@
                     success: function (data) {
                         $(".modal-body").html(data);
                         $("#modalId").modal('show');
-                    }
-                });
-            });
-            $("#btnCreateServicePage").click(function () {
-                $.ajax({
-                    type: "GET",
-                    url: "/service/viewCreate",
-                    dataType: "HTML",
-                    success: function (data) {
-                        $(".create-service").html(data);
                     }
                 });
             });
@@ -458,7 +426,7 @@
             $(".btnModalAddContractDetail").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/contract/viewCreateContractDetail?contractId=" + $(this).val(),
+                    url: "/contract/viewCreateContractDetail?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -473,7 +441,7 @@
 <div th:fragment="alert_script">
     <script>
         $(document).ready(function () {
-            $("#success-alert").fadeTo(2000, 500).slideUp(1000, function () {
+            $("#success-alert").fadeTo(3000, 500).slideUp(1000, function () {
                 $("#success-alert").alert('close');
             });
         });

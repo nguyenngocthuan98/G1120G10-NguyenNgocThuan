@@ -31,7 +31,7 @@ public class CustomerController {
     @Autowired
     private ContractService contractService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView getCustomerHome(@PageableDefault(value = 5) Pageable pageable) {
         return new ModelAndView("customer/list", "listCustomer",
                 this.customerService.findAll(pageable));
@@ -53,7 +53,14 @@ public class CustomerController {
 
     @PostMapping("/create")
     public String create(@Validated @ModelAttribute("customerCreate") Customer customer, BindingResult bindingResult,
-                         RedirectAttributes redirect) {
+                         RedirectAttributes redirect, Model model) {
+        new Customer().validate(customer, bindingResult);
+        this.customerService.checkCustomerId(customer, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("customerCreate", customer);
+            model.addAttribute("listCustomerType", this.customerTypeService.findAll());
+            return "customer/create";
+        }
         this.customerService.save(customer);
         redirect.addFlashAttribute("messSuccess",
                 "Added successfully: " + customer.getCustomerName());
@@ -68,7 +75,14 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("customerEdit") Customer customer, RedirectAttributes redirect) {
+    public String edit(@Validated @ModelAttribute("customerEdit") Customer customer, BindingResult bindingResult,
+                       Model model, RedirectAttributes redirect) {
+        new Customer().validate(customer, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("listCustomerType", this.customerTypeService.findAll());
+            model.addAttribute("customerEdit", customer);
+            return "customer/edit";
+        }
         this.customerService.save(customer);
         redirect.addFlashAttribute("messSuccess",
                 "Updated successfully: " + customer.getCustomerName());
@@ -103,7 +117,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customerUsing")
-    public String showUsingCustomer(Model model, @PageableDefault(value = 5) Pageable pageable){
+    public String showUsingCustomer(Model model, @PageableDefault(value = 5) Pageable pageable) {
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         model.addAttribute("listUsingCustomer", this.contractService.customersUsing(date, pageable));
         return "customer/using";

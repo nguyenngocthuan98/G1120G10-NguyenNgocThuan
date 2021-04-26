@@ -28,7 +28,7 @@ public class ContractDetail {
     @JoinColumn(name = "attach_service_id", nullable = false)
     private AttachService attachService;
 
-    @Column(name = "quantity")
+    @Column(name = "quantity", columnDefinition = "int")
     @Pattern(regexp = "^[\\d]+$", message = "Invalid")
-    private int quantity;
+    private String quantity;
 }

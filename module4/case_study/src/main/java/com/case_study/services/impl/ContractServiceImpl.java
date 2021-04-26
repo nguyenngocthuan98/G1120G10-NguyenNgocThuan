@@ -46,14 +46,17 @@ public class ContractServiceImpl implements ContractService {
         if (totalDay == 0) {
             totalDay = 1; //if contract created, day at least = 1
         }
-        double cost = contract.getService().getServiceCost();
+        double cost = Double.parseDouble(contract.getService().getServiceCost());
         totalPrice = totalDay * cost;
 
-        Set<ContractDetail> contractDetailSet = contract.getContractDetailSet();
-        // if contractDetail of contract not empty, get totalPrice += (all attach service cost * quantity)
-        if (!contractDetailSet.isEmpty()) {
-            for (ContractDetail contractDetail : contractDetailSet) {
-                totalPrice += contractDetail.getAttachService().getAttachServiceCost() * contractDetail.getQuantity();
+        if (contract.getContractId() != null) {
+            Set<ContractDetail> contractDetailSet = contract.getContractDetailSet();
+            // if contractDetail of contract not empty, get totalPrice += (all attach service cost * quantity)
+            if (!contractDetailSet.isEmpty()) {
+                for (ContractDetail contractDetail : contractDetailSet) {
+                    totalPrice += contractDetail.getAttachService().getAttachServiceCost() *
+                            Integer.parseInt(contractDetail.getQuantity());
+                }
             }
         }
         return totalPrice;

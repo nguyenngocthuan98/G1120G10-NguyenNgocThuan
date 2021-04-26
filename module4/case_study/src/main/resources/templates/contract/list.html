@@ -40,12 +40,14 @@
                     <td th:text="${list.contractTotalMoney}"></td>
                     <td>
                         <button class="btnModalAddContractDetail btn btn-sm btn-outline-success" type="button"
-                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip" data-placement="left"
+                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip"
+                                data-placement="left"
                                 title="Add new Contract Detail">
                             <i class="bi bi-plus"></i>
                         </button>
                         <button class="btnModalDetailContract btn btn-sm btn-outline-primary" type="button"
-                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip" data-placement="left"
+                                th:value="${list.contractId}" name="contractId" data-toggle="tooltip"
+                                data-placement="left"
                                 title="view Contract Detail">
                             <i class="bi bi-eye"></i>
                         </button>
@@ -54,9 +56,9 @@
             </th:block>
             </tbody>
         </table>
-        </div>
     </div>
 </div>
+
 
 <div th:replace="~{layout :: mini-footer}"></div>
 <div th:replace="~{layout :: script_link}"></div>

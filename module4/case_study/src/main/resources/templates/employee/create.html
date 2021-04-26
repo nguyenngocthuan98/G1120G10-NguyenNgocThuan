@@ -12,11 +12,11 @@
             <thead></thead>
             <tbody>
             <tr class="form-group">
-                <h2 class="text-success text-uppercase">create</h2>
+                <h2 class="text-success text-uppercase">create employee</h2>
             </tr>
             <input type="hidden" class="form-control" th:field="*{employeeId}"/>
             <tr class="form-group">
-                <td>Name:</td>
+                <td>Name employee:</td>
                 <td>
                     <input type="text" class="form-control" th:field="*{employeeName}" required/>
                 </td>
@@ -57,19 +57,27 @@
             <tr class="form-group">
                 <td>ID card:</td>
                 <td>
-                    <input type="text" class="form-control" th:field="*{employeeIdCard}" required/>
+                    <input type="text" class="form-control" th:field="*{employeeIdCard}" placeholder="9 or 12 digits"
+                           required/>
+                    <p th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Email:</td>
                 <td>
-                    <input type="text" class="form-control" th:field="*{employeeEmail}" required/>
+                    <input type="email" class="form-control" th:field="*{employeeEmail}" required/>
+                    <p th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Phone:</td>
                 <td>
-                    <input type="text" class="form-control" th:field="*{employeePhone}" required/>
+                    <input type="text" class="form-control" th:field="*{employeePhone}" required
+                           placeholder="090xxxxxxx, 091xxxxxxx, (84)+90xxxxxxx, (84)+91xxxxxxx"/>
+                    <p th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
@@ -77,12 +85,15 @@
                 <td>
                     <input type="hidden" th:field="*{user}"/>
                     <input type="text" class="form-control" name="inputUsername" required/>
+                    <p th:if="${messUser}" th:text="${messUser}" class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
                 <td>Birthday:</td>
                 <td>
                     <input type="date" class="form-control" th:field="*{employeeBirthday}" required/>
+                    <p th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr class="form-group">
@@ -95,11 +106,14 @@
                 <td>Salary:</td>
                 <td>
                     <input type="number" class="form-control" th:field="*{employeeSalary}" required/>
+                    <p th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"
+                       class="invalid-feedback"></p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);" value="Back"/>
+                    <input type="button" class="btn btn-outline-info" action="action" onclick="history.go(-1);"
+                           value="Back"/>
                 </td>
                 <td>
                     <button class="btn btn-outline-success btn-sm col-12" type="submit">
