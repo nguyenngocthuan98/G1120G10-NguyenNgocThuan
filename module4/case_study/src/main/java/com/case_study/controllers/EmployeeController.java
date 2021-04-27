@@ -67,8 +67,9 @@ public class EmployeeController {
         this.userService.checkUsername(username, bindingResult);
         if (bindingResult.hasErrors()) {
             if (bindingResult.hasFieldErrors("user")) {
-                model.addAttribute("messUser", "user.username.existed");
+                model.addAttribute("messUser", "Username existed!");
             }
+            model.addAttribute("inputUsername", username);
             model.addAttribute("employee", employee);
             getAll(model);
             return "employee/create";
