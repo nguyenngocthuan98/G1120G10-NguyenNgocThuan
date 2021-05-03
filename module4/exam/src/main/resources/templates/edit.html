@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div class="container">
+    <div class="main_content col-12">
+        <h1 class="text-uppercase">chinh sua don hang ma so <span th:text="${orderId}"></span></h1>
+        <form th:action="@{/edit}" method="POST" th:object="${order}">
+            <table class="table table-hover">
+                <thead></thead>
+                <tbody>
+                <input type="hidden" th:field="*{orderId}"/>
+
+                <tr class="form-group">
+                    <td>Loai san pham(*):</td>
+                    <td>
+                        <select name="loaiSP" class="form-control">
+                            <option th:each="list : ${typeProducts}"
+                                    th:value="${list.}"
+                                    th:text="${list.}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>San pham(*):</td>
+                    <td>
+                        <select th:field="*{product}" class="form-control">
+                            <option th:each="list : ${products}"
+                                    th:value="${list.}"
+                                    th:text="${list.}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>Ngay mua(*):</td>
+                    <td>
+                        <input type="date" class="form-control" th:field="*{}"/>
+                        <p th:if="${#fields.hasErrors('ngayMua')}" th:errors="*{}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>So luong(*):</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{}"/>
+                        <p th:if="${#fields.hasErrors('soLuong')}" th:errors="*{}"
+                           class="invalid-feedback"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:href="@{/}" class="btn btn-outline-info btn-sm col-6">
+                            Back
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-success btn-sm col-12" type="submit">
+                            Sua
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+<div th:replace="~{layout :: script_link}"></div>
+</body>
+</html>

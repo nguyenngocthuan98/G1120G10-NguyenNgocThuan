@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: headTag}"></head>
+<body>
+<div class="container">
+    <div class="main_content col-12">
+        <h1 class="text-uppercase">order statistics</h1>
+
+        <div class="form-group">
+            <form action="" method="GET">
+                <div class="row align-items-center">
+                    <span>List of order form:</span>
+                    <input class="form-control col-2 pr-1 pl-1" type="date">
+                    <span>to:</span>
+                    <input class="form-control col-2 pr-1 pl-1" type="date">
+                    <input class="btn btn-outline-info btn-sm" type="submit" value="Xem">
+                </div>
+
+            </form>
+        </div>
+        <div class="form-group">
+            <form action="" method="GET">
+                <div class="row align-items-center">
+                    <span>List of</span>
+                    <select class="form-control col-2  pr-1 pl-1" name="" id="">
+                        <option value="10">10</option>
+                        <option value="5">5</option>
+                    </select>
+                    <span>orders with the highest amount</span>
+                    <input class="btn btn-outline-info btn-sm pr-1 pl-1" type="submit" value="Xem top">
+                </div>
+            </form>
+        </div>
+        <div th:replace="/layout :: notification"></div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Order ID</th>
+                <th>Product name</th>
+                <th>Price (USD)</th>
+                <th>Type product</th>
+                <th>Day order</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Option</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="list,iterStat : ${order}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <td class="font-weight-bold" th:text="${list.orderId}"></td>
+                    <td th:text="${list.product.productName}"></td>
+                    <td th:text="${list.product.productPrice}"></td>
+                    <td th:text="${list.product.typeProduct.typeProductName}"></td>
+                    <td th:text="${list.orderDate}"></td>
+                    <td th:text="${list.orderQuantity}"></td>
+                    <td th:utext="${list.orderQuantity}*${list.product.productPrice}"></td>
+                    <td>
+                        <a th:href="@{/edit(id=${list.orderId})}"
+                           class="btn btn-sm btn-outline-warning">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <a class="btn btn-sm btn-outline-secondary rounded-pill"
+               th:href="@{'/'(page=${order.number - 1})}"
+               th:if="${order.hasPrevious()}">
+                <i class="bi bi-arrow-left-circle-fill"></i>
+            </a>
+            <p class="btn btn-sm btn-outline-secondary rounded-pill pl-5 pr-5 mb-0"
+               th:if="${order.totalPages != 0}">
+                <span th:text="${order.number + 1}"></span>/<span th:text="${order.totalPages}"></span>
+            </p>
+            <a class="btn btn-sm btn-outline-secondary rounded-pill"
+               th:href="@{'/'(page=${order.number + 1})}"
+               th:if="${order.hasNext()}">
+                <i class="bi bi-arrow-right-circle-fill"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    parseFloat(document.getElementById())
+</script>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: alert_script}"></div>
+</body>
+</html>
