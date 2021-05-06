@@ -1,0 +1,24 @@
+<h2>Font size editor with one-way binding</h2>
+<div>
+  <label>Enter font size (px):</label>
+  <input type="range" min="0" max="100"
+    value="{{fontSizeOne}}" #element_one (change)="changeFontSizeOne(element_one.value)">
+</div>
+
+<p class="output" [style.fontSize.px]="fontSizeOne">
+  This is a paragraph have size: {{fontSizeOne}}px
+</p>
+
+<br>
+
+<h2>Font size editor with two-way binding</h2>
+<div>
+  <label>Enter font size (px):</label>
+  <input type="range" min="0" max="100" value="{{fontSizeTwo}}" [(ngModel)]="fontSizeTwo">
+  <span>{{fontSizeTwo}}px</span>
+</div>
+
+<p class="output" [style.fontSize.px]="fontSizeTwo">
+  This is a paragraph have size: {{fontSizeTwo}}px
+</p>
+
