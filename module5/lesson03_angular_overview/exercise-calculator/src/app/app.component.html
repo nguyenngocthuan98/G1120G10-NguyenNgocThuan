@@ -1,0 +1,31 @@
+<h1>Simple calculator</h1>
+<table>
+  <thead>
+  <tr>
+    <td>First number</td>
+    <td></td>
+    <td>Second number</td>
+    <td></td>
+    <td>Result</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <input type="number" #first required>
+    </td>
+    <td>
+      <button #addition value="+" (click)="calculator(first.value, second.value, addition.value)">+</button>
+      <button #subtract value="-" (click)="calculator(first.value, second.value, subtract.value)">-</button>
+      <button #multiple value="*" (click)="calculator(first.value, second.value, multiple.value)">x</button>
+      <button #divide value="/" (click)="calculator(first.value, second.value, divide.value)">/</button>
+    </td>
+    <td>
+      <input type="number" #second required>
+    </td>
+    <td></td>
+    <td><p class="color:green">{{result}}</p></td>
+  </tr>
+  </tbody>
+</table>
+
