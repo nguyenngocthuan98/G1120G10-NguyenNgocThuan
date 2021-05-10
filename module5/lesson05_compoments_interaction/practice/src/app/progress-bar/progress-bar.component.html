@@ -1,0 +1,13 @@
+<h2>Download something</h2>
+
+<div class="progress-bar-container" [style.backgroundColor]="backgroundColor">
+  <div class="progress" [ngStyle]="{ backgroundColor: progressColor, width: progress + '%'}"></div>
+</div>
+<p>
+  {{ progress}}%
+  <span *ngIf="progress == 100" style="color: limegreen">Download complete!</span>
+  <span *ngIf="isLoading" style="color: navy">Downloading...</span>
+</p>
+
+<button (click)="loading()">Download</button>
+
