@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="col-12 card">
+    <h3 class="card-header text-uppercase">list account</h3>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <td>#</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Country</td>
+        <td>Gender</td>
+        <td>Age</td>
+        <td>Phone</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of accounts, let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.password}}</td>
+        <td>{{item.country}}</td>
+        <td [ngSwitch]="item.gender">
+          <span *ngSwitchCase="0">Female</span>
+          <span *ngSwitchCase="1">Male</span>
+          <span *ngSwitchDefault>Unknown</span>
+        </td>
+        <td>{{item.age}} year(s) old</td>
+        <td>{{item.phone}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <app-register></app-register>
+    <app-login></app-login>
+  </div>
+</div>
