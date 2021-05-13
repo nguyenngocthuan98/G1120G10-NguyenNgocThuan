@@ -1,53 +1,8 @@
 <div class="container-fluid pl-4 pr-4">
   <h1 class="text-uppercase">Product manager</h1>
-  <div class="row">
-    <div class=" col-6 card border-primary">
-      <div class="card-body">
-        <h4 class="card-title bg-light">product list</h4>
-        <table class="table table-hover" *ngIf="products.length != 0">
-          <thead>
-          <tr>
-            <td>NO</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Date of manufacture</td>
-            <td>Origin</td>
-            <td>Status</td>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let item of products; let i = index">
-            <td>{{i + 1}}</td>
-            <td>{{item.name | titlecase}}</td>
-            <td>{{item.price | currency: 'VND':true}}</td>
-            <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
-            <td>{{item.origin}}</td>
-            <td [ngStyle]="{
-            'color': item.status == 0 ? 'red' : ''
-          }">
-              <span *ngIf="item.status == 0">Out of stock</span>
-              <span *ngIf="item.status < 10">Little inventory</span>
-              <span *ngIf="item.status >= 10">Inventory much</span>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <div class="text-uppercase font-weight-bold text-danger" *ngIf="products.length == 0">
-          No products, need to add new products
-        </div>
-      </div>
-    </div>
-    <div class=" col-5 ml-5">
-      <div class="card border-primary">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores magni nulla obcaecati recusandae
-          repudiandae voluptatum. Adipisci animi consectetur, eos facere iure molestias placeat quasi, qui quibusdam
-          reiciendis sint veniam!</p>
-      </div>
-      <div class="card border-primary mt-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores magni nulla obcaecati recusandae
-          repudiandae voluptatum. Adipisci animi consectetur, eos facere iure molestias placeat quasi, qui quibusdam
-          reiciendis sint veniam!</p>
-      </div>
-    </div>
+  <div>
+    <a class="btn btn bg-primary text-white mr-1" href="#">List product</a>
+    <a class="btn btn bg-primary text-white mr-1" href="#">Create product</a>
   </div>
+  <router-outlet></router-outlet>
 </div>
