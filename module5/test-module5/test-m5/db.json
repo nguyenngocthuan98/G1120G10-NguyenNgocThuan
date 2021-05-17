@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "name": "Nguyen Van A",
+      "nameGroup": 1,
+      "topic": "Graduation thesis 1",
+      "teacher": 1,
+      "email": "nguyenvana@email.com",
+      "phone": "0123456789",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Nguyen Van B",
+      "nameGroup": 3,
+      "topic": "Graduation thesis 2",
+      "teacher": 2,
+      "email": "nguyenvanb@email.com",
+      "phone": "0987654321"
+    }
+  ]
+}

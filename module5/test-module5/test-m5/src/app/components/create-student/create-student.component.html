@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-6">
+    <form [formGroup]="formCreate" (submit)="createStudent()">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <h3 class="text-primary bg-light">Create student</h3>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <label for="name">Name</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="nameGroup">Name group</label>
+          </td>
+          <td>
+            <select class="form-control" formControlName="nameGroup" id="nameGroup">
+              <option value="" selected disabled>Select group</option>
+              <option [ngValue]="1">Group 1</option>
+              <option [ngValue]="2">Group 2</option>
+              <option [ngValue]="3">Group 3</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="topic">Topic</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="topic" formControlName="topic">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="teacher">Teacher</label>
+          </td>
+          <td>
+            <select class="form-control" formControlName="teacher" id="teacher">
+              <option value="" selected disabled>Select teacher</option>
+              <option [ngValue]="1">Teacher 1</option>
+              <option [ngValue]="2">Teacher 2</option>
+              <option [ngValue]="3">Teacher 3</option>
+              <option [ngValue]="4">Teacher 4</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input type="email" class="form-control" id="email" formControlName="email">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="phone">Phone</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button routerLink="/list-student" class="btn btn-outline-danger btn-sm">Cancel</button>
+          </td>
+          <td>
+            <button class="btn btn-outline-success btn-sm col-12">Create</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

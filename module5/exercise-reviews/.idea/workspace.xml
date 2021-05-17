@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32cb82d1-e425-47ba-aca2-304a9ed44ea4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../exercise-review/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/product-list/product-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/product-list/product-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/product-list/product-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/product-list/product-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/products/iproduct.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/products/products.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/products/products.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/products/products.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/components/products/products.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/models/product.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/app/services/product.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise-review/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1sTI9HyvavvcUv6yzoslboPZTOG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/product-manage/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
+    <property name="ts.external.directory.path" value="E:\CodeGym\G1120G10-Nguyen_Ngoc_Thuan\module5\exercise-reviews\product-manage\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CodeGym\G1120G10-Nguyen_Ngoc_Thuan\module5\exercise-reviews\product-manage\src\app\product" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="E2E Tests (product-manage)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/product-manage/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/product-manage/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/product-manage/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32cb82d1-e425-47ba-aca2-304a9ed44ea4" name="Default Changelist" comment="" />
+      <created>1620889999382</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620889999382</updated>
+      <workItem from="1620890002047" duration="297000" />
+      <workItem from="1620890312688" duration="11987000" />
+      <workItem from="1620964976731" duration="2017000" />
+      <workItem from="1621181708831" duration="81000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="249" y="0" key="#Project_Structure" timestamp="1620890031952">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.834@0.0.1536.834" timestamp="1620890031952" />
+    <state x="549" y="159" key="FileChooserDialogImpl" timestamp="1621181760069">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="159" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1621181760069" />
+    <state width="1491" height="212" key="GridCell.Tab.0.bottom" timestamp="1620997464165">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1491" height="212" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1620997464165" />
+    <state width="1491" height="212" key="GridCell.Tab.0.center" timestamp="1620997464165">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1491" height="212" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1620997464165" />
+    <state width="1491" height="212" key="GridCell.Tab.0.left" timestamp="1620997464165">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1491" height="212" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1620997464165" />
+    <state width="1491" height="212" key="GridCell.Tab.0.right" timestamp="1620997464165">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1491" height="212" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1620997464165" />
+    <state x="360" y="101" key="new project wizard" timestamp="1621181787393">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="360" y="101" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1621181787393" />
+  </component>
+</project>

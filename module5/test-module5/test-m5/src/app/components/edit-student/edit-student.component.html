@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-6">
+    <form [formGroup]="formEdit" (submit)="editStudent()">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <h3 class="text-primary bg-light">Edit student</h3>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <label for="name">Name</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <p class="invalid-feedback" *ngIf="formEdit.controls.name.touched">
+              <span *ngIf="formEdit.controls.name.errors?.required">Required</span>
+              <span *ngIf="formEdit.controls.name.errors?.pattern">Not contain special characters</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="nameGroup">Name group</label>
+          </td>
+          <td>
+            <select class="form-control" formControlName="nameGroup" id="nameGroup">
+              <option value="" selected disabled>Select group</option>
+              <option [ngValue]="1">Group 1</option>
+              <option [ngValue]="2">Group 2</option>
+              <option [ngValue]="3">Group 3</option>
+            </select>
+            <p class="invalid-feedback" *ngIf="formEdit.controls.nameGroup.touched">
+              <span *ngIf="formEdit.controls.nameGroup.errors?.required">Required</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="topic">Topic</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="topic" formControlName="topic">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="teacher">Teacher</label>
+          </td>
+          <td>
+            <select class="form-control" formControlName="teacher" id="teacher">
+              <option value="" selected disabled>Select teacher</option>
+              <option [ngValue]="1">Teacher 1</option>
+              <option [ngValue]="2">Teacher 2</option>
+              <option [ngValue]="3">Teacher 3</option>
+              <option [ngValue]="4">Teacher 4</option>
+            </select>
+            <p class="invalid-feedback" *ngIf="formEdit.controls.teacher.touched">
+              <span *ngIf="formEdit.controls.teacher.errors?.required">Required</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <p class="invalid-feedback" *ngIf="formEdit.controls.email.touched">
+              <span *ngIf="formEdit.controls.email.errors?.required">Required</span>
+              <span *ngIf="formEdit.controls.email.errors?.email">Wrong email format</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="phone">Phone</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+            <p class="invalid-feedback" *ngIf="formEdit.controls.phone.touched">
+              <span *ngIf="formEdit.controls.phone.errors?.required">Required</span>
+              <span *ngIf="formEdit.controls.phone.errors?.pattern">Phone must be in the correct 10-12 number</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button routerLink="/list-student" class="btn btn-outline-danger btn-sm">Cancel</button>
+          </td>
+          <td>
+            <button class="btn btn-outline-success btn-sm col-12">Confirm update</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
