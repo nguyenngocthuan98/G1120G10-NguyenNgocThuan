@@ -42,6 +42,9 @@
           </td>
           <td>
             <input type="text" class="form-control" id="topic" formControlName="topic">
+            <p class="invalid-feedback" *ngIf="formEdit.controls.nameGroup.touched">
+              <span *ngIf="formEdit.controls.topic.errors?.required">Required</span>
+            </p>
           </td>
         </tr>
         <tr>

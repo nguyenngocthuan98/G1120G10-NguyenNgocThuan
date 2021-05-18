@@ -31,7 +31,7 @@ export class EditStudentComponent implements OnInit {
     this.formEdit = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]),
       nameGroup: new FormControl('', Validators.required),
-      topic: new FormControl(''),
+      topic: new FormControl('', Validators.required),
       teacher: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10,12}$')]),

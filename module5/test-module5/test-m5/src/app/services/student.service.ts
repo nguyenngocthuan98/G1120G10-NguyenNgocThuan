@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Student} from '../../models/student';
 
@@ -8,13 +8,23 @@ import {Student} from '../../models/student';
 })
 export class StudentService {
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://localhost:8080';
+
+  httpOptions: any;
 
   constructor(private httpClient: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      'Access-Control-Allow-Origin': 'http://localhost:4200/',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      'Access-Control-Allow-Credentials': 'true'
+    };
   }
 
-  getAll(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + '/students');
+  getAll(): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(this.baseUrl + '/students');
   }
 
   createStudent(student: Student): Observable<any> {

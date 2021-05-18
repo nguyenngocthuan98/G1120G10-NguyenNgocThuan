@@ -14,6 +14,10 @@
           </td>
           <td>
             <input type="text" class="form-control" id="name" formControlName="name">
+            <p class="invalid-feedback" *ngIf="formCreate.controls.name.touched">
+              <span *ngIf="formCreate.controls.name.errors?.required">Required</span>
+              <span *ngIf="formCreate.controls.name.errors?.pattern">Not contain special characters</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -27,6 +31,9 @@
               <option [ngValue]="2">Group 2</option>
               <option [ngValue]="3">Group 3</option>
             </select>
+            <p class="invalid-feedback" *ngIf="formCreate.controls.nameGroup.touched">
+              <span *ngIf="formCreate.controls.nameGroup.errors?.required">Required</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -35,6 +42,9 @@
           </td>
           <td>
             <input type="text" class="form-control" id="topic" formControlName="topic">
+            <p class="invalid-feedback" *ngIf="formCreate.controls.nameGroup.touched">
+              <span *ngIf="formCreate.controls.topic.errors?.required">Required</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -49,6 +59,9 @@
               <option [ngValue]="3">Teacher 3</option>
               <option [ngValue]="4">Teacher 4</option>
             </select>
+            <p class="invalid-feedback" *ngIf="formCreate.controls.teacher.touched">
+              <span *ngIf="formCreate.controls.teacher.errors?.required">Required</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -57,6 +70,10 @@
           </td>
           <td>
             <input type="email" class="form-control" id="email" formControlName="email">
+            <p class="invalid-feedback" *ngIf="formCreate.controls.email.touched">
+              <span *ngIf="formCreate.controls.email.errors?.required">Required</span>
+              <span *ngIf="formCreate.controls.email.errors?.email">Wrong email format</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -65,6 +82,10 @@
           </td>
           <td>
             <input type="text" class="form-control" id="phone" formControlName="phone">
+            <p class="invalid-feedback" *ngIf="formCreate.controls.phone.touched">
+              <span *ngIf="formCreate.controls.phone.errors?.required">Required</span>
+              <span *ngIf="formCreate.controls.phone.errors?.pattern">Phone must be in the correct 10-12 number</span>
+            </p>
           </td>
         </tr>
         <tr>
@@ -72,7 +93,7 @@
             <button routerLink="/list-student" class="btn btn-outline-danger btn-sm">Cancel</button>
           </td>
           <td>
-            <button class="btn btn-outline-success btn-sm col-12">Create</button>
+              <button class="btn btn-outline-success btn-sm col-12" [disabled]="formCreate.invalid">Create</button>
           </td>
         </tr>
         </tbody>
